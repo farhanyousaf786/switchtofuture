@@ -10,7 +10,8 @@ import {
   SmartToy,
   Cloud,
   Psychology,
-  TaskAlt
+  TaskAlt,
+  Link as LinkIcon
 } from '@mui/icons-material';
 import './styles/Profile.css';
 
@@ -32,76 +33,149 @@ const Profile = () => {
 
   const experiences = [
     {
-      title: 'Senior Software Developer',
-      company: 'Maxsip Telecom',
-      period: 'March 2022 - April 2025',
+      title: "Senior Software Developer",
+      company: "Maxsip Telecom",
+      period: "March 2022 - April 2025",
       achievements: [
-        'Developed and maintained 5+ mobile apps using Flutter and Firebase, scaling downloads from 50K to over 1 million in just 4 months.',
-        'Reduced data load times by 35% through advanced caching strategies and optimized queries.',
-        'Improved backend efficiency by redesigning database schema, leading to faster user data retrieval.',
-        'Integrated secure payment systems using encryption/decryption, processing over 150K+ transactions.',
-        'Created and maintained RESTful APIs and built custom admin panels in React for internal tools and top-up workflows.',
-        'Used caches, decreased lead-time by 20%, and minimized data storage inventory cost by 25%.',
-        'Migrated legacy codebases to modern Flutter architecture, reducing the monthly crash rate.',
-        'Collaborated across 3 agile teams to ship bi-weekly releases ahead of deadlines, with quality product.'
+        "Developed and maintained 5+ mobile apps using Flutter and Firebase, scaling downloads from 50K to over 1 million in just 4 months.",
+        "Reduced data load times by 35% through advanced caching strategies and optimized queries.",
+        "Improved backend efficiency by redesigning database schema, leading to faster user data retrieval.",
+        "Integrated secure payment systems using encryption/decryption, processing over 150K+ transactions.",
+        "Created and maintained RESTful APIs and built custom admin panels in React for internal tools and top-up workflows.",
+        "Used caches, decreased lead-time by 20%, and minimized data storage inventory cost by 25%.",
+        "Migrated legacy codebases to modern Flutter architecture, reducing the monthly crash rate.",
+        "Collaborated across 3 agile teams to ship bi-weekly releases ahead of deadlines, with quality products."
       ]
     },
     {
-      title: 'Web Developer',
-      company: 'Chirp-tech',
-      period: 'May 2019 - December 2021',
+      title: "Web Developer",
+      company: "Chirp-tech",
+      period: "May 2019 - December 2021",
       achievements: [
-        'Developed responsive web apps using MVVM architecture, LiveData, and Navigation for UI flow.',
-        'Integrated REST APIs, Firebase, and payment gateways, ensuring secure and scalable performance.',
-        'Managed offline storage by implementing advanced caching to improve firebase data consumption.',
-        'Collaborated across Scrum teams, contributing to sprint planning and reviews with delivery cycles.',
-        'Used Trello for task tracking and GitHub for VC, maintenance, and collaborative codebases.',
-        'Reduced lead time by 20% and cut cloud storage costs by 25% through code optimization and cache strategy.'
+        "Developed responsive web apps using MVVM architecture, LiveData, and Navigation for UI flow.",
+        "Integrated REST APIs, Firebase, and payment gateways, ensuring secure and scalable performance.",
+        "Managed offline storage by implementing advanced caching to improve firebase data consumption.",
+        "Collaborated across Scrum teams, contributing to sprint planning and reviews with delivery cycles.",
+        "Used Trello for task tracking and GitHub for VC, maintenance, and collaborative codebases.",
+        "Reduced lead time by 20% and cut cloud storage costs by 25% through code optimization and cache strategy."
       ]
     },
     {
-      title: 'Internship (Software Development)',
-      company: 'E-tech lounge',
-      period: 'June 2017 - October 2018',
+      title: "Internship (Software Development)",
+      company: "E-tech lounge",
+      period: "June 2017 - October 2018",
       achievements: [
-        'Contributed to 10+ front-end projects, building responsive UIs with React, HTML, CSS, and JS.',
-        'Migrated legacy websites from Flutter to React, improving load speed and enhancing performance.',
-        'Participated in full-cycle development, gaining experience in project planning, teamwork, and agile time management.',
-        'Collaborated with senior developers to learn best practices in code optimization and debugging.'
+        "Contributed to 10+ front-end projects, building responsive UIs with React, HTML, CSS, and JS.",
+        "Migrated legacy websites from Flutter to React, improving load speed and enhancing performance.",
+        "Participated in full-cycle development, gaining experience in project planning, teamwork, and agile time management.",
+        "Collaborated with senior developers to learn best practices in code optimization and debugging."
       ]
     }
   ];
 
   const projects = [
     {
-      title: 'Maxsip App – Maxsip Telecom',
-      link: 'Production link',
-      techStack: ['Flutter', 'Agora', 'Kotlin', 'Firebase', 'Rest APIs', 'Provider'],
-      description: [
-        'Developed and launched the Maxsip User App using Flutter, serving over one million users.',
-        'Implemented a custom chatbot system handling 10K+ automated interactions per month.',
-        'Integrated top-up APIs for seamless mobile recharge, processing over 150K transactions monthly.',
-        'Set up Firebase Authentication, Firestore, and Cloud Messaging for real-time data.',
-        'Created and optimized Firebase Cloud Functions, improving scalability by 30%.',
-        'Integrated Agora API for in-app video calling with 99% reliability.',
-        'Built complete chat system with real-time messaging and offline sync support.',
-        'Handled Kotlin-Flutter bridging for improved app performance.',
-        'Optimized Google Ads SDK, contributing to 15% revenue boost.',
-        'Implemented background service, improving session persistence by 25%.'
+      title: "Maxsip App",
+      company: "Maxsip Telecom",
+      link: "Production link",
+      techStack: ["Flutter", "Agora", "Kotlin", "Firebase", "Rest APIs", "Provider"],
+      achievements: [
+        "Developed and launched the Maxsip User App using Flutter, serving over one million users.",
+        "Implemented a custom chatbot system handling 10K+ automated interactions per month.",
+        "Integrated top-up APIs for seamless mobile recharge, processing over 150K transactions monthly.",
+        "Set up Firebase Authentication, Firestore, and Cloud Messaging for real-time data.",
+        "Created and optimized Firebase Cloud Functions, improving scalability by 30%.",
+        "Integrated Agora API for in-app video calling with 99% reliability.",
+        "Built complete chat system with real-time messaging and offline sync support.",
+        "Handled Kotlin-Flutter bridging for improved app performance.",
+        "Configured Google Ads SDK, contributing to 15% revenue boost.",
+        "Implemented background service, improving session persistence by 25%."
       ]
     },
     {
-      title: 'Pure Web – Responsive Company Website',
-      link: 'Production link',
-      techStack: ['React.js', 'Express.js', 'Firebase', 'Rest APIs', 'Redux', 'MonogoDB', 'JWT', 'Heroku', 'Azure'],
-      description: [
-        'Created complete front-end interface using React.js with responsive components.',
-        'Built backend using Express.js for routing and middleware integration.',
-        'Implemented CRUD functionality with MongoDB for data management.',
-        'Integrated Google APIs for authentication and calendar event syncing.',
-        'Secured endpoints using JWT tokens and role-based access.',
-        'Designed RESTful routes for scalable architecture.',
-        'Deployed backend to Heroku with environment configurations.'
+      title: "Pure Web",
+      subtitle: "Responsive Company Website",
+      link: "Production link",
+      techStack: ["React.js", "Express.js", "Firebase", "Rest APIs", "Redux", "MongoDB", "JWT", "Heroku", "Azure"],
+      achievements: [
+        "Created complete front-end interface using React.js with responsive components.",
+        "Built backend using Express.js for routing and middleware integration.",
+        "Connected frontend and backend via REST APIs for seamless data flow.",
+        "Implemented CRUD functionality with MongoDB for data management.",
+        "Integrated Google APIs for authentication and calendar syncing.",
+        "Secured endpoints using JWT tokens and role-based access.",
+        "Designed RESTful routes for modular, scalable architecture.",
+        "Deployed backend to Heroku with environment configurations."
+      ]
+    },
+    {
+      title: "Clusty AI",
+      subtitle: "Self-Aware Social App",
+      link: "Progress link",
+      status: "in progress",
+      techStack: ["Flutter", "Firebase", "Qdrant", "MongoDB", "OpenAI", "Provider"],
+      achievements: [
+        "Developed using Flutter with Qdrant vector DB and MongoDB.",
+        "Integrated OpenAI embeddings for memory recall and semantic search.",
+        "Captures text, voice, and video journals for rich user input.",
+        "Featured digital twin system for self-reflection and growth.",
+        "Built real-time chat and personalized AI journaling assistant.",
+        "Designed for VR + AI persona simulation expansion."
+      ]
+    },
+    {
+      title: "Switch",
+      subtitle: "Cross-Platform Application",
+      link: "Production link",
+      techStack: ["Flutter", "Agora", "Kotlin", "Firebase", "Rest APIs", "Provider"],
+      achievements: [
+        "Built front-end using Flutter with Lottie and Rive animations.",
+        "Managed backend using Firebase and DigitalOcean.",
+        "Reduced cloud usage by 40% through optimized data structure.",
+        "Improved app speed by 15% through architecture refactoring.",
+        "Upgraded Firebase Cloud Functions for enhanced scalability.",
+        "Redesigned UI, increasing user engagement by 20%."
+      ]
+    },
+    {
+      title: "Top-Up Services for Maxsip",
+      subtitle: "Android Platform",
+      link: "Private Git",
+      techStack: ["Flutter", "Firebase", "Rest APIs", "Provider"],
+      achievements: [
+        "Developed complete mobile app for telecom top-ups management.",
+        "Integrated Unavo and Kardnox APIs for plan selection and payments.",
+        "Built secure authentication with role-based access.",
+        "Integrated Google APIs and built-in user chatbot.",
+        "Deployed backend on Heroku with tested endpoints."
+      ]
+    },
+    {
+      title: "Mobile gallery",
+      subtitle: "Web application",
+      link: "Production link",
+      techStack: ["React.js", "Express.js", "Firebase", "Redux", "Heroku"],
+      achievements: [
+        "Developed full-stack app with complete CRUD functionality.",
+        "Implemented MongoDB and Heroku deployment process.",
+        "Used JWT authentication for endpoint security.",
+        "Refactored codebase to improve performance.",
+        "Designed responsive UI with modular components.",
+        "Ensured backend stability through testing."
+      ]
+    },
+    {
+      title: "Hexagon Scaffolding",
+      subtitle: "Website",
+      link: "Production link",
+      techStack: ["React.js", "Express.js", "Firebase", "Redux", "Heroku"],
+      achievements: [
+        "Migrated UI from Flutter to React for better performance.",
+        "Built responsive site for all screen sizes.",
+        "Improved page load time by 50% with optimizations.",
+        "Designed user-friendly interfaces with reusable components.",
+        "Applied SEO-friendly practices post-migration.",
+        "Ensured cross-browser compatibility."
       ]
     }
   ];
@@ -185,12 +259,14 @@ const Profile = () => {
             {projects.map((project, index) => (
               <div key={index} className="project-item">
                 <div className="project-header">
-                  <h3>{project.title}</h3>
-                  {project.link && (
-                    <a href={project.link} className="project-link" target="_blank" rel="noopener noreferrer">
-                      View Project
-                    </a>
-                  )}
+                  <div>
+                    <h3>{project.title}</h3>
+                    {project.subtitle && <h4>{project.subtitle}</h4>}
+                    {project.status && <span className="project-status">{project.status}</span>}
+                  </div>
+                  <a href="#" className="project-link">
+                    <LinkIcon /> {project.link}
+                  </a>
                 </div>
                 <div className="tech-stack">
                   {project.techStack.map((tech, i) => (
@@ -198,8 +274,8 @@ const Profile = () => {
                   ))}
                 </div>
                 <ul className="project-achievements">
-                  {project.description.map((desc, i) => (
-                    <li key={i}>{desc}</li>
+                  {project.achievements.map((achievement, i) => (
+                    <li key={i}>{achievement}</li>
                   ))}
                 </ul>
               </div>
