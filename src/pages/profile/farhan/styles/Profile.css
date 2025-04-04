@@ -356,75 +356,166 @@ body {
 
 /* Header Section */
 .profile-main {
-  padding: 2rem 0;
+  padding: 4rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
 }
 
 .section {
   margin-bottom: 4rem;
-  background: var(--card-bg);
-  padding: 2rem;
-  border-radius: 20px;
-  box-shadow: 0 5px 15px var(--shadow-color);
 }
 
 .section h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: var(--text-primary);
+  font-size: 2.2rem;
+  color: var(--text-color);
+  margin-bottom: 2.5rem;
   display: flex;
   align-items: center;
   gap: 1rem;
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 1rem;
 }
 
 .section h2 svg {
   color: var(--accent-color);
+  font-size: 2rem;
 }
 
 /* Experience Section */
-.experience-item {
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--card-border);
+.timeline {
+  display: grid;
+  gap: 2rem;
+  position: relative;
 }
 
-.experience-item:last-child {
-  margin-bottom: 0;
-  padding-bottom: 0;
-  border-bottom: none;
+.experience-item {
+  background: rgba(var(--accent-color-rgb), 0.03);
+  border-left: 4px solid var(--accent-color);
+  padding: 2rem;
+  border-radius: 0 15px 15px 0;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.experience-item:hover {
+  transform: translateX(10px);
+  background: rgba(var(--accent-color-rgb), 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .experience-header {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .experience-header h3 {
-  font-size: 1.5rem;
-  color: var(--text-primary);
-  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+  color: var(--text-color);
+  margin: 0;
+  font-weight: 600;
 }
 
 .period {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
+  color: var(--accent-color);
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.3rem 1rem;
+  background: rgba(var(--accent-color-rgb), 0.1);
+  border-radius: 20px;
 }
 
 .achievements-list {
   list-style-type: none;
-  padding-left: 0;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.8rem;
 }
 
 .achievements-list li {
-  margin-bottom: 0.5rem;
-  color: var(--text-secondary);
   position: relative;
   padding-left: 1.5rem;
+  line-height: 1.6;
+  color: var(--text-color);
 }
 
 .achievements-list li::before {
-  content: "•";
-  color: var(--accent-color);
+  content: "▹";
   position: absolute;
   left: 0;
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+@media (max-width: 1024px) {
+  .profile-main {
+    padding: 3rem 1.5rem;
+  }
+
+  .section h2 {
+    font-size: 2rem;
+  }
+
+  .experience-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .experience-header h3 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-main {
+    padding: 2rem 1rem;
+  }
+
+  .section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .experience-item {
+    padding: 1.5rem;
+  }
+
+  .experience-item:hover {
+    transform: translateX(5px);
+  }
+
+  .achievements-list {
+    gap: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-main {
+    padding: 1.5rem 0.8rem;
+  }
+
+  .section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .experience-header h3 {
+    font-size: 1.2rem;
+  }
+
+  .period {
+    font-size: 0.9rem;
+    padding: 0.2rem 0.8rem;
+  }
+
+  .achievements-list li {
+    font-size: 0.95rem;
+  }
 }
 
 /* Projects Section */
