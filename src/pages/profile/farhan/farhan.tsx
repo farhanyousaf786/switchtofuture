@@ -9,11 +9,11 @@ import {
   SmartToy,
   Cloud,
   Psychology,
-  TaskAlt,
-  Link as LinkIcon
+  TaskAlt
 } from '@mui/icons-material';
 
 import Experience from './components/Experience';
+import Projects, { ProjectItem } from './components/Projects';
 import './Profile.css';
 
 const FarhanProfile = () => {
@@ -74,12 +74,12 @@ const FarhanProfile = () => {
     }
   ];
 
-  const projects = [
+  const projects: ProjectItem[] = [
     {
       title: "Maxsip App",
       company: "Maxsip Telecom",
       link: "Production link",
-      techStack: ["Flutter", "Agora", "Kotlin", "Firebase", "Rest APIs", "Provider"],
+      technologies: ["Flutter", "Agora", "Kotlin", "Firebase", "Rest APIs", "Provider"],
       achievements: [
         "Developed and launched the Maxsip User App using Flutter, serving over one million users.",
         "Implemented a custom chatbot system handling 10K+ automated interactions per month.",
@@ -97,7 +97,7 @@ const FarhanProfile = () => {
       title: "Pure Web",
       subtitle: "Responsive Company Website",
       link: "Production link",
-      techStack: ["React.js", "Express.js", "Firebase", "Rest APIs", "Redux", "MongoDB", "JWT", "Heroku", "Azure"],
+      technologies: ["React.js", "Express.js", "Firebase", "Rest APIs", "Redux", "MongoDB", "JWT", "Heroku", "Azure"],
       achievements: [
         "Created complete front-end interface using React.js with responsive components.",
         "Built backend using Express.js for routing and middleware integration.",
@@ -114,7 +114,7 @@ const FarhanProfile = () => {
       subtitle: "Self-Aware Social App",
       link: "Progress link",
       status: "in progress",
-      techStack: ["Flutter", "Firebase", "Qdrant", "MongoDB", "OpenAI", "Provider"],
+      technologies: ["Flutter", "Firebase", "Qdrant", "MongoDB", "OpenAI", "Provider"],
       achievements: [
         "Developed using Flutter with Qdrant vector DB and MongoDB.",
         "Integrated OpenAI embeddings for memory recall and semantic search.",
@@ -128,7 +128,7 @@ const FarhanProfile = () => {
       title: "Switch",
       subtitle: "Cross-Platform Application",
       link: "Production link",
-      techStack: ["Flutter", "Agora", "Kotlin", "Firebase", "Rest APIs", "Provider"],
+      technologies: ["Flutter", "Agora", "Kotlin", "Firebase", "Rest APIs", "Provider"],
       achievements: [
         "Built front-end using Flutter with Lottie and Rive animations.",
         "Managed backend using Firebase and DigitalOcean.",
@@ -142,7 +142,7 @@ const FarhanProfile = () => {
       title: "Top-Up Services for Maxsip",
       subtitle: "Android Platform",
       link: "Private Git",
-      techStack: ["Flutter", "Firebase", "Rest APIs", "Provider"],
+      technologies: ["Flutter", "Firebase", "Rest APIs", "Provider"],
       achievements: [
         "Developed complete mobile app for telecom top-ups management.",
         "Integrated Unavo and Kardnox APIs for plan selection and payments.",
@@ -155,7 +155,7 @@ const FarhanProfile = () => {
       title: "Mobile gallery",
       subtitle: "Web application",
       link: "Production link",
-      techStack: ["React.js", "Express.js", "Firebase", "Redux", "Heroku"],
+      technologies: ["React.js", "Express.js", "Firebase", "Redux", "Heroku"],
       achievements: [
         "Developed full-stack app with complete CRUD functionality.",
         "Implemented MongoDB and Heroku deployment process.",
@@ -169,7 +169,7 @@ const FarhanProfile = () => {
       title: "Hexagon Scaffolding",
       subtitle: "Website",
       link: "Production link",
-      techStack: ["React.js", "Express.js", "Firebase", "Redux", "Heroku"],
+      technologies: ["React.js", "Express.js", "Firebase", "Redux", "Heroku"],
       achievements: [
         "Migrated UI from Flutter to React for better performance.",
         "Built responsive site for all screen sizes.",
@@ -237,36 +237,7 @@ const FarhanProfile = () => {
 
       <main className="profile-main">
         <Experience experiences={experiences} />
-
-        <section className="section projects-section">
-          <h2><Code /> RELATED PROJECTS</h2>
-          <div className="projects-grid">
-            {projects.map((project, index) => (
-              <div key={index} className="project-item">
-                <div className="project-header">
-                  <div>
-                    <h3>{project.title}</h3>
-                    {project.subtitle && <h4>{project.subtitle}</h4>}
-                    {project.status && <span className="project-status">{project.status}</span>}
-                  </div>
-                  <a href="#" className="project-link">
-                    <LinkIcon /> {project.link}
-                  </a>
-                </div>
-                <div className="tech-stack">
-                  {project.techStack.map((tech, i) => (
-                    <span key={i} className="tech-tag">{tech}</span>
-                  ))}
-                </div>
-                <ul className="project-achievements">
-                  {project.achievements.map((achievement, i) => (
-                    <li key={i}>{achievement}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </section>
+        <Projects projects={projects} />
 
         <section className="section skills-section">
           <h2><Build /> TECHNICAL SKILLS</h2>
