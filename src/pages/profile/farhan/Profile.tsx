@@ -143,23 +143,21 @@ const Profile = () => {
       <section className="hero-section">
         <div className="hero-content">
           <div className="hero-text">
-            <h1>Farhan Yousaf</h1>
+            <h1>Farhan<br/>Yousaf</h1>
             <h2>Full Stack Developer</h2>
-            <p>7+ years of experience in cross-platform app and web development. Complete working and professional proficiency in Flutter and React.</p>
-            <div className="contact-info">
-              <p>Hillside, New York | 929-231-8782</p>
-              <p>
-                <a href="mailto:Farhanyousaf1996@gmail.com">Farhanyousaf1996@gmail.com</a> |
-                <a href="#github">GitHub</a> |
-                <a href="#linkedin">LinkedIn</a>
-              </p>
-            </div>
+            <p>7+ years of experience in cross-platform app and web development.<br/>Complete working and professional proficiency in Flutter and React.</p>
           </div>
           <div className="hero-image">
             <img src="https://i.imgur.com/2r3PuyF.jpg" alt="Farhan Yousaf" className="transparent" />
           </div>
         </div>
       </section>
+
+      <div className="contact-info">
+        <p>📍 Hillside, New York</p>
+        <p>📞 929-231-8782</p>
+        <p>✉️ <a href="mailto:Farhanyousaf1996@gmail.com">Farhanyousaf1996@gmail.com</a></p>
+      </div>
 
       <main className="profile-main">
         <section className="section experience-section">

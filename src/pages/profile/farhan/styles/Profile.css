@@ -453,3 +453,32 @@ body {
   font-size: 1.1rem;
   margin: 0;
 }
+
+/* Contact Info */
+.contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+  margin-bottom: 2rem;
+}
+
+.contact-info p {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-info a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+  color: #00ff88;
+}
