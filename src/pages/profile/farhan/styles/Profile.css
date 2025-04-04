@@ -27,34 +27,48 @@ body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 .profile-container {
-  padding: 2rem;
+  padding: 1rem;
   max-width: 1400px;
   margin: 0 auto;
   min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 .hero-section {
-  padding: 4rem 0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 2vh 0;
+  box-sizing: border-box;
 }
 
 .hero-content {
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 2rem;
   align-items: center;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
 .hero-text {
   padding-right: 2rem;
-  text-align: center;
 }
 
 .hero-text h1 {
-  font-size: 6rem;
-  margin: 0 0 1rem 0;
+  font-size: min(6rem, 10vw);
+  margin: 0;
   background: linear-gradient(45deg, var(--accent-color), #00ff88);
   -webkit-background-clip: text;
   background-clip: text;
@@ -63,40 +77,61 @@ body {
 }
 
 .hero-text h2 {
-  font-size: 2.8rem;
-  margin: 0 0 1.5rem;
+  font-size: min(2.8rem, 5vw);
+  margin: 1rem 0;
   color: var(--text-color);
-  font-weight: 600;
 }
 
 .hero-text p {
-  font-size: 1.2rem;
-  line-height: 1.8;
-  margin: 0 0 0.5rem 0;
+  font-size: min(1.2rem, 3vw);
+  line-height: 1.6;
+  margin: 1rem 0;
   color: var(--text-color);
 }
 
 .hero-image {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero-image img {
-  max-width: 100%;
+  width: min(400px, 90%);
   height: auto;
   border-radius: 20px;
+  object-fit: cover;
+}
+
+.contact-info {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.contact-info p {
+  margin: 0;
+  font-size: min(1.1rem, 3vw);
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 /* Media Queries */
 @media (max-width: 1200px) {
   .hero-text h1 {
-    font-size: 5rem;
+    font-size: min(5rem, 8vw);
   }
 
   .hero-text h2 {
-    font-size: 2.4rem;
+    font-size: min(2.4rem, 4vw);
   }
 }
 
+/* Tablet Layout */
 @media (max-width: 992px) {
   .profile-container {
     padding: 1.5rem;
@@ -107,33 +142,49 @@ body {
   }
 
   .hero-content {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 2rem;
-    text-align: center;
   }
 
   .hero-text {
-    padding-right: 0;
-    order: 2;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
   }
 
   .hero-image {
-    order: 1;
+    order: -1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .hero-image img {
-    max-width: 300px;
+    width: min(300px, 80vw);
+    height: auto;
   }
 
   .hero-text h1 {
-    font-size: 4rem;
+    font-size: min(4.5rem, 7vw);
   }
 
   .hero-text h2 {
-    font-size: 2rem;
+    font-size: min(2.2rem, 3.5vw);
+  }
+
+  .contact-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 2rem;
+    text-align: center;
   }
 }
 
+/* Mobile Layout */
 @media (max-width: 768px) {
   .profile-container {
     padding: 1rem;
@@ -143,32 +194,51 @@ body {
     padding: 2rem 0;
   }
 
+  .hero-content {
+    gap: 1.5rem;
+  }
+
+  .hero-text {
+    max-width: 100%;
+  }
+
   .hero-text h1 {
-    font-size: 3.5rem;
+    font-size: min(3.2rem, 6vw);
+    letter-spacing: -1px;
   }
 
   .hero-text h2 {
-    font-size: 1.8rem;
+    font-size: min(1.8rem, 3vw);
+    white-space: normal;
   }
 
   .hero-text p {
-    font-size: 1.1rem;
+    font-size: min(1rem, 2.5vw);
+    line-height: 1.6;
+    padding: 0 1rem;
   }
 
   .hero-image img {
-    max-width: 250px;
+    width: min(250px, 70vw);
   }
 
   .contact-info {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 1rem;
+    padding: 1.5rem;
   }
 
   .contact-info p {
-    font-size: 1rem;
+    font-size: min(1rem, 2.5vw);
+    justify-content: center;
+  }
+
+  .contact-info a {
+    font-size: min(1rem, 2.5vw);
   }
 }
 
+/* Small Mobile Layout */
 @media (max-width: 480px) {
   .profile-container {
     padding: 0.8rem;
@@ -179,32 +249,31 @@ body {
   }
 
   .hero-text h1 {
-    font-size: 3rem;
+    font-size: min(2.8rem, 5vw);
+    letter-spacing: -0.5px;
   }
 
   .hero-text h2 {
-    font-size: 1.6rem;
+    font-size: min(1.5rem, 2.5vw);
     margin-bottom: 1rem;
   }
 
   .hero-text p {
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: min(0.95rem, 2vw);
+    padding: 0 0.5rem;
+    margin-bottom: 1.5rem;
   }
 
   .hero-image img {
-    max-width: 200px;
+    width: min(200px, 60vw);
   }
 
-  .skills-text {
-    white-space: normal;
-    padding: 0 1rem;
+  .contact-info {
+    padding: 1rem;
   }
 
-  .highlight-tech {
-    font-size: 1.2em;
-    display: inline-block;
-    margin: 0.2em;
+  .contact-info p {
+    font-size: min(0.9rem, 2vw);
   }
 }
 
@@ -251,7 +320,7 @@ body {
 }
 
 .hero-text h2 {
-  font-size: 2.8rem;
+  font-size: min(2.8rem, 5vw);
   margin: 0 0 1.5rem;
   color: var(--text-color);
   font-weight: 600;
@@ -260,7 +329,7 @@ body {
 }
 
 .hero-text h1 {
-  font-size: 6rem;
+  font-size: min(6rem, 10vw);
   margin: 0 0 1rem 0;
   background: linear-gradient(45deg, var(--accent-color), #00ff88);
   -webkit-background-clip: text;
@@ -275,12 +344,12 @@ body {
 .hero-text p {
   color: var(--text-secondary);
   margin-bottom: 2rem;
-  font-size: 1.1rem;
+  font-size: min(1.1rem, 3vw);
 }
 
 .hire-btn {
   padding: 1rem 2rem;
-  font-size: 1rem;
+  font-size: min(1rem, 2.5vw);
   font-weight: 600;
   background: var(--accent-color);
   color: white;
@@ -301,7 +370,7 @@ body {
 }
 
 .hero-image img {
-  width: 100%;
+  width: min(400px, 90%);
   height: auto;
   border-radius: 20px;
   mask-image: linear-gradient(to bottom, 
@@ -324,14 +393,14 @@ body {
 }
 
 .stat-item h2 {
-  font-size: 3.5rem;
+  font-size: min(3.5rem, 6vw);
   color: var(--accent-color);
   margin-bottom: 0.5rem;
 }
 
 .stat-item p {
   color: var(--text-secondary);
-  font-size: 1.1rem;
+  font-size: min(1.1rem, 2.5vw);
   line-height: 1.4;
 }
 
@@ -364,7 +433,7 @@ body {
   justify-content: center;
   margin: 0 auto 1.5rem;
   color: white;
-  font-size: 1.5rem;
+  font-size: min(1.5rem, 3vw);
 }
 
 .service-icon svg {
@@ -379,7 +448,7 @@ body {
 
 .service-card p {
   color: var(--text-secondary);
-  font-size: 0.95rem;
+  font-size: min(0.95rem, 2vw);
   line-height: 1.5;
 }
 
@@ -427,11 +496,11 @@ body {
   }
 
   .hero-text h1 {
-    font-size: 5rem;
+    font-size: min(5rem, 8vw);
   }
 
   .hero-text h2 {
-    font-size: 2.5rem;
+    font-size: min(2.5rem, 4vw);
   }
 
   .contact-info {
@@ -451,15 +520,15 @@ body {
   }
 
   .hero-text h1 {
-    font-size: 4rem;
+    font-size: min(4rem, 6vw);
   }
 
   .hero-text h2 {
-    font-size: 2rem;
+    font-size: min(2rem, 3.5vw);
   }
 
   .hero-text p {
-    font-size: 1.1rem;
+    font-size: min(1.1rem, 2.5vw);
   }
 
   .hero-image {
@@ -467,11 +536,11 @@ body {
   }
 
   .contact-info p {
-    font-size: 1.1rem;
+    font-size: min(1.1rem, 2.5vw);
   }
 
   .section h2 {
-    font-size: 1.8rem;
+    font-size: min(1.8rem, 3vw);
   }
 
   .experience-item, 
@@ -489,18 +558,18 @@ body {
   }
 
   .tech-tag {
-    font-size: 0.9rem;
+    font-size: min(0.9rem, 2vw);
     padding: 0.2rem 0.6rem;
   }
 }
 
 @media (max-width: 480px) {
   .hero-text h1 {
-    font-size: 3.5rem;
+    font-size: min(3.5rem, 5vw);
   }
 
   .hero-text h2 {
-    font-size: 1.8rem;
+    font-size: min(1.8rem, 3vw);
   }
 
   .hero-image {
@@ -513,16 +582,16 @@ body {
 
   .experience-header h3,
   .project-header h3 {
-    font-size: 1.3rem;
+    font-size: min(1.3rem, 2.5vw);
   }
 
   .period {
-    font-size: 0.9rem;
+    font-size: min(0.9rem, 2vw);
   }
 
   .achievements-list li,
   .project-achievements li {
-    font-size: 1rem;
+    font-size: min(1rem, 2vw);
   }
 }
 
@@ -539,7 +608,7 @@ body {
 }
 
 .section h2 {
-  font-size: 2.2rem;
+  font-size: min(2.2rem, 4vw);
   color: var(--text-color);
   margin-bottom: 2.5rem;
   display: flex;
@@ -551,7 +620,7 @@ body {
 
 .section h2 svg {
   color: var(--accent-color);
-  font-size: 2rem;
+  font-size: min(2rem, 3.5vw);
 }
 
 /* Experience Section */
@@ -586,7 +655,7 @@ body {
 }
 
 .experience-header h3 {
-  font-size: 1.6rem;
+  font-size: min(1.6rem, 3vw);
   color: var(--text-color);
   margin: 0;
   font-weight: 600;
@@ -594,7 +663,7 @@ body {
 
 .period {
   color: var(--accent-color);
-  font-size: 1.1rem;
+  font-size: min(1.1rem, 2.5vw);
   font-weight: 500;
   padding: 0.3rem 1rem;
   background: rgba(var(--accent-color-rgb), 0.1);
@@ -630,7 +699,7 @@ body {
   }
 
   .section h2 {
-    font-size: 2rem;
+    font-size: min(2rem, 3.5vw);
   }
 
   .experience-header {
@@ -639,7 +708,7 @@ body {
   }
 
   .experience-header h3 {
-    font-size: 1.4rem;
+    font-size: min(1.4rem, 2.5vw);
   }
 }
 
@@ -649,7 +718,7 @@ body {
   }
 
   .section h2 {
-    font-size: 1.8rem;
+    font-size: min(1.8rem, 3vw);
     margin-bottom: 2rem;
   }
 
@@ -672,21 +741,21 @@ body {
   }
 
   .section h2 {
-    font-size: 1.6rem;
+    font-size: min(1.6rem, 2.5vw);
     margin-bottom: 1.5rem;
   }
 
   .experience-header h3 {
-    font-size: 1.2rem;
+    font-size: min(1.2rem, 2vw);
   }
 
   .period {
-    font-size: 0.9rem;
+    font-size: min(0.9rem, 2vw);
     padding: 0.2rem 0.8rem;
   }
 
   .achievements-list li {
-    font-size: 0.95rem;
+    font-size: min(0.95rem, 2vw);
   }
 }
 
@@ -719,14 +788,14 @@ body {
 }
 
 .project-header h3 {
-  font-size: 1.6rem;
+  font-size: min(1.6rem, 3vw);
   color: var(--text-color);
   margin: 0 0 0.5rem 0;
   font-weight: 600;
 }
 
 .project-header h4 {
-  font-size: 1.2rem;
+  font-size: min(1.2rem, 2.5vw);
   color: var(--accent-color);
   margin: 0 0 0.5rem 0;
   font-weight: 500;
@@ -738,14 +807,14 @@ body {
   background: rgba(var(--accent-color-rgb), 0.1);
   color: var(--accent-color);
   border-radius: 20px;
-  font-size: 0.9rem;
+  font-size: min(0.9rem, 2vw);
   margin-top: 0.5rem;
 }
 
 .project-link {
   color: var(--accent-color);
   text-decoration: none;
-  font-size: 1rem;
+  font-size: min(1rem, 2vw);
   transition: all 0.3s ease;
   white-space: nowrap;
   display: flex;
@@ -763,7 +832,7 @@ body {
 }
 
 .project-link svg {
-  font-size: 1.2rem;
+  font-size: min(1.2rem, 2.5vw);
 }
 
 .tech-stack {
@@ -778,7 +847,7 @@ body {
   color: var(--accent-color);
   padding: 0.4rem 1rem;
   border-radius: 20px;
-  font-size: 0.9rem;
+  font-size: min(0.9rem, 2vw);
   transition: all 0.3s ease;
 }
 
@@ -816,11 +885,11 @@ body {
   }
 
   .project-header h3 {
-    font-size: 1.4rem;
+    font-size: min(1.4rem, 2.5vw);
   }
 
   .project-header h4 {
-    font-size: 1.1rem;
+    font-size: min(1.1rem, 2vw);
   }
 
   .tech-stack {
@@ -828,7 +897,7 @@ body {
   }
 
   .tech-tag {
-    font-size: 0.85rem;
+    font-size: min(0.85rem, 2vw);
     padding: 0.3rem 0.8rem;
   }
 }
@@ -847,26 +916,26 @@ body {
   }
 
   .project-achievements li {
-    font-size: 0.95rem;
+    font-size: min(0.95rem, 2vw);
   }
 }
 
 @media (max-width: 480px) {
   .project-header h3 {
-    font-size: 1.2rem;
+    font-size: min(1.2rem, 2vw);
   }
 
   .project-header h4 {
-    font-size: 1rem;
+    font-size: min(1rem, 2vw);
   }
 
   .tech-tag {
-    font-size: 0.8rem;
+    font-size: min(0.8rem, 2vw);
     padding: 0.2rem 0.6rem;
   }
 
   .project-achievements li {
-    font-size: 0.9rem;
+    font-size: min(0.9rem, 2vw);
   }
 }
 
@@ -878,7 +947,7 @@ body {
 }
 
 .skill-category h4 {
-  font-size: 1.2rem;
+  font-size: min(1.2rem, 2.5vw);
   color: var(--text-primary);
   margin-bottom: 1rem;
   display: flex;
@@ -916,14 +985,14 @@ body {
 }
 
 .education-header h3 {
-  font-size: 1.5rem;
+  font-size: min(1.5rem, 3vw);
   color: var(--text-primary);
   margin-bottom: 0.5rem;
 }
 
 .degree {
   color: var(--text-secondary);
-  font-size: 1.1rem;
+  font-size: min(1.1rem, 2.5vw);
   margin: 0;
 }
 
@@ -939,7 +1008,7 @@ body {
 
 .contact-info p {
   margin: 0;
-  font-size: 1.2rem;
+  font-size: min(1.2rem, 2.5vw);
   color: var(--text-color);
   display: flex;
   align-items: center;
@@ -954,4 +1023,39 @@ body {
 
 .contact-info a:hover {
   color: #00ff88;
+}
+
+/* Desktop-specific styles */
+.desktop-break {
+  display: inline;
+}
+
+@media (max-width: 992px) {
+  .desktop-break {
+    display: none;
+  }
+
+  .hero-text p {
+    padding: 0 1rem;
+  }
+
+  .contact-info {
+    margin-top: 2rem;
+    border-top: 1px solid var(--card-border);
+    padding-top: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-info {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+  }
+
+  .contact-info p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
 }
