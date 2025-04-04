@@ -144,8 +144,8 @@ const Profile = () => {
         <div className="hero-content">
           <div className="hero-text">
             <h1>Farhan Yousaf</h1>
-            <h2>FULL STACK<br />DEVELOPER</h2>
-            <p>Full Stack Software Developer with 7+ years of experience in cross-platform app and web development. Complete working and professional proficiency in Flutter and React.</p>
+            <h2>Full Stack Developer</h2>
+            <p>7+ years of experience in cross-platform app and web development. Complete working and professional proficiency in Flutter and React.</p>
             <div className="contact-info">
               <p>Hillside, New York | 929-231-8782</p>
               <p>

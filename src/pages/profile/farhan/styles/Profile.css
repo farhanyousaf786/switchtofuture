@@ -79,20 +79,25 @@ body {
 }
 
 .hero-text h2 {
-  font-size: 1.5rem;
-  color: var(--accent-color);
-  margin-bottom: 1rem;
+  font-size: 2.8rem;
+  margin: 0 0 1.5rem;
+  color: var(--text-color);
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .hero-text h1 {
-  font-size: 4rem;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
-  font-weight: 800;
-  background: linear-gradient(135deg, var(--text-primary), var(--accent-color));
-  background-clip: text;
+  font-size: 6rem;
+  margin: 0 0 1rem 0;
+  background: linear-gradient(45deg, var(--accent-color), #00ff88);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -3px;
+  text-transform: capitalize;
 }
 
 .hero-text p {
