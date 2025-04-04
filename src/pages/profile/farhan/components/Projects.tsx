@@ -101,7 +101,14 @@ const TechTag = styled.span`
   font-size: min(0.9rem, 2.5vw);
 `;
 
-const ViewDetailsButton = styled.button`
+const ButtonsContainer = styled.div`
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  justify-content: center;
+`;
+
+const Button = styled.button`
   background: var(--accent-color);
   color: white;
   border: none;
@@ -110,14 +117,27 @@ const ViewDetailsButton = styled.button`
   font-size: min(0.9rem, 2.5vw);
   cursor: pointer;
   transition: all 0.2s ease;
-  margin-top: 1rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  flex: 1;
+  justify-content: center;
+  max-width: 150px;
 
   &:hover {
     background: var(--accent-color-dark);
     transform: translateY(-2px);
+  }
+
+  &.outline {
+    background: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+
+    &:hover {
+      background: var(--accent-color);
+      color: white;
+    }
   }
 `;
 
@@ -240,10 +260,22 @@ const Projects = ({ projects }: ProjectsProps) => {
               {project.company && (
                 <ProjectDescription>Company: {project.company}</ProjectDescription>
               )}
-              <ViewDetailsButton onClick={() => setSelectedProject(project)}>
-                <span>View Details</span>
-                <Code fontSize="small" />
-              </ViewDetailsButton>
+              <ButtonsContainer>
+                <Button onClick={() => setSelectedProject(project)}>
+                  <span>Achievements</span>
+                </Button>
+                {project.link && (
+                  <Button 
+                    as="a"
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="outline"
+                  >
+                    <span>View Project</span>
+                  </Button>
+                )}
+              </ButtonsContainer>
             </ProjectContent>
           </ProjectCard>
         ))}
