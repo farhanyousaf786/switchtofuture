@@ -29,16 +29,22 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.75rem 4rem;
+  padding: 0.5rem 4rem;
+  background: transparent;
+  backdrop-filter: blur(0);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.home-page .header.scrolled {
   background: rgba(10, 15, 28, 0.95);
   backdrop-filter: blur(10px);
-  z-index: 1000;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .home-page .logo {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: bold;
 }
 
@@ -56,14 +62,21 @@
 }
 
 .home-page .nav-item {
-  padding: 0.5rem 1rem;
+  padding: 0.35rem 1rem;
   border: none;
   background: none;
   color: var(--home-text);
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.9rem;
   transition: color 0.3s;
   position: relative;
+  outline: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.home-page .nav-item:focus {
+  outline: none;
 }
 
 .home-page .nav-item::after {
@@ -75,12 +88,14 @@
   height: 2px;
   background: linear-gradient(45deg, var(--home-primary), var(--home-secondary));
   transition: width 0.3s, left 0.3s;
+  opacity: 0;
 }
 
 .home-page .nav-item:hover::after,
 .home-page .nav-item.active::after {
   width: 100%;
   left: 0;
+  opacity: 1;
 }
 
 /* Hero section */
@@ -418,7 +433,7 @@
 
 @media (max-width: 768px) {
   .home-page .header {
-    padding: 0.75rem 2rem;
+    padding: 0.5rem 2rem;
   }
 
   .home-page .nav {
@@ -454,7 +469,7 @@
 
 @media (max-width: 480px) {
   .home-page .header {
-    padding: 0.75rem 1rem;
+    padding: 0.5rem 1rem;
   }
 
   .home-page .hero-section,

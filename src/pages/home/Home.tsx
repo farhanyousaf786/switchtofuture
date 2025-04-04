@@ -6,39 +6,29 @@ import './Home.css';
 
 const Home = () => {
   const [activeSection, setActiveSection] = useState('home');
-  const [isScrolling, setIsScrolling] = useState(false);
-
-  const scrollToSection = (sectionId: string) => {
-    setActiveSection(sectionId);
-    const element = document.getElementById(sectionId);
-    if (element) {
-      setIsScrolling(true);
-      element.scrollIntoView({ behavior: 'smooth' });
-      setTimeout(() => setIsScrolling(false), 1000);
-    }
-  };
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!isScrolling) {
-        const sections = ['home', 'services', 'projects', 'team', 'about'];
-        const current = sections.find(section => {
-          const element = document.getElementById(section);
-          if (element) {
-            const rect = element.getBoundingClientRect();
-            return rect.top <= 150 && rect.bottom >= 150;
-          }
-          return false;
-        });
-        if (current) {
-          setActiveSection(current);
+      setIsScrolled(window.scrollY > 50);
+
+      const sections = ['home', 'services', 'projects', 'team', 'about'];
+      const current = sections.find(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
         }
+        return false;
+      });
+      if (current) {
+        setActiveSection(current);
       }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isScrolling]);
+  }, []);
 
   const services = [
     {
@@ -82,7 +72,7 @@ const Home = () => {
 
   return (
     <div className="home-page">
-      <header className="header">
+      <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
         <div className="logo">
           <span className="gradient-text">Switch To Future</span>
         </div>
@@ -91,7 +81,10 @@ const Home = () => {
             <button
               key={item}
               className={`nav-item ${activeSection === item ? 'active' : ''}`}
-              onClick={() => scrollToSection(item)}
+              onClick={() => {
+                const element = document.getElementById(item);
+                element?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
               {item.charAt(0).toUpperCase() + item.slice(1)}
             </button>
