@@ -53,14 +53,6 @@ const Home = () => {
     }
   ];
 
-  const technologies = [
-    { icon: <SiReact />, name: 'React' },
-    { icon: <SiFlutter />, name: 'Flutter' },
-    { icon: <SiFirebase />, name: 'Firebase' },
-    { icon: <SiNodedotjs />, name: 'Node.js' },
-    { icon: <SiTailwindcss />, name: 'Tailwind' }
-  ];
-
   const projects = [
     {
       title: 'HealthTrack',
@@ -97,22 +89,39 @@ const Home = () => {
         <section id="home" className="hero-section">
           <div className="hero-content">
             <h1>
-              <span className="gradient-text">Switch to Future:</span>
+              Build What's Next
               <br />
-              Build Software That Moves You Forward
+              <span className="gradient-text">Switch to Future</span>
             </h1>
-            <p>US-based development & delivery team helping startups launch faster and smarter.</p>
-            <div className="hero-cta">
-              <button className="cta-button primary">Book a Free Strategy Call</button>
-              <button className="cta-button secondary">See Our Work</button>
+            <div className="hero-subcontent">
+              <h2>Web Applications & Mobile Apps</h2>
+              <h2>Develop AI Technologies</h2>
             </div>
-            <div className="tech-showcase">
-              {technologies.map((tech, index) => (
-                <div key={index} className="tech-item">
-                  {tech.icon}
-                  <span>{tech.name}</span>
-                </div>
-              ))}
+            <div className="tech-stack">
+              <div className="tech-icon">
+                <SiReact />
+                <span>React</span>
+              </div>
+              <div className="tech-icon">
+                <SiFlutter />
+                <span>Flutter</span>
+              </div>
+              <div className="tech-icon">
+                <SiFirebase />
+                <span>Firebase</span>
+              </div>
+              <div className="tech-icon">
+                <SiNodedotjs />
+                <span>Node.js</span>
+              </div>
+              <div className="tech-icon">
+                <SiTailwindcss />
+                <span>Tailwind</span>
+              </div>
+            </div>
+            <div className="hero-cta">
+              <button className="cta-button primary">BOOK A FREE STRATEGY CALL</button>
+              <button className="cta-button secondary">VIEW OUR PROJECTS</button>
             </div>
           </div>
         </section>
