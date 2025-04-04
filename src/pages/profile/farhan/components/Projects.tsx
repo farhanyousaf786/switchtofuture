@@ -55,21 +55,42 @@ const ProjectImage = styled.div`
   width: 100%;
   height: 200px;
   overflow: hidden;
+  position: relative;
+  background: var(--card-bg);
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
   }
+`;
 
-  ${ProjectCard}:hover & img {
-    transform: scale(1.05);
+const ProjectLogo = styled.div`
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  bottom: -30px;
+  left: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 3px solid var(--card-bg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 8px;
   }
 `;
 
 const ProjectContent = styled.div`
-  padding: 1.5rem;
+  padding: 2rem;
+  padding-top: ${props => props.hasLogo ? '2.5rem' : '2rem'};
 `;
 
 const ProjectTitle = styled.h3`
@@ -225,6 +246,7 @@ export interface ProjectItem {
   technologies: string[];
   link?: string;
   image?: string;
+  logo?: string;
   achievements?: string[];
   status?: string;
 }
@@ -245,9 +267,14 @@ const Projects = ({ projects }: ProjectsProps) => {
             {project.image && (
               <ProjectImage>
                 <img src={project.image} alt={project.title} />
+                {project.logo && (
+                  <ProjectLogo>
+                    <img src={project.logo} alt={`${project.title} logo`} />
+                  </ProjectLogo>
+                )}
               </ProjectImage>
             )}
-            <ProjectContent>
+            <ProjectContent hasLogo={Boolean(project.logo)}>
               <ProjectTitle>{project.title}</ProjectTitle>
               {project.subtitle && (
                 <ProjectDescription>{project.subtitle}</ProjectDescription>
@@ -291,10 +318,17 @@ const Projects = ({ projects }: ProjectsProps) => {
             {selectedProject.image && (
               <ModalImage>
                 <img src={selectedProject.image} alt={selectedProject.title} />
+                {selectedProject.logo && (
+                  <ProjectLogo style={{ width: '80px', height: '80px', bottom: '-40px' }}>
+                    <img src={selectedProject.logo} alt={`${selectedProject.title} logo`} />
+                  </ProjectLogo>
+                )}
               </ModalImage>
             )}
 
-            <ProjectTitle>{selectedProject.title}</ProjectTitle>
+            <ProjectTitle style={{ marginTop: selectedProject.logo ? '1rem' : 0 }}>
+              {selectedProject.title}
+            </ProjectTitle>
             {selectedProject.subtitle && (
               <ProjectDescription>{selectedProject.subtitle}</ProjectDescription>
             )}

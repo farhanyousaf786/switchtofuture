@@ -79,6 +79,8 @@ const FarhanProfile = () => {
       title: "Maxsip App",
       company: "Maxsip Telecom",
       link: "Production link",
+      image: "/images/projects/maxsip-banner.jpg",
+      logo: "/images/projects/maxsip-logo.png",
       technologies: ["Flutter", "Agora", "Kotlin", "Firebase", "Rest APIs", "Provider"],
       achievements: [
         "Developed and launched the Maxsip User App using Flutter, serving over one million users.",
@@ -97,6 +99,8 @@ const FarhanProfile = () => {
       title: "Pure Web",
       subtitle: "Responsive Company Website",
       link: "Production link",
+      image: "/images/projects/pureweb-banner.jpg",
+      logo: "/images/projects/pureweb-logo.png",
       technologies: ["React.js", "Express.js", "Firebase", "Rest APIs", "Redux", "MongoDB", "JWT", "Heroku", "Azure"],
       achievements: [
         "Created complete front-end interface using React.js with responsive components.",
@@ -113,6 +117,8 @@ const FarhanProfile = () => {
       title: "Clusty AI",
       subtitle: "Self-Aware Social App",
       link: "Progress link",
+      image: "/images/projects/clusty-banner.jpg",
+      logo: "/images/projects/clusty-logo.png",
       status: "in progress",
       technologies: ["Flutter", "Firebase", "Qdrant", "MongoDB", "OpenAI", "Provider"],
       achievements: [
@@ -128,6 +134,8 @@ const FarhanProfile = () => {
       title: "Switch",
       subtitle: "Cross-Platform Application",
       link: "Production link",
+      image: "/images/projects/switch-banner.jpg",
+      logo: "/images/projects/switch-logo.png",
       technologies: ["Flutter", "Agora", "Kotlin", "Firebase", "Rest APIs", "Provider"],
       achievements: [
         "Built front-end using Flutter with Lottie and Rive animations.",
@@ -142,6 +150,8 @@ const FarhanProfile = () => {
       title: "Top-Up Services for Maxsip",
       subtitle: "Android Platform",
       link: "Private Git",
+      image: "/images/projects/topup-banner.jpg",
+      logo: "/images/projects/topup-logo.png",
       technologies: ["Flutter", "Firebase", "Rest APIs", "Provider"],
       achievements: [
         "Developed complete mobile app for telecom top-ups management.",
@@ -155,6 +165,8 @@ const FarhanProfile = () => {
       title: "Mobile gallery",
       subtitle: "Web application",
       link: "Production link",
+      image: "/images/projects/gallery-banner.jpg",
+      logo: "/images/projects/gallery-logo.png",
       technologies: ["React.js", "Express.js", "Firebase", "Redux", "Heroku"],
       achievements: [
         "Developed full-stack app with complete CRUD functionality.",
@@ -169,6 +181,8 @@ const FarhanProfile = () => {
       title: "Hexagon Scaffolding",
       subtitle: "Website",
       link: "Production link",
+      image: "/images/projects/hexagon-banner.jpg",
+      logo: "/images/projects/hexagon-logo.png",
       technologies: ["React.js", "Express.js", "Firebase", "Redux", "Heroku"],
       achievements: [
         "Migrated UI from Flutter to React for better performance.",
