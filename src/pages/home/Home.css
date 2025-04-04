@@ -44,8 +44,22 @@
 }
 
 .home-page .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 1rem;
   font-weight: bold;
+}
+
+.home-page .logo img {
+  height: 30px;
+  width: auto;
+  filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(175deg);
+  transition: filter 0.3s ease;
+}
+
+.home-page .header:not(.scrolled) .logo img {
+  filter: brightness(0) invert(1);
 }
 
 .home-page .gradient-text {

@@ -74,7 +74,8 @@ const Home = () => {
     <div className="home-page">
       <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
         <div className="logo">
-          <span className="gradient-text">Switch To Future</span>
+          <img src="https://i.imgur.com/zmLULuM.png" alt="Switch to Future Logo" />
+          <span className="gradient-text">Switch to Future</span>
         </div>
         <nav className="nav">
           {['home', 'services', 'projects', 'team', 'about'].map((item) => (
