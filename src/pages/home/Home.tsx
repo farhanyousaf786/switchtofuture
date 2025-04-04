@@ -9,7 +9,7 @@ const Home = () => {
     {
       name: 'Farhan',
       role: 'Team Member',
-      link: '/farhan'
+      link: '/profile/farhan'
     }
   ];
 
@@ -48,10 +48,10 @@ const Home = () => {
                 <Link to={member.link} key={index} className="team-member-link">
                   <div className="team-member">
                     <div className="member-avatar">
-                      <div className="avatar-placeholder">{member.name[0]}</div>
+                      <img src="https://i.imgur.com/2r3PuyF.jpg" alt="Farhan Yousaf" />
                     </div>
-                    <h3>{member.name}</h3>
-                    <p>{member.role}</p>
+                    <h3>Farhan Yousaf</h3>
+                    <p>Senior Full Stack Developer</p>
                   </div>
                 </Link>
               ))}
