@@ -120,13 +120,21 @@ body {
 
 .hero-image {
   position: relative;
+  overflow: hidden;
 }
 
 .hero-image img {
   width: 100%;
   height: auto;
   border-radius: 20px;
-  box-shadow: 0 10px 30px var(--shadow-color);
+  mask-image: linear-gradient(to bottom, 
+    black 80%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(to bottom, 
+    black 92%,
+    transparent 100%
+  );
 }
 
 /* Stats Section */
