@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Profile from './pages/profile/farhan/Profile'
+import FarhanProfile from './pages/profile/farhan/farhan'
 import Home from './pages/home/Home'
 import './App.css'
 
@@ -8,8 +8,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/farhan" element={<Profile />} />
-        <Route path="/profile/farhan" element={<Profile />} />
+        <Route path="/farhan" element={<FarhanProfile />} />
+        <Route path="/profile/farhan" element={<FarhanProfile />} />
       </Routes>
     </BrowserRouter>
   )

@@ -13,9 +13,10 @@ import {
   TaskAlt,
   Link as LinkIcon
 } from '@mui/icons-material';
-import './styles/Profile.css';
 
-const Profile = () => {
+import './Profile.css';
+
+const FarhanProfile = () => {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
   useEffect(() => {
@@ -337,4 +338,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default FarhanProfile;

@@ -1,0 +1,194 @@
+.about-section {
+  padding: 6rem 2rem;
+  background: var(--home-bg);
+}
+
+.about-section .section-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-section h2 {
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 4rem;
+  color: var(--home-text);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
+  align-items: start;
+  justify-content: center;
+}
+
+.about-main {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+}
+
+.about-block h3 {
+  font-size: 1.75rem;
+  color: var(--home-text);
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.about-block h3::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 3px;
+  width: 50px;
+  background: var(--home-primary);
+  border-radius: 2px;
+}
+
+.about-block p {
+  color: var(--home-text-secondary);
+  line-height: 1.8;
+  font-size: 1.1rem;
+  margin: 0 auto;
+}
+
+.team-image {
+  max-width: 200px;
+  margin: 0 auto 3rem;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.team-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.team-image:hover img {
+  transform: scale(1.05);
+}
+
+.core-values {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.core-values h3 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  color: var(--home-text);
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+}
+
+.value-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+  margin: 0 auto;
+}
+
+.value-card:hover {
+  transform: translateY(-5px);
+}
+
+.value-icon {
+  font-size: 2.5rem;
+  color: var(--home-primary);
+  margin-bottom: 1rem;
+}
+
+.value-card h4 {
+  font-size: 1.25rem;
+  color: var(--home-text);
+  margin-bottom: 0.5rem;
+}
+
+.value-card p {
+  color: var(--home-text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.about-cta {
+  text-align: center;
+  padding: 4rem 0 2rem;
+}
+
+.about-cta h3 {
+  font-size: 2rem;
+  color: var(--home-text);
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  background: var(--home-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 auto;
+}
+
+.cta-button:hover {
+  background: var(--home-secondary);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-image {
+    position: relative;
+    top: 0;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 4rem 1rem;
+  }
+
+  .about-block h3 {
+    font-size: 1.5rem;
+  }
+
+  .about-block p {
+    font-size: 1rem;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .value-card {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
