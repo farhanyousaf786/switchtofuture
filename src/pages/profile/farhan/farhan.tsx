@@ -3,7 +3,6 @@ import {
   DarkMode, 
   LightMode, 
   Code, 
-  Work,
   School,
   Build,
   Storage,
@@ -14,6 +13,7 @@ import {
   Link as LinkIcon
 } from '@mui/icons-material';
 
+import Experience from './components/Experience';
 import './Profile.css';
 
 const FarhanProfile = () => {
@@ -236,24 +236,7 @@ const FarhanProfile = () => {
       </section>
 
       <main className="profile-main">
-        <section className="section experience-section">
-          <h2><Work /> RELEVANT EXPERIENCE</h2>
-          <div className="timeline">
-            {experiences.map((exp, index) => (
-              <div key={index} className="experience-item">
-                <div className="experience-header">
-                  <h3>{exp.title} – {exp.company}</h3>
-                  <span className="period">{exp.period}</span>
-                </div>
-                <ul className="achievements-list">
-                  {exp.achievements.map((achievement, i) => (
-                    <li key={i}>{achievement}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </section>
+        <Experience experiences={experiences} />
 
         <section className="section projects-section">
           <h2><Code /> RELATED PROJECTS</h2>
