@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaRocket, FaCode, FaLaptopCode, FaMobileAlt, FaTools, FaUserFriends } from 'react-icons/fa';
+import { FaRocket, FaCode, FaLaptopCode, FaMobileAlt, FaTools, FaUserFriends, FaBars, FaTimes } from 'react-icons/fa';
 import { 
   SiReact, SiFlutter, SiFirebase, SiNodedotjs, SiTailwindcss, 
   SiMongodb, SiTypescript, SiPython, SiDocker, SiKubernetes,
@@ -12,6 +12,7 @@ import './Home.css';
 const Home = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const technologies = [
     { icon: <SiReact />, name: 'React' },
@@ -58,6 +59,12 @@ const Home = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleNavClick = (section: string) => {
+    const element = document.getElementById(section);
+    element?.scrollIntoView({ behavior: 'smooth' });
+    setIsMenuOpen(false);
+  };
+
   const services = [
     {
       icon: <FaLaptopCode />,
@@ -97,15 +104,15 @@ const Home = () => {
           <img src="https://i.imgur.com/zmLULuM.png" alt="Switch to Future Logo" />
           <span className="gradient-text">Switch to Future</span>
         </div>
-        <nav className="nav">
+        <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          {isMenuOpen ? <FaTimes /> : <FaBars />}
+        </button>
+        <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
           {['home', 'services', 'projects', 'team', 'about'].map((item) => (
             <button
               key={item}
               className={`nav-item ${activeSection === item ? 'active' : ''}`}
-              onClick={() => {
-                const element = document.getElementById(item);
-                element?.scrollIntoView({ behavior: 'smooth' });
-              }}
+              onClick={() => handleNavClick(item)}
             >
               {item.charAt(0).toUpperCase() + item.slice(1)}
             </button>
