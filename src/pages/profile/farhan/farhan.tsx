@@ -87,7 +87,7 @@ const FarhanProfile = () => {
     {
       title: "Maxsip App",
       company: "Maxsip Telecom",
-      link: "Production link",
+      link: "https://play.google.com/store/apps/details?id=com.maxsiptel.app",
     
       technologies: ["Flutter", "Agora", "Kotlin", "Firebase", "Rest APIs", "Provider"],
       achievements: [
@@ -106,7 +106,7 @@ const FarhanProfile = () => {
     {
       title: "Pure Web",
       subtitle: "Responsive Company Website",
-      link: "Production link",
+      link: "https://maxsippure.com/",
    
       technologies: ["React.js", "Express.js", "Firebase", "Rest APIs", "Redux", "MongoDB", "JWT", "Heroku", "Azure"],
       achievements: [
@@ -123,7 +123,7 @@ const FarhanProfile = () => {
     {
       title: "Clusty AI",
       subtitle: "Self-Aware Social App",
-      link: "Progress link",
+      link: "https://github.com/farhanyousaf786/clusty-ai",
     
       status: "in progress",
       technologies: ["Flutter", "Firebase", "Qdrant", "MongoDB", "OpenAI", "Provider"],
@@ -139,7 +139,7 @@ const FarhanProfile = () => {
     {
       title: "Switch",
       subtitle: "Cross-Platform Application",
-      link: "Production link",
+      link: "https://github.com/farhanyousaf786/switch-app",
     
       technologies: ["Flutter", "Agora", "Kotlin", "Firebase", "Rest APIs", "Provider"],
       achievements: [
@@ -168,7 +168,7 @@ const FarhanProfile = () => {
     {
       title: "Mobile gallery",
       subtitle: "Web application",
-      link: "Production link",
+      link: "https://github.com/farhanyousaf786/mobile-gallery",
     
       technologies: ["React.js", "Express.js", "Firebase", "Redux", "Heroku"],
       achievements: [
@@ -183,7 +183,7 @@ const FarhanProfile = () => {
     {
       title: "Hexagon Scaffolding",
       subtitle: "Website",
-      link: "Production link",
+      link: "https://www.hexagonscaffolding.com",
      
       technologies: ["React.js", "Express.js", "Firebase", "Redux", "Heroku"],
       achievements: [

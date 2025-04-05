@@ -2,9 +2,14 @@ import { Work, Close } from '@mui/icons-material';
 import { useState, MouseEvent } from 'react';
 import styled from 'styled-components';
 
-const ExperienceSection = styled.section`
-  padding: 0.5rem 0;
-  position: relative;
+const ExperienceSection = styled.div`
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 const Title = styled.h2`
@@ -24,20 +29,23 @@ const Timeline = styled.div`
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+  padding: 2rem;
   display: flex;
   gap: 3.5rem;
-  padding-bottom: 1rem;
   justify-content: center;
-  z-index: 1;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
 `;
 
 const ExperienceCard = styled.div`
   position: relative;
-  width: 250px;
-  min-width: 250px;
+  width: 220px;
+  min-width: 220px;
   padding: 1.2rem;
   background: var(--card-bg);
   border-radius: 12px;
@@ -51,7 +59,7 @@ const ExperienceCard = styled.div`
   }
 
   &::after {
-    content: '←';
+    content: '→';
     position: absolute;
     right: -2.5rem;
     top: 50%;
@@ -64,80 +72,126 @@ const ExperienceCard = styled.div`
   &:last-child::after {
     display: none;
   }
-`;
 
-const CardHeader = styled.div`
-  h3 {
-    font-size: min(1.2rem, 3vw);
-    color: var(--text-primary);
-    margin-bottom: 0.8rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  @media (max-width: 768px) {
+    width: 100%;
+    min-width: 100%;
+    padding: 1rem;
+    font-size: 0.9rem;
+
+    &::after {
+      display: none;
+    }
   }
 `;
 
-const Period = styled.span`
-  display: inline-block;
-  padding: 0.3rem 0.8rem;
-  background: rgba(0, 112, 243, 0.1);
-  color: var(--accent-color);
-  border-radius: 12px;
-  font-size: min(0.9rem, 2.5vw);
+const ExperienceTitle = styled.h3`
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
-const ModalOverlay = styled.div`
+const ExperienceSubtitle = styled.h4`
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0 0 0.5rem;
+  font-weight: normal;
+
+  @media (max-width: 768px) {
+    font-size: 0.85rem;
+  }
+`;
+
+const ExperiencePeriod = styled.p`
+  font-size: 0.9rem;
+  color: var(--text-tertiary);
+  margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 0.75rem;
+  }
+`;
+
+const ExperienceModal = styled.div<{ isOpen: boolean }>`
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  display: flex;
+  display: ${props => props.isOpen ? 'flex' : 'none'};
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 1000;
 `;
 
 const ModalContent = styled.div`
   background: var(--card-bg);
-  padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  width: 500px;
-  max-width: 90%;
+  padding: 2rem;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+    width: 95%;
+  }
 `;
 
 const CloseButton = styled.button`
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: transparent;
+  background: none;
   border: none;
-  cursor: pointer;
   color: var(--text-primary);
+  cursor: pointer;
   padding: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s ease;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
 
   &:hover {
-    transform: scale(1.1);
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  svg {
+    font-size: 1.5rem;
   }
 `;
 
 const AchievementsList = styled.ul`
-  list-style: disc;
-  padding-left: 1.5rem;
-  margin-top: 1rem;
-  color: var(--text-secondary);
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
 
   li {
-    margin-bottom: 0.8rem;
-    line-height: 1.6;
-    &::marker {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+
+    @media (max-width: 768px) {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    &:before {
+      content: "•";
       color: var(--accent-color);
+      font-weight: bold;
+      margin-right: 0.5rem;
     }
   }
 `;
@@ -162,32 +216,30 @@ const Experience = ({ experiences }: ExperienceProps) => {
       <Timeline>
         {experiences.map((exp, index) => (
           <ExperienceCard key={index} onClick={() => setSelectedExp(exp)}>
-            <CardHeader>
-              <h3>{exp.company}</h3>
-              <Period>{exp.period}</Period>
-            </CardHeader>
+            <ExperienceTitle>{exp.company}</ExperienceTitle>
+            <ExperiencePeriod>{exp.period}</ExperiencePeriod>
           </ExperienceCard>
         ))}
       </Timeline>
 
       {selectedExp && (
-        <ModalOverlay onClick={() => setSelectedExp(null)}>
+        <ExperienceModal isOpen={true} onClick={() => setSelectedExp(null)}>
           <ModalContent onClick={(e: MouseEvent) => e.stopPropagation()}>
             <CloseButton onClick={() => setSelectedExp(null)}>
               <Close />
             </CloseButton>
-            <h2>{selectedExp.title}</h2>
-            <h3>{selectedExp.company}</h3>
-            <p>{selectedExp.period}</p>
+            <ExperienceTitle>{selectedExp.title}</ExperienceTitle>
+            <ExperienceSubtitle>{selectedExp.company}</ExperienceSubtitle>
+            <ExperiencePeriod>{selectedExp.period}</ExperiencePeriod>
             
-            <h3 style={{ marginTop: '1.5rem', color: 'var(--accent-color)' }}>Key Achievements</h3>
+            <ExperienceSubtitle style={{ marginTop: '1.5rem', color: 'var(--accent-color)' }}>Key Achievements</ExperienceSubtitle>
             <AchievementsList>
               {selectedExp.achievements.map((achievement, index) => (
                 <li key={index}>{achievement}</li>
               ))}
             </AchievementsList>
           </ModalContent>
-        </ModalOverlay>
+        </ExperienceModal>
       )}
     </ExperienceSection>
   );
