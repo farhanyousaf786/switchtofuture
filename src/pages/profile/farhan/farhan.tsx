@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import {
   DarkMode,
   LightMode,
@@ -36,6 +36,15 @@ const SocialLinks = styled.div`
   }
 `;
 
+const beat = keyframes`
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+`;
+
 const SocialLink = styled.a`
   width: 40px;
   height: 40px;
@@ -46,12 +55,31 @@ const SocialLink = styled.a`
   justify-content: center;
   color: var(--text-primary);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
+  animation: ${beat} 2s infinite ease-in-out;
+
+  &:nth-child(2) {
+    animation-delay: 0.5s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 1s;
+  }
 
   &:hover {
     transform: translateY(-3px);
     color: var(--accent-color);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    animation: none;
+  }
+
+  svg {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover svg {
+    transform: scale(1.1);
   }
 `;
 
