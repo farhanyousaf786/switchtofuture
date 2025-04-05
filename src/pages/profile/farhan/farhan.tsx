@@ -1,20 +1,59 @@
 import { useState, useEffect } from 'react';
-import { 
-  DarkMode, 
-  LightMode, 
-  Code, 
+import styled from 'styled-components';
+import {
+  DarkMode,
+  LightMode,
+  Code,
   School,
   Build,
   Storage,
   SmartToy,
   Cloud,
   Psychology,
-  TaskAlt
+  TaskAlt,
+  GitHub,
+  LinkedIn,
+  Twitter,
+  Email
 } from '@mui/icons-material';
 
 import Experience from './components/Experience';
 import Projects, { ProjectItem } from './components/Projects';
 import './Profile.css';
+
+const SocialLinks = styled.div`
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 100;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const SocialLink = styled.a`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--card-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    color: var(--accent-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+`;
 
 const FarhanProfile = () => {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
@@ -218,6 +257,18 @@ const FarhanProfile = () => {
 
   return (
     <div className="profile-container">
+      <SocialLinks>
+        <SocialLink href="https://github.com/farhanyousaf786" target="_blank" rel="noopener noreferrer">
+          <GitHub />
+        </SocialLink>
+        <SocialLink href="https://www.linkedin.com/in/mfarhanyousaf/" target="_blank" rel="noopener noreferrer">
+          <LinkedIn />
+        </SocialLink>
+        <SocialLink href="mailto:farhanyousaf1996@gmail.com" target="_blank" rel="noopener noreferrer">
+          <Email />
+        </SocialLink>
+      </SocialLinks>
+      
       <button className="theme-toggle" onClick={toggleTheme}>
         {theme === 'light' ? <DarkMode /> : <LightMode />}
       </button>
