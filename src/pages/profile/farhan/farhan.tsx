@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import styled, { keyframes } from 'styled-components';
 import {
   DarkMode,
   LightMode,
@@ -13,7 +12,6 @@ import {
   TaskAlt,
   GitHub,
   LinkedIn,
-  Twitter,
   Email
 } from '@mui/icons-material';
 
@@ -21,67 +19,11 @@ import Experience from './components/Experience';
 import Projects, { ProjectItem } from './components/Projects';
 import './Profile.css';
 
-const SocialLinks = styled.div`
-  position: fixed;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  z-index: 100;
 
-  @media (max-width: 768px) {
-    display: none;
-  }
-`;
 
-const beat = keyframes`
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-`;
 
-const SocialLink = styled.a`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--card-bg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-primary);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  animation: ${beat} 2s infinite ease-in-out;
 
-  &:nth-child(2) {
-    animation-delay: 0.5s;
-  }
 
-  &:nth-child(3) {
-    animation-delay: 1s;
-  }
-
-  &:hover {
-    transform: translateY(-3px);
-    color: var(--accent-color);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    animation: none;
-  }
-
-  svg {
-    font-size: 1.5rem;
-    transition: transform 0.3s ease;
-  }
-
-  &:hover svg {
-    transform: scale(1.1);
-  }
-`;
 
 const FarhanProfile = () => {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
@@ -285,17 +227,7 @@ const FarhanProfile = () => {
 
   return (
     <div className="profile-container">
-      <SocialLinks>
-        <SocialLink href="https://github.com/farhanyousaf786" target="_blank" rel="noopener noreferrer">
-          <GitHub />
-        </SocialLink>
-        <SocialLink href="https://www.linkedin.com/in/mfarhanyousaf/" target="_blank" rel="noopener noreferrer">
-          <LinkedIn />
-        </SocialLink>
-        <SocialLink href="mailto:farhanyousaf1996@gmail.com" target="_blank" rel="noopener noreferrer">
-          <Email />
-        </SocialLink>
-      </SocialLinks>
+    
       
       <button className="theme-toggle" onClick={toggleTheme}>
         {theme === 'light' ? <DarkMode /> : <LightMode />}
@@ -312,7 +244,17 @@ const FarhanProfile = () => {
             <div className="contact-info">
               <p>📍 Hillside, New York</p>
               <p>📞 929-231-8782</p>
-              <p>✉️ <a href="mailto:Farhanyousaf1996@gmail.com">Farhanyousaf1996@gmail.com</a></p>
+              <div style={{ display: 'flex', gap: '1rem', marginTop: '0.5rem' }}>
+                <a href="https://github.com/farhanyousaf786" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-primary)' }}>
+                  <GitHub style={{ fontSize: '1.5rem' }} />
+                </a>
+                <a href="https://www.linkedin.com/in/mfarhanyousaf/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-primary)' }}>
+                  <LinkedIn style={{ fontSize: '1.5rem' }} />
+                </a>
+                <a href="mailto:farhanyousaf1996@gmail.com" style={{ color: 'var(--text-primary)' }}>
+                  <Email style={{ fontSize: '1.5rem' }} />
+                </a>
+              </div>
             </div>
           </div>
           <div className="hero-image">
