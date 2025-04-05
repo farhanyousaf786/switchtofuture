@@ -31,6 +31,7 @@ const Timeline = styled.div`
   gap: 3.5rem;
   padding-bottom: 1rem;
   justify-content: center;
+  z-index: 1;
 `;
 
 const ExperienceCard = styled.div`
@@ -95,6 +96,7 @@ const ModalOverlay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 9999;
 `;
 
 const ModalContent = styled.div`

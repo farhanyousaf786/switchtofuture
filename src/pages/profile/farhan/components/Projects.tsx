@@ -3,11 +3,10 @@ import { useState, MouseEvent } from 'react';
 import styled from 'styled-components';
 
 const ProjectsSection = styled.section`
-  padding: 2rem 0;
+  width: 100%;
+  padding: 4rem 0;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  z-index: 1;
 `;
 
 const Title = styled.h2`
@@ -187,7 +186,7 @@ const ModalOverlay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 9999;
 `;
 
 const ModalContent = styled.div`
