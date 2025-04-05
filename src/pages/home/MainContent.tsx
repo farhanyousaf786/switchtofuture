@@ -4,10 +4,7 @@ import {
   SiPostgresql, SiRedis, SiGraphql, SiAmazon, SiGooglecloud,
   SiJavascript, SiSwift, SiKotlin, SiTensorflow, SiPrisma
 } from 'react-icons/si';
-import Projects from '../../components/Projects';
-import Services from '../../components/Services';
-import About from '../../components/About';
-import Team from '../../components/Team';
+
 
 const MainContent = () => {
   const technologies = [
@@ -65,10 +62,7 @@ const MainContent = () => {
         </div>
       </section>
 
-      <Services />
-      <Projects />
-      <About />
-      <Team />
+     
     </main>
   );
 };

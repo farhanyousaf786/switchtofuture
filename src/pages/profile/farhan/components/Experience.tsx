@@ -41,13 +41,13 @@ const ExperienceCard = styled.div`
   padding: 1.2rem;
   background: var(--card-bg);
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease;
   cursor: pointer;
 
   &:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
   }
 
   &::after {
@@ -115,12 +115,31 @@ const CloseButton = styled.button`
   background: transparent;
   border: none;
   cursor: pointer;
+  color: var(--text-primary);
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 const AchievementsList = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin-top: 1rem;
+  color: var(--text-secondary);
+
+  li {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+    &::marker {
+      color: var(--accent-color);
+    }
+  }
 `;
 
 interface ExperienceItem {
@@ -157,12 +176,14 @@ const Experience = ({ experiences }: ExperienceProps) => {
             <CloseButton onClick={() => setSelectedExp(null)}>
               <Close />
             </CloseButton>
+            <h2>{selectedExp.title}</h2>
             <h3>{selectedExp.company}</h3>
-            <h4>{selectedExp.title}</h4>
-            <Period>{selectedExp.period}</Period>
+            <p>{selectedExp.period}</p>
+            
+            <h3 style={{ marginTop: '1.5rem', color: 'var(--accent-color)' }}>Key Achievements</h3>
             <AchievementsList>
-              {selectedExp.achievements.map((achievement, i) => (
-                <li key={i}>{achievement}</li>
+              {selectedExp.achievements.map((achievement, index) => (
+                <li key={index}>{achievement}</li>
               ))}
             </AchievementsList>
           </ModalContent>

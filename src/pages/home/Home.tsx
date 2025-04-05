@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import Header from '../../components/header/Header';
 import MainContent from './MainContent';
 import Projects from '../../components/Projects';

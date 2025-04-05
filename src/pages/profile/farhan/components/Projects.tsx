@@ -40,13 +40,13 @@ const ProjectsGrid = styled.div`
 const ProjectCard = styled.div`
   background: var(--card-bg);
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: all 0.2s ease;
 
   &:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
   }
 `;
 
@@ -87,7 +87,11 @@ const ProjectLogo = styled.div`
   }
 `;
 
-const ProjectContent = styled.div`
+interface ProjectContentProps {
+  hasLogo?: boolean;
+}
+
+const ProjectContent = styled.div<ProjectContentProps>`
   padding: 2rem;
   padding-top: ${props => props.hasLogo ? '2.5rem' : '2rem'};
 `;
