@@ -9,59 +9,59 @@ interface Project {
   github?: string;
 }
 
-const Projects = () => {
-  const projects: Project[] = [
-    {
-      title: "Cascade AI",
-      description: "An intelligent coding assistant that helps developers write better code faster. Features real-time suggestions, code analysis, and automated refactoring.",
-      image: "https://i.imgur.com/zmLULuM.png",
-      tech: ["React", "TypeScript", "Node.js", "OpenAI", "Firebase"],
-      link: "https://cascade.io"
-    },
-    {
-      title: "Meddy App",
-      description: "A comprehensive healthcare platform connecting patients with doctors. Includes appointment scheduling, medical records, and telemedicine features.",
-      image: "https://i.imgur.com/zmLULuM.png",
-      tech: ["Flutter", "Firebase", "Node.js", "MongoDB"],
-      github: "https://github.com/yourusername/meddy-app"
-    },
-    {
-      title: "Crypto Dashboard",
-      description: "Real-time cryptocurrency tracking dashboard with advanced analytics, portfolio management, and market predictions using AI.",
-      image: "https://i.imgur.com/zmLULuM.png",
-      tech: ["React", "TailwindCSS", "Node.js", "TensorFlow"],
-      link: "https://crypto-dash.app"
-    },
-    {
-      title: "Smart Home Hub",
-      description: "IoT platform for managing smart home devices with automation rules, energy monitoring, and voice control integration.",
-      image: "https://i.imgur.com/zmLULuM.png",
-      tech: ["React Native", "Python", "AWS", "MongoDB"],
-      github: "https://github.com/yourusername/smart-home"
-    },
-    {
-      title: "AI Content Generator",
-      description: "AI-powered platform for generating marketing content, blog posts, and social media updates with SEO optimization.",
-      image: "https://i.imgur.com/zmLULuM.png",
-      tech: ["Next.js", "GPT-3", "Node.js", "PostgreSQL"],
-      link: "https://ai-content.app"
-    },
-    {
-      title: "Fitness Tracker",
-      description: "Mobile app for tracking workouts, nutrition, and health metrics with AI-powered personalized recommendations.",
-      image: "https://i.imgur.com/zmLULuM.png",
-      tech: ["Flutter", "Firebase", "TensorFlow", "Node.js"],
-      github: "https://github.com/yourusername/fitness-tracker"
-    }
-  ];
+const projectsData: Project[] = [
+  {
+    title: "Cascade AI",
+    description: "An intelligent coding assistant that helps developers write better code faster. Features real-time suggestions, code analysis, and automated refactoring.",
+    image: "https://i.imgur.com/zmLULuM.png",
+    tech: ["React", "TypeScript", "Node.js", "OpenAI", "Firebase"],
+    link: "https://cascade.io"
+  },
+  {
+    title: "Meddy App",
+    description: "A comprehensive healthcare platform connecting patients with doctors. Includes appointment scheduling, medical records, and telemedicine features.",
+    image: "https://i.imgur.com/zmLULuM.png",
+    tech: ["Flutter", "Firebase", "Node.js", "MongoDB"],
+    github: "https://github.com/yourusername/meddy-app"
+  },
+  {
+    title: "Crypto Dashboard",
+    description: "Real-time cryptocurrency tracking dashboard with advanced analytics, portfolio management, and market predictions using AI.",
+    image: "https://i.imgur.com/zmLULuM.png",
+    tech: ["React", "TailwindCSS", "Node.js", "TensorFlow"],
+    link: "https://crypto-dash.app"
+  },
+  {
+    title: "Smart Home Hub",
+    description: "IoT platform for managing smart home devices with automation rules, energy monitoring, and voice control integration.",
+    image: "https://i.imgur.com/zmLULuM.png",
+    tech: ["React Native", "Python", "AWS", "MongoDB"],
+    github: "https://github.com/yourusername/smart-home"
+  },
+  {
+    title: "AI Content Generator",
+    description: "AI-powered platform for generating marketing content, blog posts, and social media updates with SEO optimization.",
+    image: "https://i.imgur.com/zmLULuM.png",
+    tech: ["Next.js", "GPT-3", "Node.js", "PostgreSQL"],
+    link: "https://ai-content.app"
+  },
+  {
+    title: "Fitness Tracker",
+    description: "Mobile app for tracking workouts, nutrition, and health metrics with AI-powered personalized recommendations.",
+    image: "https://i.imgur.com/zmLULuM.png",
+    tech: ["Flutter", "Firebase", "TensorFlow", "Node.js"],
+    github: "https://github.com/yourusername/fitness-tracker"
+  }
+];
 
+const Projects = () => {
   return (
-    <section id="projects" className="projects-section">
+    <section id="projects" className="projects-section" aria-label="Projects Section">
       <div className="section-content">
         <h2>Our Projects</h2>
-        <div className="projects-grid">
-          {projects.map((project, index) => (
-            <div key={index} className="project-card">
+        <div className="projects-grid" role="list">
+          {projectsData.map((project, index) => (
+            <div key={index} className="project-card" role="listitem">
               <div className="project-image">
                 <img src={project.image} alt={project.title} />
                 <div className="project-overlay">
