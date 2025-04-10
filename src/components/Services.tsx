@@ -30,7 +30,7 @@ const Services = () => {
   ];
 
   return (
-    <section className="services-section">
+    <section id="services" className="services-section">
       <div className="section-content">
         <div className="services-header">
           <h2>Our Services</h2>
@@ -39,23 +39,23 @@ const Services = () => {
             secure, scalable, and intelligent digital products — from ideation to deployment.
           </p>
           <div className="tech-showcase">
-  <h4 className="tech-title">Tech We Use:</h4>
-  <div className="tech-tags">
-    {[
-      'GPT', 'LangChain', 'OpenAI APIs', 'Python', 'Node.js', 'React', 'Next.js',
-      'Firebase', 'PostgreSQL', 'MongoDB', 'Flutter', 'Docker', 'AWS', 'GitHub Actions'
-    ].map((tech, index) => (
-      <span
-        key={tech}
-        className="tech-tag-animated"
-        style={{ animationDelay: `${index * 0.08}s` }}
-      >
-        {tech}
-      </span>
-    ))}
-    <span className="tech-tag-animated" style={{ animationDelay: `1.3s` }}>and more.</span>
-  </div>
-</div>
+            <h4 className="tech-title">Tech We Use:</h4>
+            <div className="tech-tags">
+              {[
+                'GPT', 'LangChain', 'OpenAI APIs', 'Python', 'Node.js', 'React', 'Next.js',
+                'Firebase', 'PostgreSQL', 'MongoDB', 'Flutter', 'Docker', 'AWS', 'GitHub Actions'
+              ].map((tech, index) => (
+                <span
+                  key={tech}
+                  className="tech-tag-animated"
+                  style={{ animationDelay: `${index * 0.08}s` }}
+                >
+                  {tech}
+                </span>
+              ))}
+              <span className="tech-tag-animated" style={{ animationDelay: `1.3s` }}>and more.</span>
+            </div>
+          </div>
 
         </div>
         <div className="services-grid">
