@@ -1,84 +1,67 @@
 import { ReactElement } from 'react';
-import { FaRocket, FaCode, FaLaptopCode, FaMobileAlt, FaTools } from 'react-icons/fa';
+import { FaCode, FaMobile, FaCloud, FaRobot, FaChartLine, FaShieldAlt } from 'react-icons/fa';
 import './Services.css';
 
 interface Service {
-  icon: ReactElement;
   title: string;
   description: string;
-  features: string[];
-  tech: string;
+  icon: ReactElement;
 }
 
+const servicesData: Service[] = [
+  {
+    title: "Web Development",
+    description: "Modern web applications using React, Next.js, and Node.js. Fast, responsive, and user-friendly solutions.",
+    icon: <FaCode />
+  },
+  {
+    title: "Mobile Apps",
+    description: "Native and cross-platform mobile apps for iOS and Android. Seamless user experience with Flutter and React Native.",
+    icon: <FaMobile />
+  },
+  {
+    title: "Cloud Solutions",
+    description: "Scalable cloud infrastructure with AWS, Azure, and GCP. Expert DevOps and deployment solutions.",
+    icon: <FaCloud />
+  },
+  {
+    title: "AI Integration",
+    description: "Custom AI solutions and machine learning models. Smart automation for your business needs.",
+    icon: <FaRobot />
+  },
+  {
+    title: "Analytics",
+    description: "Real-time data analytics and visualization. Smart dashboards and business intelligence tools.",
+    icon: <FaChartLine />
+  },
+  {
+    title: "Cybersecurity",
+    description: "Complete security solutions with testing, audits, and best practices implementation.",
+    icon: <FaShieldAlt />
+  }
+];
+
+const additionalServices = [
+  'App Maintenance & Support',
+  'API Integrations',
+  'Cloud Hosting & Firebase Setup',
+  'SEO-Ready Web Pages',
+  'Deployment & Launch Help'
+];
+
 const Services = () => {
-  const services: Service[] = [
-    {
-      icon: <FaLaptopCode />,
-      title: 'Web Development',
-      description: 'We build fast, responsive, and secure websites and web apps — whether it\'s your business site, dashboard, or full SaaS platform.',
-      features: ['Business Websites', 'Admin Panels & Dashboards', 'eCommerce Platforms', 'Web Portals & Custom Web Apps'],
-      tech: 'React, Next.js, Node.js, Firebase, TailwindCSS'
-    },
-    {
-      icon: <FaMobileAlt />,
-      title: 'Mobile App Development',
-      description: 'Launch sleek, high-performing mobile apps across platforms with a single, powerful codebase.',
-      features: ['MVP App Development', 'Full-Feature Native & Cross-platform Apps', 'API-Connected Apps'],
-      tech: 'Flutter, Dart, Firebase, Kotlin, Swift, REST APIs'
-    },
-    {
-      icon: <FaRocket />,
-      title: 'AI & Automation Solutions',
-      description: 'Integrate AI into your product — or build AI-first tools that make your business smarter.',
-      features: ['GPT/Chatbot Integrations', 'AI-Powered Features (text, voice, image)', 'Workflow Automation with OpenAI or LangChain'],
-      tech: 'Python, OpenAI, LangChain, Qdrant, Firebase Functions'
-    },
-    {
-      icon: <FaCode />,
-      title: 'UI/UX Design',
-      description: 'Modern designs that feel natural. We prototype, design, and test interfaces that work — beautifully.',
-      features: ['App & Web UI Design', 'Wireframes & Prototypes', 'UX Research + Testing'],
-      tech: 'Figma, Adobe XD, Framer'
-    },
-    {
-      icon: <FaTools />,
-      title: 'Product Delivery & Tech Leadership',
-      description: 'Not just code — we help manage and deliver your tech project from start to finish.',
-      features: ['Agile Project Management', 'Full-Stack Team Outsourcing', 'MVP Roadmapping & Delivery'],
-      tech: 'Jira, Slack, Notion, Trello'
-    }
-  ];
-
-  const additionalServices = [
-    'App Maintenance & Support',
-    'API Integrations',
-    'Cloud Hosting & Firebase Setup',
-    'SEO-Ready Web Pages',
-    'Deployment & Launch Help'
-  ];
-
   return (
-    <section id="services" className="services-section">
+    <div className="services-section" id="services">
       <div className="section-content">
-        <h2>What We Do</h2>
+        <h2>Our Services</h2>
         <div className="services-grid">
-          {services.map((service, index) => (
-            <div key={index} className="service-card">
-              <div className="service-icon">{service.icon}</div>
+          {servicesData.map((service, index) => (
+            <div key={index} className="service-card" role="article">
+              <div className="service-icon">
+                {service.icon}
+              </div>
               <h3>{service.title}</h3>
               <p className="service-description">{service.description}</p>
-              <div className="service-features">
-                <h4>Includes:</h4>
-                <ul>
-                  {service.features.map((feature, idx) => (
-                    <li key={idx}>{feature}</li>
-                  ))}
-                </ul>
-              </div>
-              <div className="service-tech">
-                <h4>Tech:</h4>
-                <p>{service.tech}</p>
-              </div>
             </div>
           ))}
         </div>
@@ -93,7 +76,7 @@ const Services = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

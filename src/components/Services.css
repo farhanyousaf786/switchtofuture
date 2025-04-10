@@ -17,9 +17,8 @@
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
-  margin-bottom: 4rem;
 }
 
 .service-card {
@@ -169,20 +168,37 @@
   transform: translateY(-2px);
 }
 
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .services-section {
     padding: 4rem 1rem;
   }
 
   .services-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 
   .service-card {
     padding: 1.5rem;
   }
 
-  .additional-services-grid {
-    grid-template-columns: 1fr;
+  .service-icon {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .service-description {
+    font-size: 0.9rem;
   }
 }
