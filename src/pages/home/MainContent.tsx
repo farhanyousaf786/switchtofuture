@@ -37,7 +37,6 @@ const MainContent = () => {
           <h1>
             Build What's Next
             <br />
-            <span className="gradient-text">Switch to Future</span>
           </h1>
           <div className="hero-subcontent">
             <h2>Web Applications & Mobile Apps</h2>
