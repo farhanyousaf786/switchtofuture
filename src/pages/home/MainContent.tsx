@@ -5,7 +5,6 @@ import {
   SiJavascript, SiSwift, SiKotlin, SiTensorflow, SiPrisma
 } from 'react-icons/si';
 
-
 const MainContent = () => {
   const technologies = [
     { icon: <SiReact />, name: 'React' },
@@ -29,6 +28,13 @@ const MainContent = () => {
     { icon: <SiTensorflow />, name: 'TensorFlow' },
     { icon: <SiPrisma />, name: 'Prisma' }
   ];
+
+  const scrollToProjects = () => {
+    const projectsSection = document.getElementById('projects');
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <main className="main-content">
@@ -56,7 +62,7 @@ const MainContent = () => {
           </div>
           <div className="hero-cta">
             <button className="cta-button primary">BOOK A FREE STRATEGY CALL</button>
-            <button className="cta-button secondary">VIEW OUR PROJECTS</button>
+            <button onClick={scrollToProjects} className="cta-button secondary">VIEW OUR PROJECTS</button>
           </div>
         </div>
       </section>

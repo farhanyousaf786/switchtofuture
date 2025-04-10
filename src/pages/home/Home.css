@@ -244,16 +244,16 @@
 .home-page .hero-cta {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1rem;
   margin-top: 1rem;
 }
 
 .home-page .cta-button {
-  font-family: var(--font-body);
-  padding: 1rem 2.5rem;
-  font-size: 1rem;
-  font-weight: 700;
-  border-radius: 12px;
+  padding: 0.8rem 1.8rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 25px;
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: uppercase;
@@ -263,18 +263,26 @@
 .home-page .cta-button.primary {
   background: linear-gradient(45deg, var(--home-primary), var(--home-secondary));
   color: white;
-  border: none;
 }
 
 .home-page .cta-button.secondary {
   background: transparent;
-  color: var(--home-text);
   border: 2px solid var(--home-primary);
+  color: var(--home-text);
 }
 
 .home-page .cta-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 112, 243, 0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.home-page .cta-button.primary:hover {
+  background: var(--home-secondary);
+}
+
+.home-page .cta-button.secondary:hover {
+  background: var(--home-primary);
+  color: white;
 }
 
 /* Services section */
