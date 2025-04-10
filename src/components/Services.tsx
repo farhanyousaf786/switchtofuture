@@ -1,82 +1,73 @@
-import { ReactElement } from 'react';
-import { FaCode, FaMobile, FaCloud, FaRobot, FaChartLine, FaShieldAlt } from 'react-icons/fa';
 import './Services.css';
-
-interface Service {
-  title: string;
-  description: string;
-  icon: ReactElement;
-}
-
-const servicesData: Service[] = [
-  {
-    title: "Web Development",
-    description: "Modern web applications using React, Next.js, and Node.js. Fast, responsive, and user-friendly solutions.",
-    icon: <FaCode />
-  },
-  {
-    title: "Mobile Apps",
-    description: "Native and cross-platform mobile apps for iOS and Android. Seamless user experience with Flutter and React Native.",
-    icon: <FaMobile />
-  },
-  {
-    title: "Cloud Solutions",
-    description: "Scalable cloud infrastructure with AWS, Azure, and GCP. Expert DevOps and deployment solutions.",
-    icon: <FaCloud />
-  },
-  {
-    title: "AI Integration",
-    description: "Custom AI solutions and machine learning models. Smart automation for your business needs.",
-    icon: <FaRobot />
-  },
-  {
-    title: "Analytics",
-    description: "Real-time data analytics and visualization. Smart dashboards and business intelligence tools.",
-    icon: <FaChartLine />
-  },
-  {
-    title: "Cybersecurity",
-    description: "Complete security solutions with testing, audits, and best practices implementation.",
-    icon: <FaShieldAlt />
-  }
-];
-
-const additionalServices = [
-  'App Maintenance & Support',
-  'API Integrations',
-  'Cloud Hosting & Firebase Setup',
-  'SEO-Ready Web Pages',
-  'Deployment & Launch Help'
-];
+import { FiArrowUpRight } from 'react-icons/fi';
+import Lottie from 'lottie-react';
+import { useEffect, useState } from 'react';
 
 const Services = () => {
+  const [animationData, setAnimationData] = useState(null);
+
+  useEffect(() => {
+    fetch('https://lottie.host/d32efc74-ab20-462c-8ed6-6c6994d17ae7/2h4KAtkAbw.lottie')
+      .then(response => response.json())
+      .then(data => setAnimationData(data))
+      .catch(error => console.error('Error loading Lottie animation:', error));
+  }, []);
+
+  const services = [
+    {
+      title: "UX Research",
+      description: "Deep research for your product vision. We help define user audience, work on user stories, and competitive analysis."
+    },
+    {
+      title: "UX Auditing",
+      description: "If you are unsure of how your app behaves, we can help by doing a detailed UX audit that will highlight most of the issues in your product. From there, we can take it further and fix all issues."
+    },
+    {
+      title: "UX Consultation",
+      description: "Expert consultation on user experience design, interface optimization, and product strategy."
+    },
+    {
+      title: "Front End Development",
+      description: "Front End expertise with deep focus on HTML, CSS. Building responsive, accessible, and performant websites."
+    },
+    {
+      title: "Mobile Apps",
+      description: "Native and cross-platform mobile apps for iOS and Android. Seamless user experience with Flutter and React Native."
+    },
+    {
+      title: "Cloud Solutions",
+      description: "Scalable cloud infrastructure with AWS, Azure, and GCP. Expert DevOps and deployment solutions."
+    }
+  ];
+
   return (
-    <div className="services-section" id="services">
+    <section className="services-section">
       <div className="section-content">
-        <h2>Our Services</h2>
+        <div className="services-header">
+          <h2>Our Services</h2>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae accusamus eaque necessitatibus modi facilis aspernatur ut natus caecat.</p>
+        </div>
         <div className="services-grid">
-          {servicesData.map((service, index) => (
-            <div key={index} className="service-card" role="article">
-              <div className="service-icon">
-                {service.icon}
-              </div>
+          {services.map((service, index) => (
+            <div key={index} className="service-card">
               <h3>{service.title}</h3>
-              <p className="service-description">{service.description}</p>
+              <p>{service.description}</p>
+              <div className="service-link">
+                <FiArrowUpRight />
+              </div>
             </div>
           ))}
         </div>
-        <div className="additional-services">
-          <h3>We Also Offer</h3>
-          <div className="additional-services-grid">
-            {additionalServices.map((service, index) => (
-              <div key={index} className="additional-service-item">
-                {service}
-              </div>
-            ))}
+        {animationData && (
+          <div className="services-lottie">
+            <Lottie
+              animationData={animationData}
+              loop={true}
+            />
           </div>
-        </div>
+        )}
       </div>
-    </div>
+    </section>
   );
 };
 
