@@ -38,10 +38,25 @@ const Services = () => {
             We specialize in AI-driven software, full-stack development, and cross-platform mobile apps. Our team delivers
             secure, scalable, and intelligent digital products — from ideation to deployment.
           </p>
-          <p className="tech-stack">
-            <strong>Tech We Use:</strong> GPT, LangChain, OpenAI APIs, Python, Node.js, React, Next.js, Firebase, PostgreSQL,
-            MongoDB, Flutter, Docker, AWS, GitHub Actions, and more.
-          </p>
+          <div className="tech-showcase">
+  <h4 className="tech-title">Tech We Use:</h4>
+  <div className="tech-tags">
+    {[
+      'GPT', 'LangChain', 'OpenAI APIs', 'Python', 'Node.js', 'React', 'Next.js',
+      'Firebase', 'PostgreSQL', 'MongoDB', 'Flutter', 'Docker', 'AWS', 'GitHub Actions'
+    ].map((tech, index) => (
+      <span
+        key={tech}
+        className="tech-tag-animated"
+        style={{ animationDelay: `${index * 0.08}s` }}
+      >
+        {tech}
+      </span>
+    ))}
+    <span className="tech-tag-animated" style={{ animationDelay: `1.3s` }}>and more.</span>
+  </div>
+</div>
+
         </div>
         <div className="services-grid">
           {services.map((service, index) => (
