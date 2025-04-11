@@ -91,7 +91,7 @@ const projectsData: Project[] = [
 ];
 
 const Projects = () => (
-  <section className="projects-section">
+  <section className="projects-section" id="projects">
     <div className="projects-container">
       <h2 className="section-title">Our Projects</h2>
       <div className="project-cards">
