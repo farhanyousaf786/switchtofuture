@@ -160,17 +160,23 @@
 }
 
 .home-page .hero-subcontent {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 .home-page .hero-subcontent h2 {
-  font-family: var(--font-heading);
-  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
-  color: var(--home-text-light);
+  font-size: 1.4rem;
+  color: var(--home-text);
+  margin: 0.5rem 0;
   font-weight: 500;
-  letter-spacing: -0.01em;
+}
+
+.home-page .hero-subtitle {
+  font-size: 1.2rem;
+  color: var(--home-text-light);
+  margin: 1rem 0 1rem;
+  line-height: 1.6;
+  max-width: 600px;
+  font-weight: 400;
 }
 
 .home-page .tech-scroll {
@@ -200,16 +206,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
+  padding: 0.5rem;
+  margin: 0 0.5rem;
+  font-size: 0.8rem;
   color: var(--home-text-light);
   transition: all 0.3s ease;
-  padding: 0.5rem;
 }
 
 .home-page .tech-icon svg {
-  font-size: 2.5rem;
-  color: var(--home-primary);
-  transition: all 0.3s ease;
+  font-size: 1.5rem;
+  margin-bottom: 0.3rem;
+  color: var(--home-accent);
 }
 
 .home-page .tech-icon span {
@@ -233,8 +240,8 @@
 }
 
 .home-page .tech-stack {
-  width: 100%;
-  padding: 2rem 0;
+  margin: 1rem 0;
+  padding: 0.5rem 0;
   background: rgba(255, 255, 255, 0.02);
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -866,5 +873,12 @@
 
   .home-page .additional-services-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-page .hero-subtitle {
+    font-size: 1.1rem;
+    max-width: 400px;
   }
 }

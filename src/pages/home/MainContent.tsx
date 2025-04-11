@@ -41,9 +41,10 @@ const MainContent = () => {
       <section id="home" className="hero-section">
         <div className="hero-content">
           <h1>
-            Build What's Next
+          We Build the Future
             <br />
           </h1>
+          <p className="hero-subtitle">We help startups and businesses build software fast — with modern, scalable solutions.</p>
           <div className="hero-subcontent">
             <h2>Web Applications & Mobile Apps</h2>
             <h2>Develop AI Technologies</h2>

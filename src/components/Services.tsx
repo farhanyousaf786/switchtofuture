@@ -1,71 +1,85 @@
+import React from 'react';
 import './Services.css';
-import { FiArrowUpRight } from 'react-icons/fi';
+import { FiArrowRight } from 'react-icons/fi';
 
-const Services = () => {
-  const services = [
-    {
-      title: "AI Solutions & Automation",
-      description: "We build intelligent systems using OpenAI, GPT models, LangChain, and custom machine learning models. From AI chatbots to smart recommendation engines — we’ve got you covered."
-    },
-    {
-      title: "Full-Stack Web Development",
-      description: "End-to-end web apps using React, Next.js, Node.js, Express, Firebase, PostgreSQL, and MongoDB. Clean architecture, robust APIs, and pixel-perfect UIs."
-    },
-    {
-      title: "Mobile App Development",
-      description: "Native and cross-platform mobile apps using Flutter and React Native. Beautiful, high-performance apps that run on both Android and iOS."
-    },
-    {
-      title: "Cloud Infrastructure & DevOps",
-      description: "We set up scalable infrastructure using AWS, GCP, Docker, and CI/CD pipelines. Speed, security, and uptime — guaranteed."
-    },
-    {
-      title: "UX Research & Product Strategy",
-      description: "User personas, journey mapping, and product-market alignment. We design experiences based on real data, not just guesswork."
-    },
-    {
-      title: "UI/UX Design & Auditing",
-      description: "Detailed UX audits and design systems. We improve usability, accessibility, and visual appeal using Figma and industry best practices."
-    }
-  ];
+type Service = {
+  icon: string;
+  title: string;
+  description: string;
+  bullets: string[];
+  link: string;
+};
 
+const services: Service[] = [
+  {
+    icon: '📱',
+    title: 'Mobile App Development',
+    description: 'Cross-platform MVPs built with Flutter.',
+    bullets: [
+      'Launch on Android & iOS',
+      'Includes chat, auth, and payments',
+      '2–4 week delivery time',
+    ],
+    link: '#contact',
+  },
+  {
+    icon: '🤖',
+    title: 'AI Chatbots',
+    description: 'Custom GPT chatbots trained for your brand.',
+    bullets: [
+      'OpenAI + LangChain integration',
+      'Website, app & CRM support',
+      'Fast + friendly automation',
+    ],
+    link: '#contact',
+  },
+  {
+    icon: '🌐',
+    title: 'Web Development',
+    description: 'Modern, responsive, blazing-fast websites.',
+    bullets: [
+      'React / Next.js + Tailwind',
+      'Fully responsive & SEO-ready',
+      'Landing pages & dashboards',
+    ],
+    link: '#contact',
+  },
+  {
+    icon: '⚙️',
+    title: 'Automation & Tools',
+    description: 'Time-saving systems built for your business.',
+    bullets: [
+      'Zapier, Slack, Notion workflows',
+      'Custom APIs and admin panels',
+      'Full-stack dashboard logic',
+    ],
+    link: '#contact',
+  },
+];
+
+const ServicesSection: React.FC = () => {
   return (
     <section id="services" className="services-section">
-      <div className="section-content">
-        <div className="services-header">
-          <h2>Our Services</h2>
-          <p>
-            We specialize in AI-driven software, full-stack development, and cross-platform mobile apps. Our team delivers
-            secure, scalable, and intelligent digital products — from ideation to deployment.
-          </p>
-          <div className="tech-showcase">
-            <h4 className="tech-title">Tech We Use:</h4>
-            <div className="tech-tags">
-              {[
-                'GPT', 'LangChain', 'OpenAI APIs', 'Python', 'Node.js', 'React', 'Next.js',
-                'Firebase', 'PostgreSQL', 'MongoDB', 'Flutter', 'Docker', 'AWS', 'GitHub Actions'
-              ].map((tech, index) => (
-                <span
-                  key={tech}
-                  className="tech-tag-animated"
-                  style={{ animationDelay: `${index * 0.08}s` }}
-                >
-                  {tech}
-                </span>
-              ))}
-              <span className="tech-tag-animated" style={{ animationDelay: `1.3s` }}>and more.</span>
-            </div>
-          </div>
+      <div className="services-container">
+        <h2 className="section-title">Our Services</h2>
+        <p className="section-subtitle">
+          High-performance tech for startups, founders, and businesses ready to scale.
+        </p>
 
-        </div>
         <div className="services-grid">
           {services.map((service, index) => (
             <div key={index} className="service-card">
-              <h3>{service.title}</h3>
-              <p>{service.description}</p>
-              <div className="service-link">
-                <FiArrowUpRight />
-              </div>
+              <div className="service-icon">{service.icon}</div>
+              <h3 className="service-title">{service.title}</h3>
+              <p className="service-description">{service.description}</p>
+              <ul className="service-features">
+                {service.bullets.map((point, i) => (
+                  <li key={i}>• {point}</li>
+                ))}
+              </ul>
+              <a href={service.link} className="service-link">
+                Learn More <FiArrowRight />
+              </a>
             </div>
           ))}
         </div>
@@ -74,4 +88,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default ServicesSection;

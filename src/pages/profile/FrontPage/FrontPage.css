@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap');
+
+.front-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem 5%;
+  font-family: 'Outfit', sans-serif;
+  background: #fff;
+  color: #111;
+  min-height: 100vh;
+  gap: 2rem;
+}
+
+.left {
+  flex: 1;
+  max-width: 600px;
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.label {
+  letter-spacing: 0.15rem;
+  font-weight: 500;
+  color: #777;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: #111;
+}
+
+.bio {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 2rem;
+  max-width: 90%;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.btn-link {
+  font-weight: 600;
+  color: #111;
+  text-decoration: none;
+  border-bottom: 2px solid #000;
+  padding-bottom: 2px;
+}
+
+.btn-link:hover {
+  color: #555;
+  border-color: #555;
+}
+
+.or {
+  color: #888;
+  font-size: 0.95rem;
+}
+
+.icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.icons a {
+  color: #333;
+  font-size: 1.6rem;
+  transition: color 0.3s ease;
+}
+
+.icons a:hover {
+  color: #0077b5;
+}
+
+@media (max-width: 860px) {
+  .front-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 3rem 2rem;
+  }
+
+  .left, .right {
+    width: 100%;
+  }
+
+  .right img {
+    max-width: 70%;
+    margin-top: 2rem;
+  }
+}
