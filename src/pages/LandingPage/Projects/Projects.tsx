@@ -70,7 +70,7 @@ const projectsData: Project[] = [
     description: "Advanced analytics platform using AI to transform business data into actionable insights.",
     image: "https://i.imgur.com/zmLULuM.png",
     platforms: {
-      text: "Multi-Platform",
+      text: "Web Only",
       icons: [faChrome]
     },
     tags: ["Analytics", "AI", "Business"],

@@ -139,6 +139,11 @@
   gap: 0.5rem;
   justify-content: flex-start;
   flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.project-card:nth-child(even) .tags {
+  justify-content: flex-end;
 }
 
 .tags span {
