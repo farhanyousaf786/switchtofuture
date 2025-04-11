@@ -46,7 +46,7 @@ const MainContent = () => {
             <br />
           </h1>
           <p className="subtitle">
-            Delivering cutting-edge apps, powerful websites, and intelligent AI solutions
+            Delivering Cutting-Edge Apps, Powerful Websites, and Intelligent AI Solutions
           </p>
           <div className="tech-stack" style={{ padding: '1rem 2rem' }}>
           <div className="tech-scroll">
