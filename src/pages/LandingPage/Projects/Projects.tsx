@@ -13,8 +13,8 @@ interface Project {
 
 const projectsData: Project[] = [
   {
-    title: "Cascade AI",
-    subtitle: "CODING ASSISTANT",
+    title: "Mobile Recharge & Support Platform",
+    subtitle: "1 Million+ Users",
     description: "AI-powered coding assistant providing real-time coding suggestions and refactoring tips.",
     image: "https://i.imgur.com/zmLULuM.png",
     author: "Farhan Yousaf",
@@ -95,7 +95,11 @@ const Projects = () => (
               <h3>{project.title}</h3>
               <h4>{project.subtitle}</h4>
               <p>{project.description}</p>
-              <a href={project.link} className="read-more">Read More →</a>
+              <div className="button-container">
+                <a href={project.link} className="project-button">
+                  See Full Project
+                </a>
+              </div>
             </div>
           </div>
         ))}
