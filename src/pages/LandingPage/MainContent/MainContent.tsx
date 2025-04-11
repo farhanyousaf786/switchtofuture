@@ -45,7 +45,6 @@ const MainContent = () => {
           We Build the Future
             <br />
           </h1>
-          <p className="hero-subtitle">We help startups and businesses build software fast — with modern, scalable solutions.</p>
          
           <div className="tech-stack" style={{ padding: '1rem 2rem' }}>
           <div className="tech-scroll">

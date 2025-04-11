@@ -1,3 +1,4 @@
+import React from 'react';
 import './Projects.css';
 
 interface Project {
@@ -5,90 +6,75 @@ interface Project {
   description: string;
   image: string;
   tech: string[];
-  link?: string;
-  github?: string;
+  link: string;
 }
 
 const projectsData: Project[] = [
   {
     title: "Cascade AI",
-    description: "An intelligent coding assistant that helps developers write better code faster. Features real-time suggestions, code analysis, and automated refactoring.",
+    description: "An intelligent assistant that helps developers write cleaner code with smart suggestions and refactoring.",
     image: "https://i.imgur.com/zmLULuM.png",
-    tech: ["React", "TypeScript", "Node.js", "OpenAI", "Firebase"],
-    link: "https://cascade.io"
+    tech: ["AI Assistant", "Real-Time Help", "Refactoring"],
+    link: "/projects/cascade-ai"
   },
   {
     title: "Meddy App",
-    description: "A comprehensive healthcare platform connecting patients with doctors. Includes appointment scheduling, medical records, and telemedicine features.",
+    description: "Healthcare app connecting patients with doctors via appointments, records, and chat.",
     image: "https://i.imgur.com/zmLULuM.png",
-    tech: ["Flutter", "Firebase", "Node.js", "MongoDB"],
-    github: "https://github.com/yourusername/meddy-app"
+    tech: ["Telemedicine", "Chat", "Health Records"],
+    link: "/projects/meddy-app"
   },
   {
     title: "Crypto Dashboard",
-    description: "Real-time cryptocurrency tracking dashboard with advanced analytics, portfolio management, and market predictions using AI.",
+    description: "Track crypto prices, view trends, and manage your portfolio in real-time.",
     image: "https://i.imgur.com/zmLULuM.png",
-    tech: ["React", "TailwindCSS", "Node.js", "TensorFlow"],
-    link: "https://crypto-dash.app"
+    tech: ["Crypto", "Charts", "Portfolio"],
+    link: "/projects/crypto-dashboard"
   },
   {
     title: "Smart Home Hub",
-    description: "IoT platform for managing smart home devices with automation rules, energy monitoring, and voice control integration.",
+    description: "Manage your smart devices, schedule automations, and monitor usage from one place.",
     image: "https://i.imgur.com/zmLULuM.png",
-    tech: ["React Native", "Python", "AWS", "MongoDB"],
-    github: "https://github.com/yourusername/smart-home"
+    tech: ["IoT", "Smart Devices", "Energy"],
+    link: "/projects/smart-home-hub"
   },
   {
     title: "AI Content Generator",
-    description: "AI-powered platform for generating marketing content, blog posts, and social media updates with SEO optimization.",
+    description: "Generate blog posts, product descriptions, and ad copy in seconds using AI.",
     image: "https://i.imgur.com/zmLULuM.png",
-    tech: ["Next.js", "GPT-3", "Node.js", "PostgreSQL"],
-    link: "https://ai-content.app"
+    tech: ["Content", "Marketing", "AI"],
+    link: "/projects/ai-content-generator"
   },
   {
     title: "Fitness Tracker",
-    description: "Mobile app for tracking workouts, nutrition, and health metrics with AI-powered personalized recommendations.",
+    description: "Track your workouts, calories, and progress with smart recommendations.",
     image: "https://i.imgur.com/zmLULuM.png",
-    tech: ["Flutter", "Firebase", "TensorFlow", "Node.js"],
-    github: "https://github.com/yourusername/fitness-tracker"
+    tech: ["Fitness", "Tracking", "AI Coach"],
+    link: "/projects/fitness-tracker"
   }
 ];
 
-const Projects = () => {
+const Projects: React.FC = () => {
   return (
-    <section id="projects" className="projects-section" aria-label="Projects Section">
-      <div className="section-content">
-        <h2>Our Projects</h2>
-        <div className="projects-grid" role="list">
+    <section className="projects-section">
+      <div className="projects-container">
+        <h2 className="projects-title">Our Projects</h2>
+        <div className="projects-grid">
           {projectsData.map((project, index) => (
-            <div key={index} className="project-card" role="listitem">
+            <a key={index} href={project.link} className="project-card">
               <div className="project-image">
                 <img src={project.image} alt={project.title} />
-                <div className="project-overlay">
-                  <div className="project-links">
-                    {project.link && (
-                      <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-link">
-                        Live Demo
-                      </a>
-                    )}
-                    {project.github && (
-                      <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link">
-                        GitHub
-                      </a>
-                    )}
-                  </div>
-                </div>
               </div>
               <div className="project-content">
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>
                 <div className="project-tech">
-                  {project.tech.map((tech, idx) => (
-                    <span key={idx} className="tech-tag">{tech}</span>
+                  {project.tech.map((tag, i) => (
+                    <span key={i} className="tech-tag">{tag}</span>
                   ))}
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>
