@@ -84,6 +84,7 @@ const ServicesSection: React.FC = () => {
             </div>
           ))}
         </div>
+        
       </div>
     </section>
   );
