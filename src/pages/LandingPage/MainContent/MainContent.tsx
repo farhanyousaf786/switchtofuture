@@ -4,6 +4,7 @@ import {
   SiPostgresql, SiRedis, SiGraphql, SiAmazon, SiGooglecloud,
   SiJavascript, SiSwift, SiKotlin, SiTensorflow, SiPrisma
 } from 'react-icons/si';
+import { FaSync, FaHandshake, FaTools, FaLightbulb, FaSearch, FaPaintBrush, FaCode, FaRocket, FaChartLine } from 'react-icons/fa';
 import './MainContent.css';
 
 const MainContent = () => {
@@ -30,6 +31,35 @@ const MainContent = () => {
     { icon: <SiPrisma />, name: 'Prisma' }
   ];
 
+ 
+  const developmentCycle = [
+    {
+      icon: <FaSearch />,
+      title: 'Discover',
+      description: 'Understand & Plan your vision clearly'
+    },
+    {
+      icon: <FaPaintBrush />,
+      title: 'Design',
+      description: 'Crafting delightful UI/UX'
+    },
+    {
+      icon: <FaCode />,
+      title: 'Develop',
+      description: 'Writing scalable, efficient code'
+    },
+    {
+      icon: <FaRocket />,
+      title: 'Deploy',
+      description: 'Launch your solution smoothly'
+    },
+    {
+      icon: <FaChartLine />,
+      title: 'Optimize',
+      description: 'Continuous improvement and support'
+    }
+  ];
+
   const scrollToProjects = () => {
     const projectsSection = document.getElementById('projects');
     if (projectsSection) {
@@ -48,10 +78,11 @@ const MainContent = () => {
           <p className="subtitle">
             Delivering Cutting-Edge Apps, Powerful Websites, and Intelligent AI Solutions
           </p>
+          
           <div className="tech-stack" style={{ padding: '1rem 2rem' }}>
-          <div className="tech-scroll">
+            <div className="tech-scroll">
               <div className="tech-track">
-                {[...technologies, ...technologies].map((tech, index) => (
+                {technologies.map((tech, index) => (
                   <div key={index} className="tech-icon">
                     {tech.icon}
                     <span>{tech.name}</span>
@@ -60,14 +91,54 @@ const MainContent = () => {
               </div>
             </div>
           </div>
+
+     
+
+          <div className="dev-cycle">
+            {window.innerWidth <= 768 ? (
+              <div className="cycle-steps">
+                {developmentCycle.map((step, index) => (
+                  <div key={index} className="cycle-step">
+                    <div className="step-tag">Phase {index + 1}</div>
+                    <div className="step-icon">{step.icon}</div>
+                    <h3>{step.title}</h3>
+                    <p>{step.description}</p>
+                    {index < developmentCycle.length - 1 && <div className="step-arrow">→</div>}
+                  </div>
+                ))}
+                {developmentCycle.map((step, index) => (
+                  <div key={`clone-${index}`} className="cycle-step">
+                    <div className="step-tag">Phase {index + 1}</div>
+                    <div className="step-icon">{step.icon}</div>
+                    <h3>{step.title}</h3>
+                    <p>{step.description}</p>
+                    {index < developmentCycle.length - 1 && <div className="step-arrow">→</div>}
+                  </div>
+                ))}
+              </div>
+            ) : (
+              developmentCycle.map((step, index) => (
+                <div key={index} className="cycle-step">
+                  <div className="step-tag">Phase {index + 1}</div>
+                  <div className="step-icon">{step.icon}</div>
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                  {index < developmentCycle.length - 1 && <div className="step-arrow">→</div>}
+                </div>
+              ))
+            )}
+          </div>
+
           <div className="hero-cta">
-            <button className="cta-button primary">BOOK A FREE STRATEGY CALL</button>
-            <button onClick={scrollToProjects} className="cta-button secondary">VIEW OUR PROJECTS</button>
+            <a href="#contact" className="cta-button primary">
+              Book a Free Strategy Call
+            </a>
+            <a href="#projects" onClick={scrollToProjects} className="cta-button secondary">
+              View Our Projects
+            </a>
           </div>
         </div>
       </section>
-
-     
     </main>
   );
 };
