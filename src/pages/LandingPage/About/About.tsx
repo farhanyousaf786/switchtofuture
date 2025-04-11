@@ -1,5 +1,5 @@
-import { ReactElement } from 'react';
-import { FaSync, FaHandshake, FaTools, FaLightbulb } from 'react-icons/fa';
+import { ReactElement, useEffect, useRef } from 'react';
+import { FaSync, FaHandshake, FaTools, FaLightbulb, FaRocket } from 'react-icons/fa';
 import './About.css';
 
 interface CoreValue {
@@ -9,6 +9,26 @@ interface CoreValue {
 }
 
 const About = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const elements = document.querySelectorAll('.fade-in');
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   const coreValues: CoreValue[] = [
     {
       icon: <FaSync />,
@@ -28,22 +48,21 @@ const About = () => {
     {
       icon: <FaLightbulb />,
       title: 'Innovation',
-      description: "We build what\u2019s next, not what\u2019s trendy"
+      description: "We build what's next, not what's trendy"
     }
   ];
 
   return (
-    <section id="about" className="about-section">
+    <section id="about" className="about-section" ref={sectionRef}>
       <div className="section-content">
-        <div className="team-image">
+        <div className="team-image fade-in">
           <img src="https://i.imgur.com/zmLULuM.png" alt="Switch to Future Team" />
         </div>
         
-        <h2>About Switch to Future</h2>
+        <h2 className="fade-in">About Switch to Future</h2>
         
         <div className="about-content">
-          <div className="about-block who-we-are">
-            <h3>Who We Are</h3>
+          <div className="about-text fade-in">
             <p>
               Switch to Future is a NYC-based software and AI development studio dedicated to helping 
               founders, startups, and growing businesses bring their digital products to life. Led by 
@@ -52,40 +71,21 @@ const About = () => {
             </p>
           </div>
 
-          <div className="about-block our-mission">
-            <h3>Our Mission</h3>
-            <p>
-              To engineer tomorrow's technology — today. Whether it's a cross-platform mobile app, 
-              a full-stack web solution, or an AI-powered chatbot, we make it real with speed, 
-              quality, and vision.
-            </p>
+          <div className="values-grid">
+            {coreValues.map((value, index) => (
+              <div key={index} className="value-card fade-in">
+                <div className="value-icon">{value.icon}</div>
+                <h3>{value.title}</h3>
+                <p>{value.description}</p>
+              </div>
+            ))}
           </div>
 
-          <div className="about-block why-us">
-            <h3>Why Work With Us</h3>
-            <p>
-              We're not just developers — we're your tech partners. Local, responsive, and agile, 
-              we bring delivery expertise and a fully equipped team of five to ensure your project 
-              succeeds, on time and beyond expectations.
-            </p>
-          </div>
-
-          <div className="core-values">
-            <h3>Our Values</h3>
-            <div className="values-grid">
-              {coreValues.map((value, index) => (
-                <div key={index} className="value-card">
-                  <div className="value-icon">{value.icon}</div>
-                  <h4>{value.title}</h4>
-                  <p>{value.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="about-cta">
-            <h3>Ready to Build Something Amazing?</h3>
-            <button className="cta-button">Let's Build Together</button>
+          <div className="about-cta fade-in">
+            <button className="cta-button">
+              <FaRocket className="btn-icon" />
+              Let's Build Together
+            </button>
           </div>
         </div>
       </div>

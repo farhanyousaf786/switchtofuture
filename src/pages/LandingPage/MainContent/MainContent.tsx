@@ -4,7 +4,7 @@ import {
   SiPostgresql, SiRedis, SiGraphql, SiAmazon, SiGooglecloud,
   SiJavascript, SiSwift, SiKotlin, SiTensorflow, SiPrisma
 } from 'react-icons/si';
-import { FaSync, FaHandshake, FaTools, FaLightbulb, FaSearch, FaPaintBrush, FaCode, FaRocket, FaChartLine } from 'react-icons/fa';
+import { FaSync, FaHandshake, FaTools, FaLightbulb, FaSearch, FaPaintBrush, FaCode, FaRocket, FaChartLine, FaPhone, FaProjectDiagram } from 'react-icons/fa';
 import './MainContent.css';
 
 const MainContent = () => {
@@ -65,6 +65,14 @@ const MainContent = () => {
     if (projectsSection) {
       projectsSection.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const handleContactClick = () => {
+    // Add your logic here
+  };
+
+  const handleProjectsClick = () => {
+    scrollToProjects();
   };
 
   return (
@@ -130,12 +138,14 @@ const MainContent = () => {
           </div>
 
           <div className="hero-cta">
-            <a href="#contact" className="cta-button primary">
+            <button className="primary-btn" onClick={handleContactClick}>
+              <FaPhone className="btn-icon" />
               Book a Free Strategy Call
-            </a>
-            <a href="#projects" onClick={scrollToProjects} className="cta-button secondary">
+            </button>
+            <button className="secondary-btn" onClick={handleProjectsClick}>
+              <FaProjectDiagram className="btn-icon" />
               View Our Projects
-            </a>
+            </button>
           </div>
         </div>
       </section>

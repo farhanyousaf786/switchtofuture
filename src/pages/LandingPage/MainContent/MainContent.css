@@ -110,55 +110,69 @@
 /* CTA Section */
 .hero-cta {
   display: flex;
-  justify-content: center;
   gap: 1rem;
   margin-top: 2rem;
+  justify-content: center;
 }
 
-.cta-button {
-  padding: 0.8rem 1.8rem;
+.primary-btn,
+.secondary-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
   font-size: 0.9rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 25px;
+  font-weight: 500;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  border: none;
+  white-space: nowrap;
 }
 
-.cta-button.primary {
+.btn-icon {
+  font-size: 1rem;
+}
+
+.primary-btn {
   background: linear-gradient(45deg, #0070f3, #00d572);
-  color: rgb(0, 3, 54);
-  font-weight: 800;
-}
-
-.cta-button.secondary {
-  background: transparent;
-  border: 2px solid #0070f3;
-  color: #ffffff;
-}
-
-.cta-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.cta-button.primary:hover {
-  background: #00ff88;
-}
-
-.cta-button.secondary:hover {
-  background: #0070f3;
   color: white;
+  box-shadow: 0 4px 12px rgba(0, 112, 243, 0.2);
 }
 
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 112, 243, 0.3);
+}
+
+.secondary-btn {
+  background: rgba(255, 255, 255, 0.03);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .hero-cta {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.8rem;
+    padding: 0 1rem;
   }
-  100% {
-    transform: translateX(-50%);
+
+  .primary-btn,
+  .secondary-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    justify-content: center;
+  }
+
+  .btn-icon {
+    font-size: 0.9rem;
   }
 }
 
@@ -308,18 +322,6 @@
     padding: 6rem 1rem 4rem;
   }
 
-  .hero-cta {
-    flex-direction: column;
-    gap: 0.8rem;
-    padding: 0 2rem;
-  }
-
-  .cta-button {
-    width: 100%;
-    font-size: 0.8rem;
-    padding: 0.7rem 1.5rem;
-  }
-
   .core-values {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.8rem;
@@ -386,5 +388,14 @@
   .step-arrow {
     right: -1rem;
     font-size: 1rem;
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
