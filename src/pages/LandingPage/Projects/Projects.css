@@ -94,26 +94,37 @@
   align-items: flex-end;
 }
 
-.card-info .platform-text {
-  font-size: 1rem;
-  color: #00ff88;
-  font-weight: 600;
+.card-info .platform-icons {
+  display: flex;
+  gap: 1.2rem;
+  font-size: 1.5rem;
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.platform-icon {
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+}
+
+.icon-label {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.7);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
-.card-info .platform-icons {
-  display: flex;
-  gap: 0.8rem;
-  font-size: 1.2rem;
+.icon-container:hover .platform-icon {
+  color: #00ff88;
+  transform: translateY(-2px);
 }
 
-.card-info .platform-icon {
-  color: rgba(255, 255, 255, 0.9);
-  transition: color 0.3s ease;
-}
-
-.card-info .platform-icon:hover {
+.icon-container:hover .icon-label {
   color: #00ff88;
 }
 
@@ -267,7 +278,12 @@
   }
 
   .card-info .platform-icons {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
+    gap: 1rem;
+  }
+
+  .icon-label {
+    font-size: 0.65rem;
   }
 
   .tags,

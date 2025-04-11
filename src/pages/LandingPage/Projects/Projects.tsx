@@ -11,7 +11,6 @@ interface Project {
     text: string;
     icons: any[];
   };
-  date: string;
   tags: string[];
   link: string;
 }
@@ -23,10 +22,9 @@ const projectsData: Project[] = [
     description: "Complete mobile recharge and customer support solution with real-time transaction processing.",
     image: "https://i.imgur.com/zmLULuM.png",
     platforms: {
-      text: "iOS & Android",
+      text: "Multi-Platform",
       icons: [faApple, faAndroid]
     },
-    date: "Mar 20, 2025",
     tags: ["Mobile", "Payments", "Support"],
     link: "/projects/mobile-recharge"
   },
@@ -36,10 +34,9 @@ const projectsData: Project[] = [
     description: "Comprehensive healthcare app facilitating communication and managing medical data.",
     image: "https://i.imgur.com/zmLULuM.png",
     platforms: {
-      text: "Android & Web",
+      text: "Multi-Platform",
       icons: [faAndroid, faChrome]
     },
-    date: "Feb 15, 2025",
     tags: ["Healthcare", "Appointments", "Chat"],
     link: "/projects/meddy-app"
   },
@@ -49,10 +46,9 @@ const projectsData: Project[] = [
     description: "A suite of powerful development tools to streamline your coding workflow and boost productivity.",
     image: "https://i.imgur.com/zmLULuM.png",
     platforms: {
-      text: "Web & Desktop",
+      text: "Multi-Platform",
       icons: [faChrome]
     },
-    date: "Apr 5, 2025",
     tags: ["Development", "Tools", "Productivity"],
     link: "/projects/devflow"
   },
@@ -62,10 +58,9 @@ const projectsData: Project[] = [
     description: "Modern learning management system with interactive courses, live sessions, and progress tracking.",
     image: "https://i.imgur.com/zmLULuM.png",
     platforms: {
-      text: "iOS & Web",
+      text: "Multi-Platform",
       icons: [faApple, faChrome]
     },
-    date: "Jan 30, 2025",
     tags: ["Education", "E-Learning", "Tech"],
     link: "/projects/edutech"
   },
@@ -75,10 +70,9 @@ const projectsData: Project[] = [
     description: "Advanced analytics platform using AI to transform business data into actionable insights.",
     image: "https://i.imgur.com/zmLULuM.png",
     platforms: {
-      text: "Web Platform",
+      text: "Multi-Platform",
       icons: [faChrome]
     },
-    date: "Mar 10, 2025",
     tags: ["Analytics", "AI", "Business"],
     link: "/projects/ai-analytics"
   },
@@ -88,10 +82,9 @@ const projectsData: Project[] = [
     description: "Comprehensive IoT platform for managing and monitoring connected devices in real-time.",
     image: "https://i.imgur.com/zmLULuM.png",
     platforms: {
-      text: "Cross Platform",
+      text: "Multi-Platform",
       icons: [faApple, faAndroid, faChrome]
     },
-    date: "Feb 28, 2025",
     tags: ["IoT", "Real-time", "Monitoring"],
     link: "/projects/smart-iot"
   }
@@ -111,11 +104,16 @@ const Projects = () => (
                   <span className="platform-text">{project.platforms.text}</span>
                   <div className="platform-icons">
                     {project.platforms.icons.map((icon, i) => (
-                      <FontAwesomeIcon key={i} icon={icon} className="platform-icon" />
+                      <div key={i} className="icon-container">
+                        <FontAwesomeIcon icon={icon} className="platform-icon" />
+                        <span className="icon-label">
+                          {icon.iconName === 'apple' ? 'iOS' :
+                           icon.iconName === 'android' ? 'Android' : 'Web'}
+                        </span>
+                      </div>
                     ))}
                   </div>
                 </div>
-                <div className="date">{project.date}</div>
                 <div className="tags">
                   {project.tags.map(tag => <span key={tag}>{tag}</span>)}
                 </div>
