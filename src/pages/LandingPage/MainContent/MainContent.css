@@ -16,12 +16,22 @@
 .hero-content h1 {
   font-size: clamp(2.5rem, 8vw, 4.5rem);
   font-weight: 800;
-  margin: 3rem 0 1.5rem;
+  margin: 3rem 0 1rem;
   line-height: 1.1;
   background: linear-gradient(45deg, #0070f3, #00ff88);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.hero-content .subtitle {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  font-weight: 400;
+  margin: 0 auto 2rem;
+  max-width: 800px;
+  line-height: 1.5;
+  color: #a1a1aa;
+  padding: 0 1rem;
 }
 
 

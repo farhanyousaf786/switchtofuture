@@ -18,7 +18,7 @@ const teamMembers: TeamMember[] = [
   {
     name: 'Farhan',
     role: 'Team Lead',
-    image: 'https://i.imgur.com/zmLULuM.png',
+    image: 'https://imgur.com/AftbaTl.png',
     bio: 'Visionary full-stack lead. Loves innovation, cloud, and clean UI.',
     profilePath: '/profile/farhan',
     social: {
@@ -30,7 +30,7 @@ const teamMembers: TeamMember[] = [
   {
     name: 'Kamran',
     role: 'Backend Architect',
-    image: 'https://i.imgur.com/zmLULuM.png',
+    image: 'https://imgur.com/AftbaTl.png',
     bio: 'Master of APIs, databases, and scalable infrastructures.',
     profilePath: '/profile/kamran',
     social: {
@@ -41,7 +41,7 @@ const teamMembers: TeamMember[] = [
   {
     name: 'Usman',
     role: 'Frontend Wizard',
-    image: 'https://i.imgur.com/zmLULuM.png',
+    image: 'https://imgur.com/AftbaTl.png',
     bio: 'Transforms UI ideas into production-grade apps.',
     profilePath: '/profile/usman',
     social: {

@@ -49,22 +49,16 @@
   overflow: hidden;
   margin: 0 auto 1.5rem;
   position: relative;
-  border: 3px solid transparent;
-  background: linear-gradient(45deg, #0070f3, #00d572) border-box;
-  -webkit-mask: 
-     linear-gradient(#fff 0 0) padding-box, 
-     linear-gradient(#fff 0 0);
-  mask: 
-     linear-gradient(#fff 0 0) padding-box, 
-     linear-gradient(#fff 0 0);
-  -webkit-mask-composite: destination-out;
-  mask-composite: exclude;
+  padding: 3px;
+  background: linear-gradient(45deg, #0070f3, #00d572);
 }
 
 .team-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 50%;
+  display: block;
 }
 
 .team-info h3 {
