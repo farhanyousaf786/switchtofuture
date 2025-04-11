@@ -1,5 +1,4 @@
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
 import './Team.css';
 
 interface TeamMember {
@@ -15,95 +14,100 @@ interface TeamMember {
   };
 }
 
-const Team = () => {
-  const navigate = useNavigate();
-  
-  const teamMembers: TeamMember[] = [
-    {
-      name: 'Farhan',
-      role: 'Senior Developer',
-      image: 'https://i.imgur.com/zmLULuM.png',
-      bio: 'Full-stack developer with 7+ years of experience in React, Node.js, and cloud technologies.',
-      profilePath: '/profile/farhan',
-      social: {
-        github: 'https://github.com/farhanyousaf786',
-        linkedin: 'https://linkedin.com/in/farhanyousaf786',
-        twitter: 'https://twitter.com/farhanyousaf786'
-      }
+const teamMembers: TeamMember[] = [
+  {
+    name: 'Farhan',
+    role: 'Team Lead',
+    image: 'https://i.imgur.com/zmLULuM.png',
+    bio: 'Visionary full-stack lead. Loves innovation, cloud, and clean UI.',
+    profilePath: '/profile/farhan',
+    social: {
+      github: 'https://github.com/farhanyousaf786',
+      linkedin: 'https://linkedin.com/in/farhanyousaf786',
+      twitter: 'https://twitter.com/farhanyousaf786',
     },
-    {
-      name: 'Kamran',
-      role: 'Senior Developer',
-      image: 'https://i.imgur.com/zmLULuM.png',
-      bio: 'Backend expert specializing in scalable architectures and cloud infrastructure.',
-      profilePath: '/profile/kamran',
-      social: {
-        github: 'https://github.com/kamran',
-        linkedin: 'https://linkedin.com/in/kamran'
-      }
+  },
+  {
+    name: 'Kamran',
+    role: 'Backend Architect',
+    image: 'https://i.imgur.com/zmLULuM.png',
+    bio: 'Master of APIs, databases, and scalable infrastructures.',
+    profilePath: '/profile/kamran',
+    social: {
+      github: 'https://github.com/kamran',
+      linkedin: 'https://linkedin.com/in/kamran',
     },
-    {
-      name: 'Usama',
-      role: 'Senior Developer',
-      image: 'https://i.imgur.com/zmLULuM.png',
-      bio: 'Frontend specialist with expertise in React, Flutter, and modern UI frameworks.',
-      profilePath: '/profile/usama',
-      social: {
-        github: 'https://github.com/usama',
-        linkedin: 'https://linkedin.com/in/usama',
-        twitter: 'https://twitter.com/usama'
-      }
+  },
+  {
+    name: 'Usman',
+    role: 'Frontend Wizard',
+    image: 'https://i.imgur.com/zmLULuM.png',
+    bio: 'Transforms UI ideas into production-grade apps.',
+    profilePath: '/profile/usman',
+    social: {
+      github: 'https://github.com/usman',
+      linkedin: 'https://linkedin.com/in/usman',
+      twitter: 'https://twitter.com/usman',
     },
-    {
-      name: 'Michael',
-      role: 'Senior Developer',
-      image: 'https://i.imgur.com/zmLULuM.png',
-      bio: 'Full-stack developer focused on AI integration and cloud solutions.',
-      profilePath: '/profile/michael',
-      social: {
-        github: 'https://github.com/michael',
-        linkedin: 'https://linkedin.com/in/michael'
-      }
-    }
-  ];
+  },
+  {
+    name: 'Saqib',
+    role: 'AI Engineer',
+    image: 'https://i.imgur.com/zmLULuM.png',
+    bio: 'Builds smart systems with machine learning and LLMs.',
+    profilePath: '/profile/saqib',
+    social: {
+      github: 'https://github.com/saqib',
+      linkedin: 'https://linkedin.com/in/saqib',
+    },
+  },
+  {
+    name: 'Talha',
+    role: 'DevOps Specialist',
+    image: 'https://i.imgur.com/zmLULuM.png',
+    bio: 'Keeps servers running and deployments flowing smoothly.',
+    profilePath: '/profile/talha',
+    social: {
+      github: 'https://github.com/talha',
+      linkedin: 'https://linkedin.com/in/talha',
+    },
+  },
+];
 
+const Team = () => {
   return (
-    <section id="team" className="team-section">
+    <section className="team-section">
       <div className="section-content">
-        <h2>Our Team</h2>
+        <h2>Meet Our Team</h2>
         <div className="team-grid">
           {teamMembers.map((member, index) => (
-            <div key={index} className="team-card" onClick={() => navigate(member.profilePath)}>
-              <div className="team-card-inner">
-                <div className="team-card-front">
-                  <div className="member-image">
-                    <img src={member.image} alt={member.name} />
-                  </div>
-                  <h3>{member.name}</h3>
-                  <p className="role">{member.role}</p>
-                </div>
-                <div className="team-card-back">
-                  <p className="bio">{member.bio}</p>
-                  <div className="social-links">
-                    {member.social.github && (
-                      <a href={member.social.github} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()}>
-                        <FaGithub />
-                      </a>
-                    )}
-                    {member.social.linkedin && (
-                      <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()}>
-                        <FaLinkedin />
-                      </a>
-                    )}
-                    {member.social.twitter && (
-                      <a href={member.social.twitter} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()}>
-                        <FaTwitter />
-                      </a>
-                    )}
-                  </div>
+            <a key={index} href={member.profilePath} className="team-card">
+              <div className="team-image">
+                <img src={member.image} alt={member.name} />
+              </div>
+              <div className="team-info">
+                <h3>{member.name}</h3>
+                <p className="role">{member.role}</p>
+                <p className="bio">{member.bio}</p>
+                <div className="social-links">
+                  {member.social.github && (
+                    <a href={member.social.github} onClick={e => e.stopPropagation()} target="_blank" rel="noreferrer">
+                      <FaGithub />
+                    </a>
+                  )}
+                  {member.social.linkedin && (
+                    <a href={member.social.linkedin} onClick={e => e.stopPropagation()} target="_blank" rel="noreferrer">
+                      <FaLinkedin />
+                    </a>
+                  )}
+                  {member.social.twitter && (
+                    <a href={member.social.twitter} onClick={e => e.stopPropagation()} target="_blank" rel="noreferrer">
+                      <FaTwitter />
+                    </a>
+                  )}
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>

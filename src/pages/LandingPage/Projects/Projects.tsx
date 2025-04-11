@@ -1,85 +1,107 @@
-import React from 'react';
 import './Projects.css';
 
 interface Project {
   title: string;
+  subtitle: string;
   description: string;
   image: string;
-  tech: string[];
+  author: string;
+  date: string;
+  tags: string[];
   link: string;
 }
 
 const projectsData: Project[] = [
   {
     title: "Cascade AI",
-    description: "An intelligent assistant that helps developers write cleaner code with smart suggestions and refactoring.",
+    subtitle: "CODING ASSISTANT",
+    description: "AI-powered coding assistant providing real-time coding suggestions and refactoring tips.",
     image: "https://i.imgur.com/zmLULuM.png",
-    tech: ["AI Assistant", "Real-Time Help", "Refactoring"],
+    author: "Farhan Yousaf",
+    date: "Mar 20, 2025",
+    tags: ["AI", "Assistant", "Coding"],
     link: "/projects/cascade-ai"
   },
   {
     title: "Meddy App",
-    description: "Healthcare app connecting patients with doctors via appointments, records, and chat.",
+    subtitle: "HEALTHCARE SOLUTION",
+    description: "Comprehensive healthcare app facilitating communication and managing medical data.",
     image: "https://i.imgur.com/zmLULuM.png",
-    tech: ["Telemedicine", "Chat", "Health Records"],
+    author: "Kamran",
+    date: "Feb 15, 2025",
+    tags: ["Healthcare", "Appointments", "Chat"],
     link: "/projects/meddy-app"
   },
   {
-    title: "Crypto Dashboard",
-    description: "Track crypto prices, view trends, and manage your portfolio in real-time.",
+    title: "DevFlow",
+    subtitle: "DEVELOPER TOOLKIT",
+    description: "A suite of powerful development tools to streamline your coding workflow and boost productivity.",
     image: "https://i.imgur.com/zmLULuM.png",
-    tech: ["Crypto", "Charts", "Portfolio"],
-    link: "/projects/crypto-dashboard"
+    author: "Farhan Yousaf",
+    date: "Apr 5, 2025",
+    tags: ["Development", "Tools", "Productivity"],
+    link: "/projects/devflow"
   },
   {
-    title: "Smart Home Hub",
-    description: "Manage your smart devices, schedule automations, and monitor usage from one place.",
+    title: "EduTech Platform",
+    subtitle: "LEARNING MANAGEMENT",
+    description: "Modern learning management system with interactive courses, live sessions, and progress tracking.",
     image: "https://i.imgur.com/zmLULuM.png",
-    tech: ["IoT", "Smart Devices", "Energy"],
-    link: "/projects/smart-home-hub"
+    author: "Switch To Future",
+    date: "Jan 30, 2025",
+    tags: ["Education", "E-Learning", "Tech"],
+    link: "/projects/edutech"
   },
   {
-    title: "AI Content Generator",
-    description: "Generate blog posts, product descriptions, and ad copy in seconds using AI.",
+    title: "AI Analytics Hub",
+    subtitle: "DATA INTELLIGENCE",
+    description: "Advanced analytics platform using AI to transform business data into actionable insights.",
     image: "https://i.imgur.com/zmLULuM.png",
-    tech: ["Content", "Marketing", "AI"],
-    link: "/projects/ai-content-generator"
+    author: "Farhan Yousaf",
+    date: "Mar 10, 2025",
+    tags: ["Analytics", "AI", "Business"],
+    link: "/projects/ai-analytics"
   },
   {
-    title: "Fitness Tracker",
-    description: "Track your workouts, calories, and progress with smart recommendations.",
+    title: "Smart IoT Platform",
+    subtitle: "IOT SOLUTION",
+    description: "Comprehensive IoT platform for managing and monitoring connected devices in real-time.",
     image: "https://i.imgur.com/zmLULuM.png",
-    tech: ["Fitness", "Tracking", "AI Coach"],
-    link: "/projects/fitness-tracker"
+    author: "Switch To Future",
+    date: "Feb 28, 2025",
+    tags: ["IoT", "Real-time", "Monitoring"],
+    link: "/projects/smart-iot"
   }
 ];
 
-const Projects: React.FC = () => {
-  return (
-    <section className="projects-section">
-      <div className="projects-container">
-        <h2 className="projects-title">Our Projects</h2>
-        <div className="projects-grid">
-          {projectsData.map((project, index) => (
-            <a key={index} href={project.link} className="project-card">
-              <div className="project-image">
-                <img src={project.image} alt={project.title} />
-              </div>
-              <div className="project-content">
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-                <div className="project-tech">
-                  {project.tech.map((tag, i) => (
-                    <span key={i} className="tech-tag">{tag}</span>
-                  ))}
+const Projects = () => (
+  <section className="projects-section">
+    <div className="projects-container">
+      <h2 className="section-title">Our Projects</h2>
+      <div className="project-cards">
+        {projectsData.map((project, idx) => (
+          <div className="project-card" key={idx}>
+            <div className="card-image" style={{ backgroundImage: `url(${project.image})` }}>
+              <div className="image-overlay"></div>
+              <div className="card-info">
+                <div className="author">{project.author}</div>
+                <div className="date">{project.date}</div>
+                <div className="tags">
+                  {project.tags.map(tag => <span key={tag}>{tag}</span>)}
                 </div>
               </div>
-            </a>
-          ))}
-        </div>
+            </div>
+            <div className="card-content">
+              <h3>{project.title}</h3>
+              <h4>{project.subtitle}</h4>
+              <p>{project.description}</p>
+              <a href={project.link} className="read-more">Read More →</a>
+            </div>
+          </div>
+        ))}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default Projects;
