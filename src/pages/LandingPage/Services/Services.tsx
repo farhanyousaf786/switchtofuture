@@ -15,13 +15,10 @@ const services: Service[] = [
   {
     icon: '📱',
     title: 'Mobile App Development',
-    description: 'We design and build high-performance mobile apps for both Android and iOS.',
+    description: 'We design and build high-performance mobile apps for Android and iOS.',
     bullets: [
-      'Custom-designed mobile interface with smooth UX',
-      'Supports login, notifications, messaging, and more',
-      'Integrated payment systems and secure data flows',
-      'Works across phones, tablets, and modern devices',
-      'Includes admin panel or backend if needed',
+      'Custom UI with secure login, chat, and payments',
+      'Admin dashboard or backend tools included',
     ],
     link: '#contact',
     buttonLabel: 'Start My App',
@@ -29,13 +26,10 @@ const services: Service[] = [
   {
     icon: '🌐',
     title: 'Web Development',
-    description: 'We create sleek, responsive websites and powerful online platforms.',
+    description: 'We create modern websites that are fast, responsive, and built for conversion.',
     bullets: [
-      'Modern and mobile-friendly UI design',
-      'SEO-friendly structure with lightning-fast load times',
-      'Contact forms, animations, and newsletter signups',
-      'Built to support e-commerce, blogs, and portals',
-      'Includes dashboards or CMS features on request',
+      'SEO-ready design with forms and animations',
+      'Works on mobile, tablets, and all browsers',
     ],
     link: '#contact',
     buttonLabel: 'Build My Website',
@@ -43,13 +37,10 @@ const services: Service[] = [
   {
     icon: '🤖',
     title: 'AI Chatbots',
-    description: 'We build intelligent chatbots that automate responses and improve engagement.',
+    description: 'Smart chatbots that automate responses, support, and lead capture.',
     bullets: [
-      'Personalized AI assistant tailored to your business',
-      'Works on websites, apps, and popular messaging tools',
-      'Answers FAQs, captures leads, and routes conversations',
-      'Seamless integration with your existing workflow',
-      'Includes analytics dashboard for performance tracking',
+      'Integrates with your site or app',
+      'Analytics & training support included',
     ],
     link: '#contact',
     buttonLabel: 'Train My Bot',
@@ -57,19 +48,15 @@ const services: Service[] = [
   {
     icon: '⚙️',
     title: 'Automation & Tools',
-    description: 'We automate your repetitive tasks and build custom internal tools.',
+    description: 'Automate workflows, dashboards, reports, and internal tools.',
     bullets: [
-      'Connect your apps to eliminate manual work',
-      'Create internal tools like admin panels & CRMs',
-      'Set up dashboards to track business data in real time',
-      'Automate reports, emails, form handling, and more',
-      'Tailored to fit your existing process — no disruption',
+      'Custom admin tools & dashboards',
+      'Connect apps, auto-send emails, process data',
     ],
     link: '#contact',
     buttonLabel: 'Automate My Business',
   },
 ];
-
 
 const ServicesSection: React.FC = () => {
   return (
@@ -77,7 +64,7 @@ const ServicesSection: React.FC = () => {
       <div className="services-container">
         <h2 className="section-title">Our Services</h2>
         <p className="section-subtitle">
-          High-performance tech for startups, founders, and businesses ready to scale.
+          Powerful tools to launch your app, automate your business, and scale smart.
         </p>
 
         <div className="services-grid">
@@ -88,7 +75,7 @@ const ServicesSection: React.FC = () => {
               <p className="service-description">{service.description}</p>
               <ul className="service-features">
                 {service.bullets.map((point, i) => (
-                  <li key={i}>{point}</li>
+                  <li key={i}>• {point}</li>
                 ))}
               </ul>
               <a href={service.link} className="service-link">
