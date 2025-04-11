@@ -50,66 +50,57 @@ const teamMembers: TeamMember[] = [
       twitter: 'https://twitter.com/usman',
     },
   },
-  {
-    name: 'Saqib',
-    role: 'AI Engineer',
-    image: 'https://i.imgur.com/zmLULuM.png',
-    bio: 'Builds smart systems with machine learning and LLMs.',
-    profilePath: '/profile/saqib',
-    social: {
-      github: 'https://github.com/saqib',
-      linkedin: 'https://linkedin.com/in/saqib',
-    },
-  },
-  {
-    name: 'Talha',
-    role: 'DevOps Specialist',
-    image: 'https://i.imgur.com/zmLULuM.png',
-    bio: 'Keeps servers running and deployments flowing smoothly.',
-    profilePath: '/profile/talha',
-    social: {
-      github: 'https://github.com/talha',
-      linkedin: 'https://linkedin.com/in/talha',
-    },
-  },
 ];
 
 const Team = () => {
   return (
-    <section className="team-section">
-      <div className="section-content">
-        <h2>Meet Our Team</h2>
-        <div className="team-grid">
-          {teamMembers.map((member, index) => (
-            <a key={index} href={member.profilePath} className="team-card">
-              <div className="team-image">
-                <img src={member.image} alt={member.name} />
+    <section className="team-section" id="team">
+      <h2>Meet Our Team</h2>
+      <div className="team-grid">
+        {teamMembers.map((member, index) => (
+          <div key={index} className="team-card">
+            <div className="team-image">
+              <img src={member.image} alt={member.name} />
+            </div>
+            <div className="team-info">
+              <h3>{member.name}</h3>
+              <p className="role">{member.role}</p>
+              <p className="bio">{member.bio}</p>
+              <div className="social-links">
+                {member.social.github && (
+                  <a 
+                    href={member.social.github} 
+                    className="social-link"
+                    target="_blank" 
+                    rel="noreferrer"
+                  >
+                    <FaGithub />
+                  </a>
+                )}
+                {member.social.linkedin && (
+                  <a 
+                    href={member.social.linkedin} 
+                    className="social-link"
+                    target="_blank" 
+                    rel="noreferrer"
+                  >
+                    <FaLinkedin />
+                  </a>
+                )}
+                {member.social.twitter && (
+                  <a 
+                    href={member.social.twitter} 
+                    className="social-link"
+                    target="_blank" 
+                    rel="noreferrer"
+                  >
+                    <FaTwitter />
+                  </a>
+                )}
               </div>
-              <div className="team-info">
-                <h3>{member.name}</h3>
-                <p className="role">{member.role}</p>
-                <p className="bio">{member.bio}</p>
-                <div className="social-links">
-                  {member.social.github && (
-                    <a href={member.social.github} onClick={e => e.stopPropagation()} target="_blank" rel="noreferrer">
-                      <FaGithub />
-                    </a>
-                  )}
-                  {member.social.linkedin && (
-                    <a href={member.social.linkedin} onClick={e => e.stopPropagation()} target="_blank" rel="noreferrer">
-                      <FaLinkedin />
-                    </a>
-                  )}
-                  {member.social.twitter && (
-                    <a href={member.social.twitter} onClick={e => e.stopPropagation()} target="_blank" rel="noreferrer">
-                      <FaTwitter />
-                    </a>
-                  )}
-                </div>
-              </div>
-            </a>
-          ))}
-        </div>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
