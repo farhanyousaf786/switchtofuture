@@ -8,54 +8,68 @@ type Service = {
   description: string;
   bullets: string[];
   link: string;
+  buttonLabel: string;
 };
 
 const services: Service[] = [
   {
     icon: '📱',
     title: 'Mobile App Development',
-    description: 'Cross-platform MVPs built with Flutter.',
+    description: 'We design and build high-performance mobile apps for both Android and iOS.',
     bullets: [
-      'Launch on Android & iOS',
-      'Includes chat, auth, and payments',
-      '2–4 week delivery time',
+      'Custom-designed mobile interface with smooth UX',
+      'Supports login, notifications, messaging, and more',
+      'Integrated payment systems and secure data flows',
+      'Works across phones, tablets, and modern devices',
+      'Includes admin panel or backend if needed',
     ],
     link: '#contact',
-  },
-  {
-    icon: '🤖',
-    title: 'AI Chatbots',
-    description: 'Custom GPT chatbots trained for your brand.',
-    bullets: [
-      'OpenAI + LangChain integration',
-      'Website, app & CRM support',
-      'Fast + friendly automation',
-    ],
-    link: '#contact',
+    buttonLabel: 'Start My App',
   },
   {
     icon: '🌐',
     title: 'Web Development',
-    description: 'Modern, responsive, blazing-fast websites.',
+    description: 'We create sleek, responsive websites and powerful online platforms.',
     bullets: [
-      'React / Next.js + Tailwind',
-      'Fully responsive & SEO-ready',
-      'Landing pages & dashboards',
+      'Modern and mobile-friendly UI design',
+      'SEO-friendly structure with lightning-fast load times',
+      'Contact forms, animations, and newsletter signups',
+      'Built to support e-commerce, blogs, and portals',
+      'Includes dashboards or CMS features on request',
     ],
     link: '#contact',
+    buttonLabel: 'Build My Website',
+  },
+  {
+    icon: '🤖',
+    title: 'AI Chatbots',
+    description: 'We build intelligent chatbots that automate responses and improve engagement.',
+    bullets: [
+      'Personalized AI assistant tailored to your business',
+      'Works on websites, apps, and popular messaging tools',
+      'Answers FAQs, captures leads, and routes conversations',
+      'Seamless integration with your existing workflow',
+      'Includes analytics dashboard for performance tracking',
+    ],
+    link: '#contact',
+    buttonLabel: 'Train My Bot',
   },
   {
     icon: '⚙️',
     title: 'Automation & Tools',
-    description: 'Time-saving systems built for your business.',
+    description: 'We automate your repetitive tasks and build custom internal tools.',
     bullets: [
-      'Zapier, Slack, Notion workflows',
-      'Custom APIs and admin panels',
-      'Full-stack dashboard logic',
+      'Connect your apps to eliminate manual work',
+      'Create internal tools like admin panels & CRMs',
+      'Set up dashboards to track business data in real time',
+      'Automate reports, emails, form handling, and more',
+      'Tailored to fit your existing process — no disruption',
     ],
     link: '#contact',
+    buttonLabel: 'Automate My Business',
   },
 ];
+
 
 const ServicesSection: React.FC = () => {
   return (
@@ -74,11 +88,11 @@ const ServicesSection: React.FC = () => {
               <p className="service-description">{service.description}</p>
               <ul className="service-features">
                 {service.bullets.map((point, i) => (
-                  <li key={i}>• {point}</li>
+                  <li key={i}>{point}</li>
                 ))}
               </ul>
               <a href={service.link} className="service-link">
-                Learn More <FiArrowRight />
+                {service.buttonLabel} <FiArrowRight />
               </a>
             </div>
           ))}

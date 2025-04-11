@@ -4,6 +4,7 @@ import {
   SiPostgresql, SiRedis, SiGraphql, SiAmazon, SiGooglecloud,
   SiJavascript, SiSwift, SiKotlin, SiTensorflow, SiPrisma
 } from 'react-icons/si';
+import './MainContent.css';
 
 const MainContent = () => {
   const technologies = [
@@ -45,12 +46,9 @@ const MainContent = () => {
             <br />
           </h1>
           <p className="hero-subtitle">We help startups and businesses build software fast — with modern, scalable solutions.</p>
-          <div className="hero-subcontent">
-            <h2>Web Applications & Mobile Apps</h2>
-            <h2>Develop AI Technologies</h2>
-          </div>
-          <div className="tech-stack">
-            <div className="tech-scroll">
+         
+          <div className="tech-stack" style={{ padding: '1rem 2rem' }}>
+          <div className="tech-scroll">
               <div className="tech-track">
                 {[...technologies, ...technologies].map((tech, index) => (
                   <div key={index} className="tech-icon">
