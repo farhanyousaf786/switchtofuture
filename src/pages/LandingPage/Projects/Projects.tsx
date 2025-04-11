@@ -1,11 +1,16 @@
 import './Projects.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faApple, faAndroid, faChrome } from '@fortawesome/free-brands-svg-icons';
 
 interface Project {
   title: string;
   subtitle: string;
   description: string;
   image: string;
-  author: string;
+  platforms: {
+    text: string;
+    icons: any[];
+  };
   date: string;
   tags: string[];
   link: string;
@@ -15,19 +20,25 @@ const projectsData: Project[] = [
   {
     title: "Mobile Recharge & Support Platform",
     subtitle: "1 Million+ Users",
-    description: "AI-powered coding assistant providing real-time coding suggestions and refactoring tips.",
+    description: "Complete mobile recharge and customer support solution with real-time transaction processing.",
     image: "https://i.imgur.com/zmLULuM.png",
-    author: "Farhan Yousaf",
+    platforms: {
+      text: "iOS & Android",
+      icons: [faApple, faAndroid]
+    },
     date: "Mar 20, 2025",
-    tags: ["AI", "Assistant", "Coding"],
-    link: "/projects/cascade-ai"
+    tags: ["Mobile", "Payments", "Support"],
+    link: "/projects/mobile-recharge"
   },
   {
     title: "Meddy App",
     subtitle: "HEALTHCARE SOLUTION",
     description: "Comprehensive healthcare app facilitating communication and managing medical data.",
     image: "https://i.imgur.com/zmLULuM.png",
-    author: "Kamran",
+    platforms: {
+      text: "Android & Web",
+      icons: [faAndroid, faChrome]
+    },
     date: "Feb 15, 2025",
     tags: ["Healthcare", "Appointments", "Chat"],
     link: "/projects/meddy-app"
@@ -37,7 +48,10 @@ const projectsData: Project[] = [
     subtitle: "DEVELOPER TOOLKIT",
     description: "A suite of powerful development tools to streamline your coding workflow and boost productivity.",
     image: "https://i.imgur.com/zmLULuM.png",
-    author: "Farhan Yousaf",
+    platforms: {
+      text: "Web & Desktop",
+      icons: [faChrome]
+    },
     date: "Apr 5, 2025",
     tags: ["Development", "Tools", "Productivity"],
     link: "/projects/devflow"
@@ -47,7 +61,10 @@ const projectsData: Project[] = [
     subtitle: "LEARNING MANAGEMENT",
     description: "Modern learning management system with interactive courses, live sessions, and progress tracking.",
     image: "https://i.imgur.com/zmLULuM.png",
-    author: "Switch To Future",
+    platforms: {
+      text: "iOS & Web",
+      icons: [faApple, faChrome]
+    },
     date: "Jan 30, 2025",
     tags: ["Education", "E-Learning", "Tech"],
     link: "/projects/edutech"
@@ -57,7 +74,10 @@ const projectsData: Project[] = [
     subtitle: "DATA INTELLIGENCE",
     description: "Advanced analytics platform using AI to transform business data into actionable insights.",
     image: "https://i.imgur.com/zmLULuM.png",
-    author: "Farhan Yousaf",
+    platforms: {
+      text: "Web Platform",
+      icons: [faChrome]
+    },
     date: "Mar 10, 2025",
     tags: ["Analytics", "AI", "Business"],
     link: "/projects/ai-analytics"
@@ -67,7 +87,10 @@ const projectsData: Project[] = [
     subtitle: "IOT SOLUTION",
     description: "Comprehensive IoT platform for managing and monitoring connected devices in real-time.",
     image: "https://i.imgur.com/zmLULuM.png",
-    author: "Switch To Future",
+    platforms: {
+      text: "Cross Platform",
+      icons: [faApple, faAndroid, faChrome]
+    },
     date: "Feb 28, 2025",
     tags: ["IoT", "Real-time", "Monitoring"],
     link: "/projects/smart-iot"
@@ -84,7 +107,14 @@ const Projects = () => (
             <div className="card-image" style={{ backgroundImage: `url(${project.image})` }}>
               <div className="image-overlay"></div>
               <div className="card-info">
-                <div className="author">{project.author}</div>
+                <div className="platforms">
+                  <span className="platform-text">{project.platforms.text}</span>
+                  <div className="platform-icons">
+                    {project.platforms.icons.map((icon, i) => (
+                      <FontAwesomeIcon key={i} icon={icon} className="platform-icon" />
+                    ))}
+                  </div>
+                </div>
                 <div className="date">{project.date}</div>
                 <div className="tags">
                   {project.tags.map(tag => <span key={tag}>{tag}</span>)}

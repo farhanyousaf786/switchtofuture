@@ -1,4 +1,3 @@
-
 .projects-section {
   padding: 4rem 1rem;
   background: #0b0d18;
@@ -82,6 +81,40 @@
   margin-bottom: 0.3rem;
   color: rgba(255, 255, 255, 0.9);
   font-weight: 500;
+}
+
+.card-info .platforms {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.project-card:nth-child(even) .card-info .platforms {
+  align-items: flex-end;
+}
+
+.card-info .platform-text {
+  font-size: 1rem;
+  color: #00ff88;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.card-info .platform-icons {
+  display: flex;
+  gap: 0.8rem;
+  font-size: 1.2rem;
+}
+
+.card-info .platform-icon {
+  color: rgba(255, 255, 255, 0.9);
+  transition: color 0.3s ease;
+}
+
+.card-info .platform-icon:hover {
+  color: #00ff88;
 }
 
 .card-info .date {
@@ -226,6 +259,15 @@
   .project-card:nth-child(even) .card-info {
     text-align: center;
     width: 85%;
+  }
+
+  .card-info .platforms,
+  .project-card:nth-child(even) .card-info .platforms {
+    align-items: center;
+  }
+
+  .card-info .platform-icons {
+    font-size: 1.1rem;
   }
 
   .tags,
