@@ -18,7 +18,7 @@ const teamMembers: TeamMember[] = [
   {
     name: 'Farhan',
     role: 'Team Lead',
-    image: 'https://imgur.com/AftbaTl.png',
+    image: 'https://i.imgur.com/AftbaTl.png',
     bio: 'Visionary full-stack lead. Loves innovation, cloud, and clean UI.',
     profilePath: '/profile/farhan',
     social: {
@@ -30,7 +30,7 @@ const teamMembers: TeamMember[] = [
   {
     name: 'Kamran',
     role: 'Backend Architect',
-    image: 'https://imgur.com/AftbaTl.png',
+    image: 'https://i.imgur.com/AftbaTl.png',
     bio: 'Master of APIs, databases, and scalable infrastructures.',
     profilePath: '/profile/kamran',
     social: {
@@ -41,7 +41,7 @@ const teamMembers: TeamMember[] = [
   {
     name: 'Usman',
     role: 'Frontend Wizard',
-    image: 'https://imgur.com/AftbaTl.png',
+    image: 'https://i.imgur.com/AftbaTl.png',
     bio: 'Transforms UI ideas into production-grade apps.',
     profilePath: '/profile/usman',
     social: {
@@ -60,7 +60,13 @@ const Team = () => {
         {teamMembers.map((member, index) => (
           <div key={index} className="team-card">
             <div className="team-image">
-              <img src={member.image} alt={member.name} />
+              <img 
+                src={member.image} 
+                alt={member.name} 
+                width={150} 
+                height={150}
+                style={{ objectFit: 'cover', borderRadius: '50%' }}
+              />
             </div>
             <div className="team-info">
               <h3>{member.name}</h3>

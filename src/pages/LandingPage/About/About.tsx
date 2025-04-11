@@ -55,7 +55,7 @@ const About = () => {
   return (
     <section id="about" className="about-section" ref={sectionRef}>
       <div className="section-content">
-        <div className="team-image fade-in">
+        <div className="about-profile-image fade-in">
           <img src="https://i.imgur.com/zmLULuM.png" alt="Switch to Future Team" />
         </div>
         
