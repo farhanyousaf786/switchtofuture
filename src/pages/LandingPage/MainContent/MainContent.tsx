@@ -4,7 +4,8 @@ import {
   SiPostgresql, SiRedis, SiGraphql, SiAmazon, SiGooglecloud,
   SiJavascript, SiSwift, SiKotlin, SiTensorflow, SiPrisma
 } from 'react-icons/si';
-import { FaSync, FaHandshake, FaTools, FaLightbulb, FaSearch, FaPaintBrush, FaCode, FaRocket, FaChartLine, FaPhone, FaProjectDiagram } from 'react-icons/fa';
+import { FaSearch, FaPaintBrush, FaCode, FaRocket, FaChartLine, FaProjectDiagram } from 'react-icons/fa';
+import { PopupButton } from "react-calendly";
 import './MainContent.css';
 
 const MainContent = () => {
@@ -64,10 +65,6 @@ const MainContent = () => {
     if (projectsSection) {
       projectsSection.scrollIntoView({ behavior: 'smooth' });
     }
-  };
-
-  const handleContactClick = () => {
-    // Add your logic here
   };
 
   const handleProjectsClick = () => {
@@ -154,10 +151,12 @@ const MainContent = () => {
           </div>
 
           <div className="hero-cta">
-            <button className="primary-btn" onClick={handleContactClick}>
-              <FaPhone className="btn-icon" />
-              Book a Free Strategy Call
-            </button>
+            <PopupButton
+              url="https://calendly.com/switch2future/30min"
+              rootElement={document.getElementById("root")!}
+              text="Book a Free Strategy Call"
+              className="primary-btn"
+            />
             <button className="secondary-btn" onClick={handleProjectsClick}>
               <FaProjectDiagram className="btn-icon" />
               View Our Projects

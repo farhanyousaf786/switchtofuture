@@ -1,6 +1,6 @@
 import './ProfilePage.css';
 import { useState, useEffect } from 'react';
-import { DarkMode, LightMode, GitHub, LinkedIn, Email } from '@mui/icons-material';
+import { DarkMode, LightMode } from '@mui/icons-material';
 import ExperienceTimeline from './Experince/Experience';
 import FrontPage from './FrontPage/FrontPage';
 
