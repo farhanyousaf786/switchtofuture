@@ -157,8 +157,8 @@ export const teamMembers: TeamMember[] = [
     id: 'kamran',
     name: 'Muhammad Kamran',
     role: 'Senior Mobile Software Engineer',
-    image: 'https://imgur.com/placeholder.png', 
-    bio: 'Senior Mobile Software Engineer with 6+ years of experience delivering scalable, cross-platform applications using Flutter, Kotlin, and Java. Specialized in building consumer-facing apps, with deep knowledge of RESTful APIs, Firebase, and mobile architecture patterns like MVVM.',
+    image: 'https://imgur.com/Zj8ssEp.png',
+    bio: 'with 6+ years of experience delivering scalable, cross-platform applications using Flutter, Kotlin, and Java. Specialized in building consumer-facing apps, with deep knowledge of RESTful APIs, Firebase, and mobile architecture patterns like MVVM.',
     location: 'Lahore, Pakistan',
     contact: {
       email: 'softwaretech81.pk@gmail.com',
@@ -167,6 +167,117 @@ export const teamMembers: TeamMember[] = [
     social: {
       linkedin: 'https://linkedin.com/in/kamran', 
       github: 'https://github.com/kamran' 
+    },
+    skills: {
+      mobile: ['Flutter', 'Kotlin', 'Java', 'Android SDK', 'MVVM', 'Firebase'],
+      web: ['React', 'JavaScript', 'HTML5', 'CSS', 'Node.js', 'Express'],
+      backend: ['MongoDB', 'PostgreSQL', 'RESTful APIs', 'Django'],
+      cloud: ['Firebase', 'DigitalOcean', 'AWS', 'Heroku', 'Azure DevOps'],
+      languages: ['Kotlin', 'Dart', 'JavaScript', 'Java', 'C++']
+    },
+    experience: [
+      {
+        title: 'Mobile App Developer',
+        company: 'Maxsip Telecom',
+        duration: 'November 2023 – Present',
+        description: [
+          'Developed and maintained 3+ production-level mobile apps using Flutter, Firebase, and MongoDB',
+          'Scaled user base from 50K to over 1 million users within 4 months of launch on the Google Play Store',
+          'Improved app performance by 35% via cache memory, lazy-loading, and database schema redesign',
+          'Integrated secure payment with encryption/decryption and handled 150K+ transactions monthly',
+          'Created and optimized Firebase Cloud Functions to automate backend workflows',
+          'Owned full-cycle development of real-time user features including chat and push notifications'
+        ]
+      },
+      {
+        title: 'Mobile App Developer',
+        company: 'Chirp-Tech',
+        duration: 'November 2021 – September 2023',
+        description: [
+          'Built responsive, scalable mobile UIs using Flutter with MVVM architecture and LiveData patterns',
+          'Integrated REST APIs and Firebase services for dynamic content, authentication, and data modeling',
+          'Implemented offline storage and advanced caching strategies to reduce Firebase data consumption',
+          'Led end-to-end delivery of app modules, contributing to Agile sprint planning and testing',
+          'Optimized app startup time and reduced cloud usage by 25% through data minimization techniques'
+        ]
+      },
+      {
+        title: 'Android App Developer',
+        company: 'Codecoy',
+        duration: 'June 2019 – October 2021',
+        description: [
+          'Assisted in 10+ mobile UI implementations using Android, Kotlin, Java and Firebase',
+          'Migrated legacy mobile interfaces for better performance and maintainability on Flutter',
+          'Gained hands-on experience with widget trees, custom animations, and Firebase integration',
+          'Contributed to daily standups, version control tasks, and pair programming with Sr. Flutter developers'
+        ]
+      }
+    ],
+    projects: [
+      {
+        title: 'Mobile Recharge & Support Platform',
+        description: 'A comprehensive mobile recharge platform with integrated chatbot and video call support. Developed using Flutter & Firebase, serving Millions of users. Features include custom chatbot handling 10K+ interactions/month, video calls integration using Agora API, background services for data sync, and 15% revenue boost through Google Ads SDK optimization.',
+        image: 'https://imgur.com/placeholder.png',
+        technologies: ['Flutter', 'Firebase', 'Kotlin', 'Agora API', 'Google Ads SDK'],
+        githubUrl: '#',
+        liveUrl: '#'
+      },
+      {
+        title: 'Weather App',
+        description: 'Comprehensive weather application built with Flutter and GetX state management. Features multiple temperature units support, hygrometer and thermal sensor integration, 12-Day Weather Forecast, and custom widget for home screen.',
+        image: 'https://imgur.com/placeholder.png',
+        technologies: ['Flutter', 'GetX', 'Weather API'],
+        githubUrl: '#',
+        liveUrl: '#'
+      },
+      {
+        title: 'EQUILIBRIUM – Productivity App',
+        description: 'Flutter-based productivity app for task scheduling and mood tracking. Integrated with Firebase Firestore, achieving 40% reduced backend load. Features smart reminders and calendar integration.',
+        image: 'https://imgur.com/Zj8ssEp.png',
+        technologies: ['Flutter', 'Firebase', 'Calendar API'],
+        githubUrl: '#',
+        liveUrl: '#'
+      }
+    ],
+    education: [
+      {
+        degree: 'BS Computer Science',
+        institution: 'GCUF University FSD',
+        year: '2019'
+      },
+      {
+        degree: 'Associate in Computer Science',
+        institution: 'PGC College Sahiwal',
+        year: '2015'
+      },
+      {
+        degree: 'Matriculation Certificate in Software Engineering',
+        institution: 'Ali City High School',
+        year: '2013'
+      }
+    ],
+    achievements: [
+      'Scaled mobile app user base from 50K to 1M+ users',
+      'Improved app performance by 35% through optimization',
+      'Reduced backend load by 40% using efficient caching',
+      'Boosted revenue by 15% through Google Ads optimization',
+      'Successfully mentored junior developers in Flutter'
+    ]
+  },
+  {
+    id: 'Usman',
+    name: 'Usman',
+    role: 'Senior Mobile Software Engineer',
+    image: 'https://imgur.com/Zj8ssEp.png',
+    bio: 'with 6+ years of experience delivering scalable, cross-platform applications using Flutter, Kotlin, and Java. Specialized in building consumer-facing apps, with deep knowledge of RESTful APIs, Firebase, and mobile architecture patterns like MVVM.',
+    location: 'Lahore, Pakistan',
+    contact: {
+      email: 'Usman@gmail.com',
+      phone: '+923030435881'
+    },
+    social: {
+      linkedin: 'https://linkedin.com/in/Usman', 
+      github: 'https://github.com/Usman' 
     },
     skills: {
       mobile: ['Flutter', 'Kotlin', 'Java', 'Android SDK', 'MVVM', 'Firebase'],
