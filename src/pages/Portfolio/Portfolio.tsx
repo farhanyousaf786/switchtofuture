@@ -18,36 +18,33 @@ const Portfolio = () => {
 
   return (
     <div className="portfolio-container">
-      {/* Hero Section */}
-      <section className="portfolio-hero">
-        <div className="profile-image">
-          <img src={member.image} alt={member.name} />
+      {/* Intro Section */}
+      <section className="intro-section">
+        <h1 className="greeting">Hello World</h1>
+        <h2 className="name">{member.name}</h2>
+        <h3 className="title">I am a Full Stack Developer</h3>
+        <p className="intro-bio">{member.bio}</p>
+        <div className="contact-info">
+          <p><FaMapMarkerAlt /> {member.location}</p>
+          <p><FaPhone /> {member.contact.phone}</p>
+          <p><FaEnvelope /> {member.contact.email}</p>
         </div>
-        <div className="profile-info">
-          <h1>{member.name}</h1>
-          <div className="contact-info">
-            <p><FaMapMarkerAlt /> {member.location}</p>
-            <p><FaPhone /> {member.contact.phone}</p>
-            <p><FaEnvelope /> {member.contact.email}</p>
-          </div>
-          <p className="bio">{member.bio}</p>
-          <div className="social-links">
-            {member.social.github && (
-              <a href={member.social.github} target="_blank" rel="noreferrer">
-                <FaGithub />
-              </a>
-            )}
-            {member.social.linkedin && (
-              <a href={member.social.linkedin} target="_blank" rel="noreferrer">
-                <FaLinkedin />
-              </a>
-            )}
-            {member.social.twitter && (
-              <a href={member.social.twitter} target="_blank" rel="noreferrer">
-                <FaTwitter />
-              </a>
-            )}
-          </div>
+        <div className="social-links">
+          {member.social.github && (
+            <a href={member.social.github} target="_blank" rel="noreferrer">
+              <FaGithub />
+            </a>
+          )}
+          {member.social.linkedin && (
+            <a href={member.social.linkedin} target="_blank" rel="noreferrer">
+              <FaLinkedin />
+            </a>
+          )}
+          {member.social.twitter && (
+            <a href={member.social.twitter} target="_blank" rel="noreferrer">
+              <FaTwitter />
+            </a>
+          )}
         </div>
       </section>
 
@@ -90,9 +87,6 @@ const Portfolio = () => {
         <div className="projects-grid">
           {member.projects.map((project, index) => (
             <div key={index} className="project-card">
-              <div className="project-image">
-                <img src={project.image} alt={project.title} />
-              </div>
               <div className="project-info">
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>
