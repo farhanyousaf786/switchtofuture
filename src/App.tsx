@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/LandingPage/Home/Home'
 import './App.css'
 import ProfilePage from './pages/profile/ProfilePage'
+import WhatsAppButton from './components/WhatsAppButton/WhatsAppButton'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/farhan" element={<ProfilePage />} />
       </Routes>
+      <WhatsAppButton />
     </BrowserRouter>
   )
 }
