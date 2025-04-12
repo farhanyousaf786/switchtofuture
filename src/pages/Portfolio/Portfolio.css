@@ -95,8 +95,16 @@
 
 .portfolio-container {
   min-height: 100vh;
+  width: 100%;
   background: #0b0d18;
   padding-top: 80px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .intro-section {
@@ -206,8 +214,13 @@
 }
 
 @media (max-width: 480px) {
+  .portfolio-container {
+    padding-top: 60px;
+    position: fixed;
+  }
+
   .intro-section {
-    padding: 1rem 1rem;
+    padding: 1rem;
   }
 
   .section-title {
@@ -340,6 +353,7 @@
   padding: 2rem;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
+  display: block;
 }
 
 .portfolio-section h2 {
@@ -363,6 +377,7 @@
   background: rgba(255, 255, 255, 0.03);
   padding: 1.5rem;
   border-radius: 12px;
+  display: block;
 }
 
 .skill-category h3 {
@@ -607,4 +622,9 @@
     flex-direction: column;
     align-items: center;
   }
+}
+
+.skills-section, .experience-section, .projects-section {
+  position: relative;
+  display: block;
 }
