@@ -22,7 +22,6 @@ const Team = () => {
             <div className="team-info">
               <h3>{member.name}</h3>
               <p className="role">{member.role}</p>
-              <p className="bio">{member.bio}</p>
               <div className="team-links">
                 <div className="social-links">
                   {member.social.github && (
