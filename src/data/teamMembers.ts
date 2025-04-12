@@ -14,7 +14,13 @@ export interface TeamMember {
     linkedin?: string;
     twitter?: string;
   };
-  skills: string[];
+  skills: {
+    mobile: string[];
+    web: string[];
+    backend: string[];
+    cloud: string[];
+    languages: string[];
+  };
   experience: {
     title: string;
     company: string;
@@ -53,12 +59,13 @@ export const teamMembers: TeamMember[] = [
       github: 'https://github.com/farhanyousaf786',
       linkedin: 'https://linkedin.com/in/farhanyousaf786',
     },
-    skills: [
-      'Flutter', 'Dart', 'JavaScript', 'Kotlin', 'Python', 'C++', 'HTML5', 'CSS',
-      'React', 'Node.js', 'Express', 'Django', 'MVVM',
-      'PostgreSQL', 'MongoDB', 'Firebase', 'DigitalOcean', 'AWS',
-      'Firebase Cloud Functions', 'Heroku', 'GitHub Actions', 'Azure DevOps', 'CI/CD'
-    ],
+    skills: {
+      mobile: ['Flutter', 'Dart', 'Kotlin', 'Android', 'iOS', 'MVVM', 'Firebase'],
+      web: ['React', 'JavaScript', 'HTML5', 'CSS', 'Node.js', 'Express'],
+      backend: ['Python', 'Django', 'PostgreSQL', 'MongoDB', 'RESTful APIs'],
+      cloud: ['Firebase', 'DigitalOcean', 'AWS', 'Cloud Functions', 'CI/CD'],
+      languages: ['Dart', 'JavaScript', 'Python', 'Kotlin', 'C++']
+    },
     experience: [
       {
         title: 'Software Developer',

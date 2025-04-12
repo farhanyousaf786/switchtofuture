@@ -51,12 +51,61 @@ const Portfolio = () => {
       {/* Skills Section */}
       <section className="portfolio-section">
         <h2>Skills</h2>
-        <div className="skills-grid">
-          {member.skills.map((skill, index) => (
-            <div key={index} className="skill-tag">
-              {skill}
+        <div className="skills-categories">
+          <div className="skill-category">
+            <h3>Mobile Development</h3>
+            <div className="skills-grid">
+              {member.skills.mobile.map((skill, index) => (
+                <div key={index} className="skill-tag">
+                  {skill}
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+          
+          <div className="skill-category">
+            <h3>Web Development</h3>
+            <div className="skills-grid">
+              {member.skills.web.map((skill, index) => (
+                <div key={index} className="skill-tag">
+                  {skill}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="skill-category">
+            <h3>Backend Development</h3>
+            <div className="skills-grid">
+              {member.skills.backend.map((skill, index) => (
+                <div key={index} className="skill-tag">
+                  {skill}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="skill-category">
+            <h3>Cloud & DevOps</h3>
+            <div className="skills-grid">
+              {member.skills.cloud.map((skill, index) => (
+                <div key={index} className="skill-tag">
+                  {skill}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="skill-category">
+            <h3>Programming Languages</h3>
+            <div className="skills-grid">
+              {member.skills.languages.map((skill, index) => (
+                <div key={index} className="skill-tag">
+                  {skill}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
