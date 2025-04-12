@@ -1,103 +1,89 @@
+import { FaProjectDiagram, FaSearch, FaPaintBrush, FaCode, FaRocket, FaChartLine } from 'react-icons/fa';
 import { 
   SiReact, SiFlutter, SiFirebase, SiNodedotjs, SiTailwindcss, 
   SiMongodb, SiTypescript, SiPython, SiDocker, SiKubernetes,
   SiPostgresql, SiRedis, SiGraphql, SiAmazon, SiGooglecloud,
-  SiJavascript, SiSwift, SiKotlin, SiTensorflow, SiPrisma
+  SiJavascript, SiSwift, SiKotlin, SiTensorflow, SiPrisma 
 } from 'react-icons/si';
-import { FaSearch, FaPaintBrush, FaCode, FaRocket, FaChartLine, FaProjectDiagram } from 'react-icons/fa';
 import { PopupButton } from "react-calendly";
+import FloatingIcon from './FloatingIcon/FloatingIcon';
 import './MainContent.css';
 
+interface Technology {
+  icon: React.ReactElement;
+  name: string;
+}
+
+interface DevelopmentCycleStep {
+  icon: React.ReactElement;
+  title: string;
+  description: string;
+}
+
+const technologies: Technology[] = [
+  { icon: <SiReact />, name: 'React' },
+  { icon: <SiFlutter />, name: 'Flutter' },
+  { icon: <SiFirebase />, name: 'Firebase' },
+  { icon: <SiNodedotjs />, name: 'Node.js' },
+  { icon: <SiTailwindcss />, name: 'Tailwind' },
+  { icon: <SiMongodb />, name: 'MongoDB' },
+  { icon: <SiTypescript />, name: 'TypeScript' },
+  { icon: <SiPython />, name: 'Python' },
+  { icon: <SiDocker />, name: 'Docker' },
+  { icon: <SiKubernetes />, name: 'Kubernetes' },
+  { icon: <SiPostgresql />, name: 'PostgreSQL' },
+  { icon: <SiRedis />, name: 'Redis' },
+  { icon: <SiGraphql />, name: 'GraphQL' },
+  { icon: <SiAmazon />, name: 'AWS' },
+  { icon: <SiGooglecloud />, name: 'GCP' },
+  { icon: <SiJavascript />, name: 'JavaScript' },
+  { icon: <SiSwift />, name: 'Swift' },
+  { icon: <SiKotlin />, name: 'Kotlin' },
+  { icon: <SiTensorflow />, name: 'TensorFlow' },
+  { icon: <SiPrisma />, name: 'Prisma' }
+];
+
+const developmentCycle: DevelopmentCycleStep[] = [
+  {
+    icon: <FaSearch />,
+    title: 'Discover',
+    description: 'Understand & Plan your vision clearly'
+  },
+  {
+    icon: <FaPaintBrush />,
+    title: 'Design',
+    description: 'Crafting delightful UI/UX'
+  },
+  {
+    icon: <FaCode />,
+    title: 'Develop',
+    description: 'Writing scalable, efficient code'
+  },
+  {
+    icon: <FaRocket />,
+    title: 'Deploy',
+    description: 'Launch your solution smoothly'
+  },
+  {
+    icon: <FaChartLine />,
+    title: 'Optimize',
+    description: 'Continuous improvement and support'
+  }
+];
+
 const MainContent = () => {
-  const technologies = [
-    { icon: <SiReact />, name: 'React' },
-    { icon: <SiFlutter />, name: 'Flutter' },
-    { icon: <SiFirebase />, name: 'Firebase' },
-    { icon: <SiNodedotjs />, name: 'Node.js' },
-    { icon: <SiTailwindcss />, name: 'Tailwind' },
-    { icon: <SiMongodb />, name: 'MongoDB' },
-    { icon: <SiTypescript />, name: 'TypeScript' },
-    { icon: <SiPython />, name: 'Python' },
-    { icon: <SiDocker />, name: 'Docker' },
-    { icon: <SiKubernetes />, name: 'Kubernetes' },
-    { icon: <SiPostgresql />, name: 'PostgreSQL' },
-    { icon: <SiRedis />, name: 'Redis' },
-    { icon: <SiGraphql />, name: 'GraphQL' },
-    { icon: <SiAmazon />, name: 'AWS' },
-    { icon: <SiGooglecloud />, name: 'GCP' },
-    { icon: <SiJavascript />, name: 'JavaScript' },
-    { icon: <SiSwift />, name: 'Swift' },
-    { icon: <SiKotlin />, name: 'Kotlin' },
-    { icon: <SiTensorflow />, name: 'TensorFlow' },
-    { icon: <SiPrisma />, name: 'Prisma' }
-  ];
-
-  const developmentCycle = [
-    {
-      icon: <FaSearch />,
-      title: 'Discover',
-      description: 'Understand & Plan your vision clearly'
-    },
-    {
-      icon: <FaPaintBrush />,
-      title: 'Design',
-      description: 'Crafting delightful UI/UX'
-    },
-    {
-      icon: <FaCode />,
-      title: 'Develop',
-      description: 'Writing scalable, efficient code'
-    },
-    {
-      icon: <FaRocket />,
-      title: 'Deploy',
-      description: 'Launch your solution smoothly'
-    },
-    {
-      icon: <FaChartLine />,
-      title: 'Optimize',
-      description: 'Continuous improvement and support'
-    }
-  ];
-
-  const scrollToProjects = () => {
-    const projectsSection = document.getElementById('projects');
-    if (projectsSection) {
-      projectsSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   const handleProjectsClick = () => {
-    scrollToProjects();
+    const projectsSection = document.getElementById('projects');
+    projectsSection?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <main className="main-content">
-      <div className="floating-tech-bg">
-        {technologies.map((tech, index) => (
-          <div 
-            key={index} 
-            className="floating-tech-icon"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * -20}s`,
-              '--move-x-1': `${(Math.random() - 0.5) * 300}px`,
-              '--move-y-1': `${(Math.random() - 0.5) * 300}px`,
-              '--move-x-2': `${(Math.random() - 0.5) * 300}px`,
-              '--move-y-2': `${(Math.random() - 0.5) * 300}px`,
-              '--move-x-3': `${(Math.random() - 0.5) * 300}px`,
-              '--move-y-3': `${(Math.random() - 0.5) * 300}px`,
-              '--move-x-4': `${(Math.random() - 0.5) * 300}px`,
-              '--move-y-4': `${(Math.random() - 0.5) * 300}px`,
-              '--move-x-5': `${(Math.random() - 0.5) * 300}px`,
-              '--move-y-5': `${(Math.random() - 0.5) * 300}px`
-            } as React.CSSProperties}
-          >
-            {tech.icon}
-          </div>
-        ))}
-      </div>
+     <div className="floating-tech-bg">
+  {technologies.map((tech, index) => (
+    <FloatingIcon key={index} icon={tech.icon} />
+  ))}
+</div>
 
       <section id="home" className="hero-section">
         <div className="hero-content">
@@ -109,8 +95,6 @@ const MainContent = () => {
             Delivering Cutting-Edge Apps, Powerful Websites, and Intelligent AI Solutions
           </p>
           
-     
-
           <div className="dev-cycle">
             {window.innerWidth <= 768 ? (
               <div 
