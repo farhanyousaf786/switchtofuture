@@ -28,10 +28,10 @@
   width: auto;
 }
 
-.gradient-text {
+.title-main {
   font-size: 1.5rem;
   font-weight: bold;
-  background: linear-gradient(45deg, #2196f3, #e91e63);
+  background: linear-gradient(45deg, #B3E5FC, #7DF9FF);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

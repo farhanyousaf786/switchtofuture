@@ -81,7 +81,6 @@ const About = () => {
               </div>
             ))}
           </div>
-
           <div className="about-cta fade-in">
             <PopupButton
               url="https://calendly.com/letsbuildfuture/30min"

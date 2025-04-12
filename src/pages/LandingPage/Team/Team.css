@@ -13,7 +13,7 @@
   text-align: center;
   font-size: 2.8rem;
   margin-bottom: 3rem;
-  background: linear-gradient(45deg, #0070f3, #00d572);
+  background: linear-gradient(45deg, #B3E5FC, #7DF9FF);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -49,7 +49,7 @@
   position: relative;
   border-radius: 50%;
   padding: 4px;
-  background: linear-gradient(45deg, #0070f3, #00d572);
+  background: linear-gradient(45deg, #B3E5FC, #7DF9FF);
 }
 
 .team-image img {
@@ -64,7 +64,7 @@
   font-size: 1.3rem;
   font-weight: 600;
   margin-bottom: 0.3rem;
-  background: linear-gradient(45deg, #0070f3, #00d572);
+  background: linear-gradient(45deg, #B3E5FC, #7DF9FF);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -72,7 +72,7 @@
 
 .team-info .role {
   font-size: 1rem;
-  background: linear-gradient(45deg, #0070f3, #00d572);
+  background: linear-gradient(45deg, #B3E5FC, #7DF9FF);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

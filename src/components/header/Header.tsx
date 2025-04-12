@@ -44,7 +44,7 @@ const Header = () => {
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="logo">
         <img src="https://i.imgur.com/zmLULuM.png" alt="Switch to Future Logo" />
-        <span className="gradient-text">Switch to Future</span>
+        <span className="title-main">Switch to Future</span>
       </div>
       <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
         {isMenuOpen ? <FaTimes /> : <FaBars />}

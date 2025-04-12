@@ -167,8 +167,8 @@
   gap: 0.5rem;
   padding: 0.8rem 1.5rem;
   font-size: 1rem;
-  color: white;
-  background: linear-gradient(45deg, #0070f3, #00d572);
+  color: rgb(16, 0, 60);
+  background: linear-gradient(45deg, #B3E5FC, #7DF9FF);
   border: none;
   border-radius: 8px;
   cursor: pointer;
