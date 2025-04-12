@@ -79,10 +79,20 @@ const MainContent = () => {
             key={index} 
             className="floating-tech-icon"
             style={{
-              animationDelay: `${Math.random() * 20}s`,
               left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`
-            }}
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * -20}s`,
+              '--move-x-1': `${(Math.random() - 0.5) * 300}px`,
+              '--move-y-1': `${(Math.random() - 0.5) * 300}px`,
+              '--move-x-2': `${(Math.random() - 0.5) * 300}px`,
+              '--move-y-2': `${(Math.random() - 0.5) * 300}px`,
+              '--move-x-3': `${(Math.random() - 0.5) * 300}px`,
+              '--move-y-3': `${(Math.random() - 0.5) * 300}px`,
+              '--move-x-4': `${(Math.random() - 0.5) * 300}px`,
+              '--move-y-4': `${(Math.random() - 0.5) * 300}px`,
+              '--move-x-5': `${(Math.random() - 0.5) * 300}px`,
+              '--move-y-5': `${(Math.random() - 0.5) * 300}px`
+            } as React.CSSProperties}
           >
             {tech.icon}
           </div>
