@@ -31,7 +31,6 @@ const MainContent = () => {
     { icon: <SiPrisma />, name: 'Prisma' }
   ];
 
- 
   const developmentCycle = [
     {
       icon: <FaSearch />,
@@ -77,29 +76,32 @@ const MainContent = () => {
 
   return (
     <main className="main-content">
+      <div className="floating-tech-bg">
+        {technologies.map((tech, index) => (
+          <div 
+            key={index} 
+            className="floating-tech-icon"
+            style={{
+              animationDelay: `${Math.random() * 20}s`,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`
+            }}
+          >
+            {tech.icon}
+          </div>
+        ))}
+      </div>
+
       <section id="home" className="hero-section">
         <div className="hero-content">
           <h1>
-          We Build the Future
+            We Build the Future
             <br />
           </h1>
           <p className="subtitle">
             Delivering Cutting-Edge Apps, Powerful Websites, and Intelligent AI Solutions
           </p>
           
-          <div className="tech-stack" style={{ padding: '1rem 2rem' }}>
-            <div className="tech-scroll">
-              <div className="tech-track">
-                {technologies.map((tech, index) => (
-                  <div key={index} className="tech-icon">
-                    {tech.icon}
-                    <span>{tech.name}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
      
 
           <div className="dev-cycle">
