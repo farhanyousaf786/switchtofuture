@@ -43,7 +43,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Farhan Yousaf',
     role: 'Senior Mobile Software Engineer',
     image: 'https://imgur.com/Zj8ssEp.png',
-    bio: 'Senior Mobile Software Engineer with 6+ years of experience delivering scalable, cross-platform applications using Flutter, Kotlin, and native Android development. Specialized in building consumer-facing apps, with deep knowledge of RESTful APIs, Firebase, and mobile architecture patterns like MVVM.',
+    bio: 'Having 6+ years of experience delivering scalable, cross-platform applications using Flutter, Kotlin, and native Android development. Specialized in building consumer-facing apps, with deep knowledge of RESTful APIs, Firebase, and mobile architecture patterns like MVVM.',
     location: 'Hillside, New York',
     contact: {
       email: 'Farhanyousaf1996@gmail.com',

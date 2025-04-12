@@ -24,7 +24,7 @@
 }
 
 .greeting {
-  font-size: 5rem;
+  font-size: 2rem;
   font-weight: bold;
   margin-bottom: 1rem;
   background: linear-gradient(45deg, #B3E5FC, #7DF9FF);
@@ -35,7 +35,7 @@
 }
 
 .name {
-  font-size: 3.5rem;
+  font-size: 4.5rem;
   margin-bottom: 1rem;
   color: #fff;
   animation: fadeInDown 1s ease 0.3s both;
@@ -330,11 +330,11 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .greeting {
-    font-size: 3.5rem;
+    font-size: 2.8rem;
   }
 
   .name {
-    font-size: 2.5rem;
+    font-size: 3.2rem;
   }
 
   .title {

@@ -20,9 +20,9 @@ const Portfolio = () => {
     <div className="portfolio-container">
       {/* Intro Section */}
       <section className="intro-section">
-        <h1 className="greeting">Hello World</h1>
+        <h1 className="greeting">Hello World, I am</h1>
         <h2 className="name">{member.name}</h2>
-        <h3 className="title">I am a Full Stack Developer</h3>
+        <h3 className="title">Full Stack Developer</h3>
         <p className="intro-bio">{member.bio}</p>
         <div className="contact-info">
           <p><FaMapMarkerAlt /> {member.location}</p>
