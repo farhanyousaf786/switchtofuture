@@ -5,6 +5,10 @@
   color: #fff;
   background: #0b0d18;
   min-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .portfolio-error {
@@ -15,7 +19,7 @@
 /* Hero Section */
 .portfolio-hero {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 3rem;
   margin-bottom: 4rem;
   padding: 2rem;
@@ -36,25 +40,41 @@
   border-image: linear-gradient(45deg, #B3E5FC, #7DF9FF) 1;
 }
 
+.profile-info {
+  flex: 1;
+}
+
 .profile-info h1 {
   font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   background: linear-gradient(45deg, #B3E5FC, #7DF9FF);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.profile-info h2 {
-  font-size: 1.5rem;
-  color: #7DF9FF;
-  margin-bottom: 1rem;
+.contact-info {
+  margin-bottom: 1.5rem;
+  color: #B3E5FC;
+}
+
+.contact-info p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.bio {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.5rem;
 }
 
 .social-links {
   display: flex;
   gap: 1rem;
-  margin-top: 1rem;
 }
 
 .social-links a {
@@ -144,7 +164,26 @@
 .duration {
   color: rgba(255, 255, 255, 0.6);
   font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.experience-list {
+  list-style: none;
+  padding: 0;
+}
+
+.experience-list li {
+  position: relative;
+  padding-left: 1.5rem;
   margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.experience-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #7DF9FF;
 }
 
 /* Projects Grid */
@@ -214,25 +253,6 @@
   text-decoration: underline;
 }
 
-/* Achievements List */
-.achievements-list {
-  list-style: none;
-  padding: 0;
-}
-
-.achievements-list li {
-  position: relative;
-  padding-left: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.achievements-list li::before {
-  content: '→';
-  position: absolute;
-  left: 0;
-  color: #7DF9FF;
-}
-
 /* Education Grid */
 .education-grid {
   display: grid;
@@ -256,12 +276,40 @@
   margin-bottom: 0.5rem;
 }
 
+/* Achievements List */
+.achievements-list {
+  list-style: none;
+  padding: 0;
+}
+
+.achievements-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.achievements-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #7DF9FF;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .portfolio-hero {
     flex-direction: column;
     text-align: center;
     gap: 2rem;
+  }
+
+  .profile-image {
+    margin: 0 auto;
+  }
+
+  .contact-info {
+    justify-content: center;
   }
 
   .social-links {

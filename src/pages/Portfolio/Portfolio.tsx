@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { FaGithub, FaLinkedin, FaTwitter, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter, FaExternalLinkAlt, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 import { teamMembers } from '../../data/teamMembers';
 import './Portfolio.css';
 
@@ -25,8 +25,12 @@ const Portfolio = () => {
         </div>
         <div className="profile-info">
           <h1>{member.name}</h1>
-          <h2>{member.role}</h2>
-          <p>{member.bio}</p>
+          <div className="contact-info">
+            <p><FaMapMarkerAlt /> {member.location}</p>
+            <p><FaPhone /> {member.contact.phone}</p>
+            <p><FaEnvelope /> {member.contact.email}</p>
+          </div>
+          <p className="bio">{member.bio}</p>
           <div className="social-links">
             {member.social.github && (
               <a href={member.social.github} target="_blank" rel="noreferrer">
@@ -69,7 +73,11 @@ const Portfolio = () => {
                 <h3>{exp.title}</h3>
                 <h4>{exp.company}</h4>
                 <p className="duration">{exp.duration}</p>
-                <p>{exp.description}</p>
+                <ul className="experience-list">
+                  {exp.description.map((desc, i) => (
+                    <li key={i}>{desc}</li>
+                  ))}
+                </ul>
               </div>
             </div>
           ))}
@@ -111,16 +119,6 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Achievements Section */}
-      <section className="portfolio-section">
-        <h2>Achievements</h2>
-        <ul className="achievements-list">
-          {member.achievements.map((achievement, index) => (
-            <li key={index}>{achievement}</li>
-          ))}
-        </ul>
-      </section>
-
       {/* Education Section */}
       <section className="portfolio-section">
         <h2>Education</h2>
@@ -133,6 +131,16 @@ const Portfolio = () => {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* Achievements Section */}
+      <section className="portfolio-section">
+        <h2>Achievements</h2>
+        <ul className="achievements-list">
+          {member.achievements.map((achievement, index) => (
+            <li key={index}>{achievement}</li>
+          ))}
+        </ul>
       </section>
     </div>
   );

@@ -4,7 +4,11 @@ export interface TeamMember {
   role: string;
   image: string;
   bio: string;
-  profilePath: string;
+  location: string;
+  contact: {
+    email: string;
+    phone: string;
+  };
   social: {
     github?: string;
     linkedin?: string;
@@ -15,20 +19,20 @@ export interface TeamMember {
     title: string;
     company: string;
     duration: string;
+    description: string[];
+  }[];
+  projects: {
+    title: string;
     description: string;
+    image: string;
+    technologies: string[];
+    liveUrl?: string;
+    githubUrl?: string;
   }[];
   education: {
     degree: string;
     institution: string;
     year: string;
-  }[];
-  projects: {
-    title: string;
-    description: string;
-    technologies: string[];
-    image: string;
-    liveUrl?: string;
-    githubUrl?: string;
   }[];
   achievements: string[];
 }
@@ -36,144 +40,110 @@ export interface TeamMember {
 export const teamMembers: TeamMember[] = [
   {
     id: 'farhan',
-    name: 'Farhan',
-    role: 'Team Lead',
+    name: 'Farhan Yousaf',
+    role: 'Senior Mobile Software Engineer',
     image: 'https://imgur.com/Zj8ssEp.png',
-    bio: 'Visionary full-stack lead. Loves innovation, cloud, and clean UI.',
-    profilePath: '/profile/farhan',
+    bio: 'Senior Mobile Software Engineer with 6+ years of experience delivering scalable, cross-platform applications using Flutter, Kotlin, and native Android development. Specialized in building consumer-facing apps, with deep knowledge of RESTful APIs, Firebase, and mobile architecture patterns like MVVM.',
+    location: 'Hillside, New York',
+    contact: {
+      email: 'Farhanyousaf1996@gmail.com',
+      phone: '929-231-8782'
+    },
     social: {
       github: 'https://github.com/farhanyousaf786',
       linkedin: 'https://linkedin.com/in/farhanyousaf786',
-      twitter: 'https://twitter.com/farhanyousaf786',
     },
     skills: [
-      'React', 'Node.js', 'TypeScript', 'AWS', 'Docker',
-      'MongoDB', 'GraphQL', 'Next.js', 'TailwindCSS'
+      'Flutter', 'Dart', 'JavaScript', 'Kotlin', 'Python', 'C++', 'HTML5', 'CSS',
+      'React', 'Node.js', 'Express', 'Django', 'MVVM',
+      'PostgreSQL', 'MongoDB', 'Firebase', 'DigitalOcean', 'AWS',
+      'Firebase Cloud Functions', 'Heroku', 'GitHub Actions', 'Azure DevOps', 'CI/CD'
     ],
     experience: [
       {
-        title: 'Team Lead',
-        company: 'Switch to Future',
-        duration: '2023 - Present',
-        description: 'Leading development of innovative web solutions and mentoring team members.'
+        title: 'Software Developer',
+        company: 'Maxsip Telecom',
+        duration: 'March 2022 – April 2025',
+        description: [
+          'Developed and maintained 3+ production-level mobile apps using Flutter, Firebase, and MongoDB',
+          'Scaled user base from 50K to over 1 million users within 4 months of launch on the Google Play Store',
+          'Improved app performance by 35% via cache memory, lazy-loading, and database schema redesign',
+          'Integrated secure payment with encryption/decryption and handled 150K+ transactions monthly',
+          'Created and optimized Firebase Cloud Functions to automate backend workflows',
+          'Owned full-cycle development of real-time user features including chat, push notifications, and background syncing'
+        ]
       },
       {
-        title: 'Senior Full Stack Developer',
-        company: 'Tech Solutions Inc.',
-        duration: '2021 - 2023',
-        description: 'Developed and maintained large-scale web applications.'
-      }
-    ],
-    education: [
+        title: 'Mobile Developer',
+        company: 'Chirp-tech',
+        duration: 'May 2019 – December 2021',
+        description: [
+          'Built responsive, scalable mobile UIs using Flutter with MVVM architecture and LiveData patterns',
+          'Integrated REST APIs and Firebase services for dynamic content, authentication, and data modeling',
+          'Implemented offline storage and advanced caching strategies to reduce Firebase data consumption',
+          'Optimized app startup time and reduced cloud usage by 25% through data minimization techniques'
+        ]
+      },
       {
-        degree: 'MS in Computer Science',
-        institution: 'University of Technology',
-        year: '2021'
+        title: 'Flutter Development Intern',
+        company: 'E-tech Lounge',
+        duration: 'June 2017 – October 2018',
+        description: [
+          'Assisted in 10+ mobile UI implementations using Flutter, Dart, and Firebase',
+          'Migrated legacy mobile interfaces for better performance and maintainability on Flutter',
+          'Gained hands-on experience with widget trees, custom animations, and Firebase integration'
+        ]
       }
     ],
     projects: [
       {
-        title: 'Switch to Future Website',
-        description: 'Modern web platform showcasing our team and services.',
-        technologies: ['React', 'TypeScript', 'TailwindCSS'],
-        image: 'https://imgur.com/project1.png',
-        liveUrl: 'https://switchtofuture.com',
-        githubUrl: 'https://github.com/farhanyousaf786/switchtofuture'
-      }
-    ],
-    achievements: [
-      'Led successful delivery of 10+ enterprise projects',
-      'Published research paper on cloud architecture',
-      'Open source contributor with 500+ GitHub stars'
-    ]
-  },
-  {
-    id: 'kamran',
-    name: 'Kamran',
-    role: 'Backend Architect',
-    image: 'https://imgur.com/Zj8ssEp.png',
-    bio: 'Master of APIs, databases, and scalable infrastructures.',
-    profilePath: '/profile/kamran',
-    social: {
-      github: 'https://github.com/kamran',
-      linkedin: 'https://linkedin.com/in/kamran'
-    },
-    skills: [
-      'Node.js', 'Python', 'MongoDB', 'PostgreSQL',
-      'AWS', 'Docker', 'Kubernetes', 'Redis'
-    ],
-    experience: [
+        title: 'Mobile Recharge & Support Platform',
+        description: 'Developed and launched a Mobile Recharge app using Flutter & Firebase, serving Millions of users. Built custom chatbot handling 10K+ interactions/month. Optimized backend workflows improving scalability by 30%.',
+        image: 'https://imgur.com/placeholder.png',
+        technologies: ['Flutter', 'Firebase', 'Kotlin', 'Agora API', 'Google Ads SDK'],
+        liveUrl: '#',
+        githubUrl: '#'
+      },
       {
-        title: 'Backend Architect',
-        company: 'Switch to Future',
-        duration: '2023 - Present',
-        description: 'Designing and implementing scalable backend solutions.'
+        title: 'Self-Aware Social Journaling App',
+        description: 'Built with Flutter and Qdrant vector DB for semantic user memory data. Integrated OpenAI embeddings for long-term memory and reflection AI. Designed digital twin system for identity evolution tracking.',
+        image: 'https://imgur.com/placeholder2.png',
+        technologies: ['Flutter', 'OpenAI', 'Qdrant', 'Firebase'],
+        liveUrl: '#',
+        githubUrl: '#'
+      },
+      {
+        title: 'Task Manager – Productivity App',
+        description: 'Developed Flutter application for task scheduling with smart reminders and calendar integration. Implemented comprehensive calendar views and reduced backend load by 40% through optimized caching.',
+        image: 'https://imgur.com/placeholder3.png',
+        technologies: ['Flutter', 'Firebase', 'DigitalOcean'],
+        liveUrl: '#',
+        githubUrl: '#'
       }
     ],
     education: [
       {
-        degree: 'BS in Software Engineering',
-        institution: 'Tech University',
-        year: '2020'
-      }
-    ],
-    projects: [
+        degree: 'BS Computer Science',
+        institution: 'Queens College, CUNY, New York',
+        year: 'Jan 2021 - Dec 2022'
+      },
       {
-        title: 'Cloud Infrastructure',
-        description: 'Designed and implemented cloud-native architecture.',
-        technologies: ['AWS', 'Docker', 'Kubernetes'],
-        image: 'https://imgur.com/project2.png'
+        degree: 'Associate in Computer Science',
+        institution: 'QCC, CUNY, New York',
+        year: 'Aug 2019 - Dec 2021'
+      },
+      {
+        degree: 'Certificate in Software Engineering',
+        institution: 'General Assembly, Seattle, WA',
+        year: 'Jul 2022 - Oct 2022'
       }
     ],
     achievements: [
-      'Optimized database performance by 200%',
-      'Implemented microservices architecture',
-      'AWS Certified Solutions Architect'
-    ]
-  },
-  {
-    id: 'usman',
-    name: 'Usman',
-    role: 'Frontend Wizard',
-    image: 'https://imgur.com/Zj8ssEp.png',
-    bio: 'Transforms UI ideas into production-grade apps.',
-    profilePath: '/profile/usman',
-    social: {
-      github: 'https://github.com/usman',
-      linkedin: 'https://linkedin.com/in/usman',
-      twitter: 'https://twitter.com/usman'
-    },
-    skills: [
-      'React', 'Vue.js', 'TypeScript', 'TailwindCSS',
-      'Next.js', 'GraphQL', 'Figma', 'UI/UX'
-    ],
-    experience: [
-      {
-        title: 'Frontend Developer',
-        company: 'Switch to Future',
-        duration: '2023 - Present',
-        description: 'Creating beautiful and responsive user interfaces.'
-      }
-    ],
-    education: [
-      {
-        degree: 'BS in Computer Science',
-        institution: 'Digital University',
-        year: '2021'
-      }
-    ],
-    projects: [
-      {
-        title: 'UI Component Library',
-        description: 'Built reusable component library for rapid development.',
-        technologies: ['React', 'TypeScript', 'Storybook'],
-        image: 'https://imgur.com/project3.png'
-      }
-    ],
-    achievements: [
-      'Created award-winning UI designs',
-      'Reduced load times by 60%',
-      'Speaker at React Conference 2023'
+      'Scaled mobile app to 1M+ users within 4 months of launch',
+      'Improved app performance by 35% through optimization',
+      'Reduced cloud resource usage by 40% across projects',
+      'Led development of features handling 150K+ monthly transactions',
+      'Successfully mentored junior developers in Flutter and mobile architecture'
     ]
   }
 ];
