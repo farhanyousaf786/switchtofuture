@@ -1,17 +1,30 @@
-body {
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  scroll-behavior: auto;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+body {
   width: 100%;
   min-height: 100vh;
   background-color: #0a0f1c;
 }
 
 #root {
+  position: relative;
   width: 100%;
   min-height: 100vh;
   margin: 0;
   padding: 0;
   text-align: center;
+  overflow-x: hidden;
 }
 
 .logo {

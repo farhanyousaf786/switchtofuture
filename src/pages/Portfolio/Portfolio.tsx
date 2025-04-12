@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { FaGithub, FaLinkedin, FaTwitter, FaExternalLinkAlt, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 import { teamMembers } from '../../data/teamMembers';
 import './Portfolio.css';
@@ -6,6 +7,12 @@ import './Portfolio.css';
 const Portfolio = () => {
   const { id } = useParams<{ id: string }>();
   const member = teamMembers.find(m => m.id === id);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+    return () => setIsLoaded(false);
+  }, []);
 
   if (!member) {
     return (
@@ -17,7 +24,7 @@ const Portfolio = () => {
   }
 
   return (
-    <div className="portfolio-container">
+    <div className={`portfolio-container ${isLoaded ? 'loaded' : ''}`}>
       {/* Intro Section */}
       <section className="intro-section">
         <h1 className="greeting">Hello World, I am</h1>

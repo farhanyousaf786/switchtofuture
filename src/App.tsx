@@ -3,15 +3,19 @@ import Home from './pages/LandingPage/Home/Home'
 import './App.css'
 import Portfolio from './pages/Portfolio/Portfolio'
 import WhatsAppButton from './components/WhatsAppButton/WhatsAppButton'
+import ScrollToTop from './components/ScrollToTop/ScrollToTop'
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/:id" element={<Portfolio />} />
-      </Routes>
-      <WhatsAppButton />
+      <div style={{ position: 'relative', minHeight: '100vh' }}>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/:id" element={<Portfolio />} />
+        </Routes>
+        <WhatsAppButton />
+      </div>
     </BrowserRouter>
   )
 }

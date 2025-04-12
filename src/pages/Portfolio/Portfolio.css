@@ -1,3 +1,98 @@
+/* Initial States */
+.portfolio-container:not(.loaded) .greeting,
+.portfolio-container:not(.loaded) .name,
+.portfolio-container:not(.loaded) .title,
+.portfolio-container:not(.loaded) .intro-bio,
+.portfolio-container:not(.loaded) .contact-info,
+.portfolio-container:not(.loaded) .social-links,
+.portfolio-container:not(.loaded) .portfolio-section,
+.portfolio-container:not(.loaded) .skill-category,
+.portfolio-container:not(.loaded) .timeline-item {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Transitions */
+.greeting,
+.name,
+.title,
+.intro-bio,
+.contact-info,
+.social-links,
+.portfolio-section,
+.skill-category,
+.timeline-item {
+  transition: all 0.5s ease;
+}
+
+/* Loaded States */
+.loaded .greeting {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+
+.loaded .name {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+.loaded .title {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+
+.loaded .intro-bio {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.4s;
+}
+
+.loaded .contact-info {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.5s;
+}
+
+.loaded .social-links {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.6s;
+}
+
+.loaded .portfolio-section {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.loaded .portfolio-section:nth-child(1) { transition-delay: 0.2s; }
+.loaded .portfolio-section:nth-child(2) { transition-delay: 0.3s; }
+.loaded .portfolio-section:nth-child(3) { transition-delay: 0.4s; }
+.loaded .portfolio-section:nth-child(4) { transition-delay: 0.5s; }
+.loaded .portfolio-section:nth-child(5) { transition-delay: 0.6s; }
+
+.loaded .skill-category {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.loaded .skill-category:nth-child(1) { transition-delay: 0.2s; }
+.loaded .skill-category:nth-child(2) { transition-delay: 0.3s; }
+.loaded .skill-category:nth-child(3) { transition-delay: 0.4s; }
+.loaded .skill-category:nth-child(4) { transition-delay: 0.5s; }
+.loaded .skill-category:nth-child(5) { transition-delay: 0.6s; }
+
+.loaded .timeline-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.loaded .timeline-item:nth-child(1) { transition-delay: 0.2s; }
+.loaded .timeline-item:nth-child(2) { transition-delay: 0.3s; }
+.loaded .timeline-item:nth-child(3) { transition-delay: 0.4s; }
+
 .portfolio-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -5,6 +100,11 @@
   color: #fff;
   background: #0b0d18;
   min-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  overflow-x: hidden;
 }
 
 .portfolio-error {
@@ -21,6 +121,7 @@
   align-items: center;
   text-align: center;
   padding: 4rem 2rem;
+  margin-top: 0;
 }
 
 .greeting {
@@ -31,21 +132,18 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: fadeInDown 1s ease;
 }
 
 .name {
   font-size: 4.5rem;
   margin-bottom: 1rem;
   color: #fff;
-  animation: fadeInDown 1s ease 0.3s both;
 }
 
 .title {
   font-size: 2rem;
   color: #7DF9FF;
   margin-bottom: 2rem;
-  animation: fadeInDown 1s ease 0.6s both;
 }
 
 .intro-bio {
@@ -54,13 +152,11 @@
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 2rem;
-  animation: fadeInUp 1s ease 0.9s both;
 }
 
 .contact-info {
   margin-bottom: 2rem;
   color: #B3E5FC;
-  animation: fadeInUp 1s ease 1.2s both;
 }
 
 .contact-info p {
@@ -74,7 +170,6 @@
 .social-links {
   display: flex;
   gap: 1.5rem;
-  animation: fadeInUp 1s ease 1.5s both;
 }
 
 .social-links a {
@@ -88,36 +183,12 @@
   transform: translateY(-3px);
 }
 
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* Portfolio Sections */
 .portfolio-section {
   margin-bottom: 4rem;
   padding: 2rem;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
-  animation: fadeIn 1s ease;
-  text-align: left;
 }
 
 .portfolio-section h2 {
