@@ -234,7 +234,7 @@
 
 .cycle-step {
   position: relative;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(20, 20, 35, 0.75);
   padding: 1.5rem 1rem;
   border-radius: 12px;
   text-align: center;
@@ -246,11 +246,14 @@
   align-items: center;
   justify-content: center;
   transition: transform 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 112, 243, 0.15);
 }
 
 .cycle-step:hover {
   transform: translateY(-3px);
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(25, 25, 45, 0.85);
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .step-tag {
@@ -388,6 +391,32 @@
   .step-arrow {
     right: -1rem;
     font-size: 1rem;
+  }
+
+  .dev-cycle {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  .dev-cycle::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+
+  .cycle-steps {
+    touch-action: pan-x;
+    cursor: grab;
+  }
+
+  .cycle-steps:active {
+    cursor: grabbing;
+    animation-play-state: paused;
+  }
+
+  .cycle-step {
+    user-select: none;
+    -webkit-user-select: none;
   }
 }
 

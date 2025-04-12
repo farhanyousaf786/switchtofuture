@@ -106,7 +106,21 @@ const MainContent = () => {
 
           <div className="dev-cycle">
             {window.innerWidth <= 768 ? (
-              <div className="cycle-steps">
+              <div 
+                className="cycle-steps"
+                onTouchStart={() => {
+                  const stepsElement = document.querySelector('.cycle-steps') as HTMLElement;
+                  if (stepsElement) {
+                    stepsElement.style.animationPlayState = 'paused';
+                  }
+                }}
+                onTouchEnd={() => {
+                  const stepsElement = document.querySelector('.cycle-steps') as HTMLElement;
+                  if (stepsElement) {
+                    stepsElement.style.animationPlayState = 'running';
+                  }
+                }}
+              >
                 {developmentCycle.map((step, index) => (
                   <div key={index} className="cycle-step">
                     <div className="step-tag">Phase {index + 1}</div>
