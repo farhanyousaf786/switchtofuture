@@ -1,5 +1,6 @@
 import { ReactElement, useEffect, useRef } from 'react';
-import { FaSync, FaHandshake, FaTools, FaLightbulb, FaRocket } from 'react-icons/fa';
+import { FaSync, FaHandshake, FaTools, FaLightbulb } from 'react-icons/fa';
+import { PopupButton } from "react-calendly";
 import './About.css';
 
 interface CoreValue {
@@ -82,10 +83,12 @@ const About = () => {
           </div>
 
           <div className="about-cta fade-in">
-            <button className="cta-button">
-              <FaRocket className="btn-icon" />
-              Let's Build Together
-            </button>
+            <PopupButton
+              url="https://calendly.com/letsbuildfuture/30min"
+              rootElement={document.getElementById("root")!}
+              text="Let's Build Together 🚀"
+              className="cta-button"
+            />
           </div>
         </div>
       </div>

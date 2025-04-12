@@ -162,7 +162,7 @@ const MainContent = () => {
 
           <div className="hero-cta">
             <PopupButton
-              url="https://calendly.com/switch2future/30min"
+              url="https://calendly.com/letsbuildfuture/30min"
               rootElement={document.getElementById("root")!}
               text="Book a Free Strategy Call"
               className="primary-btn"
