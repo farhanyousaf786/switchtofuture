@@ -1,6 +1,7 @@
 import './Projects.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faApple, faAndroid, faChrome } from '@fortawesome/free-brands-svg-icons';
+import { Link } from 'react-router-dom';
 
 interface Project {
   title: string;
@@ -15,78 +16,60 @@ interface Project {
   link: string;
 }
 
-const projectsData: Project[] = [
+export const projectsData: Project[] = [
   {
     title: "Mobile Recharge & Support Platform",
     subtitle: "1 Million+ Users",
     description: "Complete mobile recharge and customer support solution with real-time transaction processing.",
     image: "https://i.imgur.com/zmLULuM.png",
-    platforms: {
-      text: "Multi-Platform",
-      icons: [faApple, faAndroid]
-    },
+    platforms: { text: "Multi-Platform", icons: [faApple, faAndroid] },
     tags: ["Mobile", "Payments", "Support"],
-    link: "/projects/mobile-recharge"
+    link: "mobile-recharge"
   },
   {
     title: "Meddy App",
     subtitle: "HEALTHCARE SOLUTION",
     description: "Comprehensive healthcare app facilitating communication and managing medical data.",
     image: "https://i.imgur.com/zmLULuM.png",
-    platforms: {
-      text: "Multi-Platform",
-      icons: [faAndroid, faChrome]
-    },
+    platforms: { text: "Multi-Platform", icons: [faAndroid, faChrome] },
     tags: ["Healthcare", "Appointments", "Chat"],
-    link: "/projects/meddy-app"
+    link: "meddy-app"
   },
   {
     title: "DevFlow",
     subtitle: "DEVELOPER TOOLKIT",
     description: "A suite of powerful development tools to streamline your coding workflow and boost productivity.",
     image: "https://i.imgur.com/zmLULuM.png",
-    platforms: {
-      text: "Multi-Platform",
-      icons: [faChrome]
-    },
+    platforms: { text: "Multi-Platform", icons: [faChrome] },
     tags: ["Development", "Tools", "Productivity"],
-    link: "/projects/devflow"
+    link: "devflow"
   },
   {
     title: "EduTech Platform",
     subtitle: "LEARNING MANAGEMENT",
     description: "Modern learning management system with interactive courses, live sessions, and progress tracking.",
     image: "https://i.imgur.com/zmLULuM.png",
-    platforms: {
-      text: "Multi-Platform",
-      icons: [faApple, faChrome]
-    },
+    platforms: { text: "Multi-Platform", icons: [faApple, faChrome] },
     tags: ["Education", "E-Learning", "Tech"],
-    link: "/projects/edutech"
+    link: "edutech"
   },
   {
     title: "AI Analytics Hub",
     subtitle: "DATA INTELLIGENCE",
     description: "Advanced analytics platform using AI to transform business data into actionable insights.",
     image: "https://i.imgur.com/zmLULuM.png",
-    platforms: {
-      text: "Web Only",
-      icons: [faChrome]
-    },
+    platforms: { text: "Web Only", icons: [faChrome] },
     tags: ["Analytics", "AI", "Business"],
-    link: "/projects/ai-analytics"
+    link: "ai-analytics"
   },
   {
     title: "Smart IoT Platform",
     subtitle: "IOT SOLUTION",
     description: "Comprehensive IoT platform for managing and monitoring connected devices in real-time.",
     image: "https://i.imgur.com/zmLULuM.png",
-    platforms: {
-      text: "Multi-Platform",
-      icons: [faApple, faAndroid, faChrome]
-    },
+    platforms: { text: "Multi-Platform", icons: [faApple, faAndroid, faChrome] },
     tags: ["IoT", "Real-time", "Monitoring"],
-    link: "/projects/smart-iot"
+    link: "smart-iot"
   }
 ];
 
@@ -108,7 +91,7 @@ const Projects = () => (
                         <FontAwesomeIcon icon={icon} className="platform-icon" />
                         <span className="icon-label">
                           {icon.iconName === 'apple' ? 'iOS' :
-                           icon.iconName === 'android' ? 'Android' : 'Web'}
+                            icon.iconName === 'android' ? 'Android' : 'Web'}
                         </span>
                       </div>
                     ))}
@@ -124,9 +107,9 @@ const Projects = () => (
               <h4>{project.subtitle}</h4>
               <p>{project.description}</p>
               <div className="button-container">
-                <a href={project.link} className="project-button">
+                <Link to={`/projects/${project.link}`} className="project-button">
                   See Full Project
-                </a>
+                </Link>
               </div>
             </div>
           </div>

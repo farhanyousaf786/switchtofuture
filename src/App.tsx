@@ -4,6 +4,7 @@ import './App.css'
 import Portfolio from './pages/Portfolio/Portfolio'
 import WhatsAppButton from './components/WhatsAppButton/WhatsAppButton'
 import ScrollToTop from './components/ScrollToTop/ScrollToTop'
+import ProjectDetail from './pages/LandingPage/Projects/ProjectDetail'
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/:id" element={<Portfolio />} />
+          <Route path="/projects/:slug" element={<ProjectDetail />} />
+          <Route path="/portfolio/:id" element={<Portfolio />} />
         </Routes>
         <WhatsAppButton />
       </div>
