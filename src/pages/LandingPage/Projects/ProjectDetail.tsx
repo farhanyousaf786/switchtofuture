@@ -1,147 +1,168 @@
-import { useParams, Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faApple, faAndroid, faChrome } from '@fortawesome/free-brands-svg-icons';
+import { useParams } from 'react-router-dom';
 import { projectsData } from './Projects';
 import { projectDetailsData } from '../../../data/projectDetailsData';
-import './Projects.css';
-import { useEffect } from 'react';
+import './ProjectDetail.css';
+import { useEffect, useState, useCallback } from 'react';
 
 const ProjectDetail = () => {
   const { slug } = useParams();
   const project = projectsData.find(p => p.link === slug);
   const details = slug ? projectDetailsData[slug] : null;
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  const nextSlide = useCallback(() => {
+    if (!details) return;
+    setActiveSlide((prev) => (prev + 1) % details.gallery.length);
+  }, [details]);
+
+  const prevSlide = useCallback(() => {
+    if (!details) return;
+    setActiveSlide((prev) => (prev - 1 + details.gallery.length) % details.gallery.length);
+  }, [details]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  // Auto-advance carousel
+  useEffect(() => {
+    const timer = setInterval(nextSlide, 5000);
+    return () => clearInterval(timer);
+  }, [nextSlide]);
+
   if (!project || !details) return (
-    <div className="projects-section">
-      <div className="project-detail-container">
-        <h2>Project not found</h2>
-        <Link to="/" className="back-button">Back to Home</Link>
-      </div>
+    <div className="project-detail-container">
+      <h2>Project not found</h2>
     </div>
   );
 
   return (
-    <section className="projects-section">
-      <div className="project-detail-container">
-        <Link to="/" className="back-button">← Back to Projects</Link>
-        <div className="project-card single">
-          <div className="card-image" style={{ backgroundImage: `url(${project.image})` }}>
-            <div className="image-overlay"></div>
-            <div className="card-info">
-              <div className="platforms">
-                <span className="platform-text">Platforms</span>
-                <div className="platform-icons">
-                  {project.platforms.icons.map((icon, i) => (
-                    <div key={i} className="icon-container">
-                      <FontAwesomeIcon icon={icon} className="platform-icon" />
-                      <span className="icon-label">
-                        {icon.iconName === 'apple' ? 'iOS' :
-                          icon.iconName === 'android' ? 'Android' : 'Web'}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="tags">
-                {project.tags.map((tag: string) => <span key={tag}>{tag}</span>)}
-              </div>
+    <div className="project-detail-container">
+      <div className="project-hero">
+        <div className="carousel">
+          {details.gallery.map((img, index) => (
+            <div
+              key={index}
+              className={`carousel-slide ${index === activeSlide ? 'active' : ''}`}
+              style={{ backgroundImage: `url(${img})` }}
+            />
+          ))}
+          <button className="carousel-button prev" onClick={prevSlide}>
+            ←
+          </button>
+          <button className="carousel-button next" onClick={nextSlide}>
+            →
+          </button>
+          <div className="carousel-nav">
+            {details.gallery.map((_, index) => (
+              <div
+                key={index}
+                className={`carousel-dot ${index === activeSlide ? 'active' : ''}`}
+                onClick={() => setActiveSlide(index)}
+              />
+            ))}
+          </div>
+        </div>
+        <div className="hero-content">
+          <h1 className="hero-title">{project.title}</h1>
+          <h2 className="hero-subtitle">{project.subtitle}</h2>
+        </div>
+      </div>
+
+      <div className="project-content">
+        <div className="project-main">
+          <div className="project-section">
+            <h3>Overview</h3>
+            <p>{details.overview}</p>
+          </div>
+
+          <div className="project-section">
+            <h3>Key Features</h3>
+            <ul className="feature-list">
+              {details.features.map((feature, index) => (
+                <li key={index}>{feature}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="project-section">
+            <h3>Technologies Used</h3>
+            <div className="tech-stack">
+              {details.technologies.map((tech, index) => (
+                <span key={index} className="tech-tag">{tech}</span>
+              ))}
             </div>
           </div>
-          <div className="card-content">
-            <h3>{project.title}</h3>
-            <h4>{project.subtitle}</h4>
-            <p>{details.overview}</p>
-            
-            <div className="project-section">
-              <h3>Key Features</h3>
-              <ul className="feature-list">
-                {details.features.map((feature: string, index: number) => (
-                  <li key={index}>{feature}</li>
+
+          <div className="project-section challenges-solutions">
+            <div className="challenges">
+              <h3>Challenges</h3>
+              <ul>
+                {details.challenges.map((challenge, index) => (
+                  <li key={index}>{challenge}</li>
                 ))}
               </ul>
             </div>
-
-            <div className="project-section">
-              <h3>Technologies Used</h3>
-              <div className="tech-stack">
-                {details.technologies.map((tech: string, index: number) => (
-                  <span key={index} className="tech-tag">{tech}</span>
+            <div className="solutions">
+              <h3>Solutions</h3>
+              <ul>
+                {details.solutions.map((solution, index) => (
+                  <li key={index}>{solution}</li>
                 ))}
-              </div>
+              </ul>
             </div>
+          </div>
 
-            <div className="project-section challenges-solutions">
-              <div className="challenges">
-                <h3>Challenges</h3>
-                <ul>
-                  {details.challenges.map((challenge: string, index: number) => (
-                    <li key={index}>{challenge}</li>
-                  ))}
-                </ul>
-              </div>
-              <div className="solutions">
-                <h3>Solutions</h3>
-                <ul>
-                  {details.solutions.map((solution: string, index: number) => (
-                    <li key={index}>{solution}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            <div className="project-section">
-              <h3>Results & Impact</h3>
-              <div className="results-grid">
-                {details.results.map((result: string, index: number) => (
-                  <div key={index} className="result-card">
-                    {result}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="project-section">
-              <h3>Project Timeline</h3>
-              <div className="timeline">
-                {details.timeline.map((item: { date: string; milestone: string }, index: number) => (
-                  <div key={index} className="timeline-item">
-                    <div className="timeline-date">{item.date}</div>
-                    <div className="timeline-content">{item.milestone}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="project-section">
-              <h3>Team</h3>
-              <div className="team-grid">
-                {details.team.map((member: { name: string; role: string; contribution: string }, index: number) => (
-                  <div key={index} className="team-member">
-                    <h4>{member.name}</h4>
-                    <div className="role">{member.role}</div>
-                    <p>{member.contribution}</p>
-                  </div>
-                ))}
-              </div>
+          <div className="project-section">
+            <h3>Results & Impact</h3>
+            <div className="results-grid">
+              {details.results.map((result, index) => (
+                <div key={index} className="result-card">
+                  {result}
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
-        <div className="testimonials">
-          <h3>Client Testimonials</h3>
-          {details.testimonials.map((testimonial: { text: string; author: string; position: string }, index: number) => (
-            <div key={index} className="testimonial">
-              <p className="feedback">{testimonial.text}</p>
-              <p className="author">- {testimonial.author}, {testimonial.position}</p>
+        <aside>
+          <div className="project-section">
+            <h3>Project Timeline</h3>
+            <div className="timeline">
+              {details.timeline.map((item, index) => (
+                <div key={index} className="timeline-item">
+                  <div className="timeline-date">{item.date}</div>
+                  <div className="timeline-content">{item.milestone}</div>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+
+          <div className="project-section">
+            <h3>Team</h3>
+            <div className="team-grid">
+              {details.team.map((member, index) => (
+                <div key={index} className="team-member">
+                  <h4>{member.name}</h4>
+                  <div className="role">{member.role}</div>
+                  <p>{member.contribution}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </aside>
       </div>
-    </section>
+
+      <div className="testimonials">
+        <h3>Client Testimonials</h3>
+        {details.testimonials.map((testimonial, index) => (
+          <div key={index} className="testimonial">
+            <p className="feedback">{testimonial.text}</p>
+            <p className="author">- {testimonial.author}, {testimonial.position}</p>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 

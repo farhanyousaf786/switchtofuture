@@ -9,6 +9,7 @@ import ProjectDetail from './pages/LandingPage/Projects/ProjectDetail'
 function App() {
   return (
     <BrowserRouter>
+      
       <div style={{ position: 'relative', minHeight: '100vh' }}>
         <ScrollToTop />
         <Routes>
