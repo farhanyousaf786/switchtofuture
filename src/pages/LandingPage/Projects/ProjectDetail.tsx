@@ -2,13 +2,12 @@ import { useParams } from 'react-router-dom';
 import { projectsData } from './Projects';
 import { projectDetailsData } from '../../../data/projectDetailsData';
 import './ProjectDetail.css';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 const ProjectDetail = () => {
   const { slug } = useParams();
   const project = projectsData.find(p => p.link === slug);
   const details = slug ? projectDetailsData[slug] : null;
-  const [activeImage, setActiveImage] = useState(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -22,26 +21,7 @@ const ProjectDetail = () => {
 
   return (
     <div className="project-detail-container">
-      <div className="project-hero">
-        <div className="carousel-container">
-          <div className="carousel-main-image" style={{ backgroundImage: `url(${details.gallery[activeImage]})` }} />
-          <div className="carousel-thumbnails">
-            {details.gallery.map((img, i) => (
-              <img
-                key={i}
-                src={img}
-                alt={`Screenshot ${i + 1}`}
-                className={`thumbnail ${activeImage === i ? 'active' : ''}`}
-                onClick={() => setActiveImage(i)}
-              />
-            ))}
-          </div>
-        </div>
-        <div className=".hero-content-project">
-          <h1 className="hero-title">{project.title}</h1>
-          <h2 className="hero-subtitle">{project.subtitle}</h2>
-        </div>
-      </div>
+     
 
       <div className="project-content">
         <div className="project-main">

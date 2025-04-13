@@ -6,14 +6,7 @@
   overflow-x: hidden;
 }
 
-.project-hero {
-  position: relative;
-  height: 70vh;
-  min-height: 500px;
-  margin: -2rem -2rem 4rem;
-  background-color: #1a1a1a;
-  overflow: hidden;
-}
+
 
 .carousel {
   position: relative;
@@ -289,10 +282,7 @@
 }
 
 @media (max-width: 768px) {
-  .project-hero {
-    height: 50vh;
-    min-height: 400px;
-  }
+
 
   .carousel-button {
     width: 40px;
@@ -338,11 +328,7 @@
 }
 
 @media (max-width: 480px) {
-  .project-hero {
-    height: 40vh;
-    min-height: 300px;
-  }
-
+ 
   .carousel-button {
     width: 35px;
     height: 35px;
