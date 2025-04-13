@@ -1,12 +1,51 @@
 .project-detail-container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
-  color: #fff;
-  overflow-x: hidden;
+  color: #333;
 }
 
+.project-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #ffffff;
+}
 
+.back-button {
+  background: none;
+  border: none;
+  color: #007bff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+.header-content {
+  flex: 1;
+}
+
+.project-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #d3d3d3;
+}
+
+.project-subtitle {
+  font-size: 1.5rem;
+  color: #a9a9a9;
+  font-weight: normal;
+}
 
 .carousel {
   position: relative;
@@ -44,7 +83,7 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.664);
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -89,17 +128,6 @@
   right: 2rem;
 }
 
-
-
-
-
-
-
-
-
-
-
-
 .hero-content-project {
   position: absolute;
   bottom: 0;
@@ -128,8 +156,6 @@
   text-align: left;
   width: 100%;
 }
-
-
 
 .project-section h3 {
   font-size: 2rem;
@@ -169,7 +195,7 @@
   padding-left: 1.5rem;
   font-size: 1.1rem;
   line-height: 1.5;
-  color: #e0e0e0;
+  color: #ffffff;
 }
 
 .feature-list li::before {
@@ -206,6 +232,34 @@
   gap: 2rem;
 }
 
+.timeline {
+  list-style: none;
+  padding: 0;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #e0e0e0;
+}
+
+.timeline-item::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #B3E5FC;
+}
+
+.timeline-item::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #B3E5FC;
+}
+
 .challenges ul,
 .solutions ul {
   list-style: none;
@@ -222,22 +276,6 @@
   color: #e0e0e0;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .challenges li::before {
   content: '!';
   position: absolute;
@@ -251,6 +289,10 @@
   left: 0;
   color: #69f0ae;
 }
+.team-grid {
+  
+  color: #ffffff;
+}
 
 .results-grid {
   display: grid;
@@ -263,6 +305,7 @@
   padding: 1.5rem;
   border-radius: 8px;
   transition: all 0.3s ease;
+  color: #ffffff;
 }
 
 .result-card:hover {
@@ -282,8 +325,6 @@
 }
 
 @media (max-width: 768px) {
-
-
   .carousel-button {
     width: 40px;
     height: 40px;
@@ -313,6 +354,7 @@
 
   .project-section h3 {
     font-size: 1.5rem;
+    color: #d3d3d3;
   }
 
   .project-section p,
@@ -320,6 +362,7 @@
   .challenges li,
   .solutions li {
     font-size: 1rem;
+    color: #ffffff;
   }
 
   .challenges-solutions {
@@ -328,7 +371,6 @@
 }
 
 @media (max-width: 480px) {
- 
   .carousel-button {
     width: 35px;
     height: 35px;

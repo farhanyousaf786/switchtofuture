@@ -21,7 +21,15 @@ const ProjectDetail = () => {
 
   return (
     <div className="project-detail-container">
-     
+      <div className="project-header">
+        <button className="back-button" onClick={() => window.history.back()}>
+          ← Back
+        </button>
+        <div className="header-content">
+          <h1 className="project-title">{project.title}</h1>
+          <h2 className="project-subtitle">{project.subtitle}</h2>
+        </div>
+      </div>
 
       <div className="project-content">
         <div className="project-main">
