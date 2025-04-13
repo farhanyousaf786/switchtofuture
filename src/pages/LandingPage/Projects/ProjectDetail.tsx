@@ -10,7 +10,15 @@ const ProjectDetail = () => {
   const details = slug ? projectDetailsData[slug] : null;
 
   useEffect(() => {
+    // Force scroll to top immediately
     window.scrollTo(0, 0);
+    // And again after a small delay to ensure it works
+    const timer = setTimeout(() => {
+      window.scrollTo(0, 0);
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }, 100);
+    return () => clearTimeout(timer);
   }, []);
 
   if (!project || !details) return (
