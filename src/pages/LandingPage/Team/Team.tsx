@@ -55,7 +55,7 @@ const Team = () => {
                     </a>
                   )}
                 </div>
-                <Link to={`/${member.id}`} className="portfolio-link">
+                <Link to={`/portfolio/${member.id}`} className="portfolio-link">
                   View Profile <FaArrowRight />
                 </Link>
               </div>
