@@ -94,10 +94,10 @@
 .loaded .timeline-item:nth-child(3) { transition-delay: 0.4s; }
 
 .portfolio-container {
-  min-height: 100vh;
-  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 2rem;
   background: #0b0d18;
-  padding-top: 80px;
   position: fixed;
   top: 0;
   left: 0;
@@ -105,6 +105,31 @@
   bottom: 0;
   overflow-y: auto;
   overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.portfolio-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .portfolio-content {
+    padding: 4rem 8rem;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 768px) {
+  .portfolio-content {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-content {
+    padding: 2rem 1rem;
+  }
 }
 
 .intro-section {

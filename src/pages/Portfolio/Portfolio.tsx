@@ -25,173 +25,175 @@ const Portfolio = () => {
 
   return (
     <div className={`portfolio-container ${isLoaded ? 'loaded' : ''}`}>
-      {/* Intro Section */}
-      <section className="intro-section">
-        <h1 className="greeting">Hello World, I am</h1>
-        <h2 className="name">{member.name}</h2>
-        <h3 className="title">Full Stack Developer</h3>
-        <p className="intro-bio">{member.bio}</p>
-        <div className="contact-info">
-          <p><FaMapMarkerAlt /> {member.location}</p>
-          <p><FaPhone /> {member.contact.phone}</p>
-          <p><FaEnvelope /> {member.contact.email}</p>
-        </div>
-        <div className="social-links">
-          {member.social.github && (
-            <a href={member.social.github} target="_blank" rel="noreferrer">
-              <FaGithub />
-            </a>
-          )}
-          {member.social.linkedin && (
-            <a href={member.social.linkedin} target="_blank" rel="noreferrer">
-              <FaLinkedin />
-            </a>
-          )}
-          {member.social.twitter && (
-            <a href={member.social.twitter} target="_blank" rel="noreferrer">
-              <FaTwitter />
-            </a>
-          )}
-        </div>
-      </section>
-
-      {/* Skills Section */}
-      <section className="portfolio-section">
-        <h2>Skills</h2>
-        <div className="skills-categories">
-          <div className="skill-category">
-            <h3>Mobile Development</h3>
-            <div className="skills-grid">
-              {member.skills.mobile.map((skill, index) => (
-                <div key={index} className="skill-tag">
-                  {skill}
-                </div>
-              ))}
-            </div>
+      <div className="portfolio-content">
+        {/* Intro Section */}
+        <section className="intro-section">
+          <h1 className="greeting">Hello World, I am</h1>
+          <h2 className="name">{member.name}</h2>
+          <h3 className="title">Full Stack Developer</h3>
+          <p className="intro-bio">{member.bio}</p>
+          <div className="contact-info">
+            <p><FaMapMarkerAlt /> {member.location}</p>
+            <p><FaPhone /> {member.contact.phone}</p>
+            <p><FaEnvelope /> {member.contact.email}</p>
           </div>
-          
-          <div className="skill-category">
-            <h3>Web Development</h3>
-            <div className="skills-grid">
-              {member.skills.web.map((skill, index) => (
-                <div key={index} className="skill-tag">
-                  {skill}
-                </div>
-              ))}
-            </div>
+          <div className="social-links">
+            {member.social.github && (
+              <a href={member.social.github} target="_blank" rel="noreferrer">
+                <FaGithub />
+              </a>
+            )}
+            {member.social.linkedin && (
+              <a href={member.social.linkedin} target="_blank" rel="noreferrer">
+                <FaLinkedin />
+              </a>
+            )}
+            {member.social.twitter && (
+              <a href={member.social.twitter} target="_blank" rel="noreferrer">
+                <FaTwitter />
+              </a>
+            )}
           </div>
+        </section>
 
-          <div className="skill-category">
-            <h3>Backend Development</h3>
-            <div className="skills-grid">
-              {member.skills.backend.map((skill, index) => (
-                <div key={index} className="skill-tag">
-                  {skill}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="skill-category">
-            <h3>Cloud & DevOps</h3>
-            <div className="skills-grid">
-              {member.skills.cloud.map((skill, index) => (
-                <div key={index} className="skill-tag">
-                  {skill}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="skill-category">
-            <h3>Programming Languages</h3>
-            <div className="skills-grid">
-              {member.skills.languages.map((skill, index) => (
-                <div key={index} className="skill-tag">
-                  {skill}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Experience Section */}
-      <section className="portfolio-section">
-        <h2>Experience</h2>
-        <div className="timeline">
-          {member.experience.map((exp, index) => (
-            <div key={index} className="timeline-item">
-              <div className="timeline-content">
-                <h3>{exp.title}</h3>
-                <h4>{exp.company}</h4>
-                <p className="duration">{exp.duration}</p>
-                <ul className="experience-list">
-                  {exp.description.map((desc, i) => (
-                    <li key={i}>{desc}</li>
-                  ))}
-                </ul>
+        {/* Skills Section */}
+        <section className="portfolio-section">
+          <h2>Skills</h2>
+          <div className="skills-categories">
+            <div className="skill-category">
+              <h3>Mobile Development</h3>
+              <div className="skills-grid">
+                {member.skills.mobile.map((skill, index) => (
+                  <div key={index} className="skill-tag">
+                    {skill}
+                  </div>
+                ))}
               </div>
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Projects Section */}
-      <section className="portfolio-section">
-        <h2>Projects</h2>
-        <div className="projects-grid">
-          {member.projects.map((project, index) => (
-            <div key={index} className="project-card">
-              <div className="project-info">
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-                <div className="project-tech">
-                  {project.technologies.map((tech, i) => (
-                    <span key={i} className="tech-tag">{tech}</span>
-                  ))}
-                </div>
-                <div className="project-links">
-                  {project.liveUrl && (
-                    <a href={project.liveUrl} target="_blank" rel="noreferrer">
-                      <FaExternalLinkAlt /> Live
-                    </a>
-                  )}
-                  {project.githubUrl && (
-                    <a href={project.githubUrl} target="_blank" rel="noreferrer">
-                      <FaGithub /> Code
-                    </a>
-                  )}
-                </div>
+            
+            <div className="skill-category">
+              <h3>Web Development</h3>
+              <div className="skills-grid">
+                {member.skills.web.map((skill, index) => (
+                  <div key={index} className="skill-tag">
+                    {skill}
+                  </div>
+                ))}
               </div>
             </div>
-          ))}
-        </div>
-      </section>
 
-      {/* Education Section */}
-      <section className="portfolio-section">
-        <h2>Education</h2>
-        <div className="education-grid">
-          {member.education.map((edu, index) => (
-            <div key={index} className="education-card">
-              <h3>{edu.degree}</h3>
-              <h4>{edu.institution}</h4>
-              <p>{edu.year}</p>
+            <div className="skill-category">
+              <h3>Backend Development</h3>
+              <div className="skills-grid">
+                {member.skills.backend.map((skill, index) => (
+                  <div key={index} className="skill-tag">
+                    {skill}
+                  </div>
+                ))}
+              </div>
             </div>
-          ))}
-        </div>
-      </section>
 
-      {/* Achievements Section */}
-      <section className="portfolio-section">
-        <h2>Achievements</h2>
-        <ul className="achievements-list">
-          {member.achievements.map((achievement, index) => (
-            <li key={index}>{achievement}</li>
-          ))}
-        </ul>
-      </section>
+            <div className="skill-category">
+              <h3>Cloud & DevOps</h3>
+              <div className="skills-grid">
+                {member.skills.cloud.map((skill, index) => (
+                  <div key={index} className="skill-tag">
+                    {skill}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="skill-category">
+              <h3>Programming Languages</h3>
+              <div className="skills-grid">
+                {member.skills.languages.map((skill, index) => (
+                  <div key={index} className="skill-tag">
+                    {skill}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Experience Section */}
+        <section className="portfolio-section">
+          <h2>Experience</h2>
+          <div className="timeline">
+            {member.experience.map((exp, index) => (
+              <div key={index} className="timeline-item">
+                <div className="timeline-content">
+                  <h3>{exp.title}</h3>
+                  <h4>{exp.company}</h4>
+                  <p className="duration">{exp.duration}</p>
+                  <ul className="experience-list">
+                    {exp.description.map((desc, i) => (
+                      <li key={i}>{desc}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Projects Section */}
+        <section className="portfolio-section">
+          <h2>Projects</h2>
+          <div className="projects-grid">
+            {member.projects.map((project, index) => (
+              <div key={index} className="project-card">
+                <div className="project-info">
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+                  <div className="project-tech">
+                    {project.technologies.map((tech, i) => (
+                      <span key={i} className="tech-tag">{tech}</span>
+                    ))}
+                  </div>
+                  <div className="project-links">
+                    {project.liveUrl && (
+                      <a href={project.liveUrl} target="_blank" rel="noreferrer">
+                        <FaExternalLinkAlt /> Live
+                      </a>
+                    )}
+                    {project.githubUrl && (
+                      <a href={project.githubUrl} target="_blank" rel="noreferrer">
+                        <FaGithub /> Code
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Education Section */}
+        <section className="portfolio-section">
+          <h2>Education</h2>
+          <div className="education-grid">
+            {member.education.map((edu, index) => (
+              <div key={index} className="education-card">
+                <h3>{edu.degree}</h3>
+                <h4>{edu.institution}</h4>
+                <p>{edu.year}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Achievements Section */}
+        <section className="portfolio-section">
+          <h2>Achievements</h2>
+          <ul className="achievements-list">
+            {member.achievements.map((achievement, index) => (
+              <li key={index}>{achievement}</li>
+            ))}
+          </ul>
+        </section>
+      </div>
     </div>
   );
 };
