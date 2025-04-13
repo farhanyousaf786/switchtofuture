@@ -2,33 +2,17 @@ import { useParams } from 'react-router-dom';
 import { projectsData } from './Projects';
 import { projectDetailsData } from '../../../data/projectDetailsData';
 import './ProjectDetail.css';
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 
 const ProjectDetail = () => {
   const { slug } = useParams();
   const project = projectsData.find(p => p.link === slug);
   const details = slug ? projectDetailsData[slug] : null;
-  const [activeSlide, setActiveSlide] = useState(0);
-
-  const nextSlide = useCallback(() => {
-    if (!details) return;
-    setActiveSlide((prev) => (prev + 1) % details.gallery.length);
-  }, [details]);
-
-  const prevSlide = useCallback(() => {
-    if (!details) return;
-    setActiveSlide((prev) => (prev - 1 + details.gallery.length) % details.gallery.length);
-  }, [details]);
+  const [activeImage, setActiveImage] = useState(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  // Auto-advance carousel
-  useEffect(() => {
-    const timer = setInterval(nextSlide, 5000);
-    return () => clearInterval(timer);
-  }, [nextSlide]);
 
   if (!project || !details) return (
     <div className="project-detail-container">
@@ -39,31 +23,21 @@ const ProjectDetail = () => {
   return (
     <div className="project-detail-container">
       <div className="project-hero">
-        <div className="carousel">
-          {details.gallery.map((img, index) => (
-            <div
-              key={index}
-              className={`carousel-slide ${index === activeSlide ? 'active' : ''}`}
-              style={{ backgroundImage: `url(${img})` }}
-            />
-          ))}
-          <button className="carousel-button prev" onClick={prevSlide}>
-            ←
-          </button>
-          <button className="carousel-button next" onClick={nextSlide}>
-            →
-          </button>
-          <div className="carousel-nav">
-            {details.gallery.map((_, index) => (
-              <div
-                key={index}
-                className={`carousel-dot ${index === activeSlide ? 'active' : ''}`}
-                onClick={() => setActiveSlide(index)}
+        <div className="carousel-container">
+          <div className="carousel-main-image" style={{ backgroundImage: `url(${details.gallery[activeImage]})` }} />
+          <div className="carousel-thumbnails">
+            {details.gallery.map((img, i) => (
+              <img
+                key={i}
+                src={img}
+                alt={`Screenshot ${i + 1}`}
+                className={`thumbnail ${activeImage === i ? 'active' : ''}`}
+                onClick={() => setActiveImage(i)}
               />
             ))}
           </div>
         </div>
-        <div className="hero-content">
+        <div className=".hero-content-project">
           <h1 className="hero-title">{project.title}</h1>
           <h2 className="hero-subtitle">{project.subtitle}</h2>
         </div>
