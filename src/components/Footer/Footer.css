@@ -1,0 +1,112 @@
+.cb-footer {
+  background: var(--dark-bg);
+  color: var(--dark-text);
+  padding: 12rem 0 6rem;
+}
+
+/* Top email CTA */
+.cb-footer__top {
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 8rem;
+  margin-bottom: 8rem;
+}
+
+.cb-footer__label {
+  font-size: 1.4rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--dark-muted);
+  margin-bottom: 2.4rem;
+}
+
+.cb-footer__email {
+  font-size: clamp(3rem, 4vw, 6rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--text);
+  transition: color 0.2s;
+  display: inline-block;
+}
+
+.cb-footer__email:hover { color: var(--muted); }
+
+/* Grid */
+.cb-footer__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6rem;
+  margin-bottom: 8rem;
+}
+
+.cb-footer__col ul { list-style: none; }
+
+.cb-footer__col-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--dark-muted);
+  margin-bottom: 2.4rem;
+}
+
+.cb-footer__nav-link {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--dark-text);
+  padding: 0.6rem 0;
+  transition: color 0.2s;
+}
+
+.cb-footer__nav-link:hover { color: var(--dark-muted); }
+
+.cb-footer__col address {
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.cb-footer__col address p {
+  font-size: 1.5rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.cb-footer__socials {
+  display: flex;
+  flex-direction: column;
+}
+
+.cb-footer__social-link {
+  display: block;
+  font-size: 1.6rem;
+  color: var(--text);
+  padding: 0.6rem 0;
+  transition: color 0.2s;
+}
+
+.cb-footer__social-link:hover { color: var(--muted); }
+
+/* Bottom */
+.cb-footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 3.2rem;
+  font-size: 1.3rem;
+  color: var(--dark-muted);
+}
+
+@media (max-width: 768px) {
+  .cb-footer { padding: 6rem 0 4rem; }
+  .cb-footer__top { padding-bottom: 5rem; margin-bottom: 5rem; }
+  .cb-footer__grid { grid-template-columns: 1fr 1fr; gap: 4rem; }
+}
+
+@media (max-width: 480px) {
+  .cb-footer__grid { grid-template-columns: 1fr; }
+}

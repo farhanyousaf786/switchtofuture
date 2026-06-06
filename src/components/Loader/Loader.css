@@ -1,0 +1,20 @@
+.cb-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.cb-loader-backdrop {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.cb-loader-fill {
+  position: absolute;
+  inset: 0;
+  background: var(--bg);
+}

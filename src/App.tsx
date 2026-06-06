@@ -1,17 +1,56 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from './pages/LandingPage/Home/Home'
-import './App.css'
-import ProfilePage from './pages/profile/ProfilePage'
+import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import Lenis from 'lenis';
+import Cursor       from './components/Cursor/Cursor';
+import Navbar       from './components/Navbar/Navbar';
+import Footer       from './components/Footer/Footer';
+import ContactBadge from './components/ContactBadge/ContactBadge';
+import Home     from './pages/Home/Home';
+import Services from './pages/Services/Services';
+import Projects from './pages/Projects/Projects';
+import Company  from './pages/Company/Company';
+import Blog     from './pages/Blog/Blog';
+import Careers  from './pages/Careers/Careers';
+import Contact  from './pages/Contact/Contact';
 
-function App() {
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return null;
+};
+
+function AppInner() {
+  useEffect(() => {
+    const lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
+    const raf = (t: number) => { lenis.raf(t); requestAnimationFrame(raf); };
+    requestAnimationFrame(raf);
+    return () => { lenis.destroy(); };
+  }, []);
+
   return (
-    <BrowserRouter>
+    <>
+      <Cursor />
+      <ContactBadge />
+      <Navbar />
+      <ScrollToTop />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/farhan" element={<ProfilePage />} />
+        <Route path="/"         element={<Home />}     />
+        <Route path="/services" element={<Services />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/company"  element={<Company />}  />
+        <Route path="/blog"     element={<Blog />}     />
+        <Route path="/careers"  element={<Careers />}  />
+        <Route path="/contact"  element={<Contact />}  />
       </Routes>
-    </BrowserRouter>
-  )
+      <Footer />
+    </>
+  );
 }
 
-export default App
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppInner />
+    </BrowserRouter>
+  );
+}
