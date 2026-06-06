@@ -5,32 +5,33 @@ const Cursor = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const cursor = cursorRef.current;
-    if (!cursor) return;
-
-    let x = -100, y = -100;
-    let isLarge = false;
+    const el = cursorRef.current;
+    if (!el) return;
 
     const move = (e: MouseEvent) => {
-      x = e.clientX;
-      y = e.clientY;
-      cursor.style.transform = `translate(${x}px, ${y}px)`;
+      el.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
     };
 
-    const onEnter = () => {
-      if (isLarge) return;
-      isLarge = true;
-      cursor.classList.add('cb-cursor--lg');
+    const onExploreEnter = () => {
+      el.classList.remove('cb-cursor--hover');
+      el.classList.add('cb-cursor--explore');
+    };
+    const onHoverEnter = () => {
+      if (!el.classList.contains('cb-cursor--explore'))
+        el.classList.add('cb-cursor--hover');
     };
     const onLeave = () => {
-      isLarge = false;
-      cursor.classList.remove('cb-cursor--lg');
+      el.classList.remove('cb-cursor--explore', 'cb-cursor--hover');
     };
 
     const bind = () => {
-      document.querySelectorAll('a, button, [data-cursor]').forEach(el => {
-        el.addEventListener('mouseenter', onEnter);
-        el.addEventListener('mouseleave', onLeave);
+      document.querySelectorAll('[data-cursor="explore"]').forEach(t => {
+        t.addEventListener('mouseenter', onExploreEnter);
+        t.addEventListener('mouseleave', onLeave);
+      });
+      document.querySelectorAll('a:not([data-cursor="explore"]), button').forEach(t => {
+        t.addEventListener('mouseenter', onHoverEnter);
+        t.addEventListener('mouseleave', onLeave);
       });
     };
 
@@ -46,7 +47,13 @@ const Cursor = () => {
     };
   }, []);
 
-  return <div ref={cursorRef} className="cb-cursor" />;
+  return (
+    <div ref={cursorRef} className="cb-cursor">
+      <div className="cb-cursor__inner">
+        <span className="cb-cursor__label">Explore</span>
+      </div>
+    </div>
+  );
 };
 
 export default Cursor;

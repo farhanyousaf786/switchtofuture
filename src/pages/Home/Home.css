@@ -8,8 +8,8 @@
 }
 
 .h-hero__title {
-  font-size: clamp(4.2rem, 7vw, 9.6rem);
-  font-weight: 500;
+  font-size: clamp(4rem, 6vw, 8.5rem);
+  font-weight: 400;
   letter-spacing: -0.03em;
   line-height: 1.08;
   color: var(--text);
@@ -31,9 +31,9 @@
 .hw { display: block; }
 
 .h-hero__sub {
-  max-width: 56rem;
+  max-width: 72rem;
   margin: 0 auto 5.6rem;
-  font-size: 1.7rem;
+  font-size: 2.1rem;
   line-height: 1.65;
   color: var(--muted);
 }

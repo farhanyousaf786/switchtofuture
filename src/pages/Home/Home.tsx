@@ -93,7 +93,7 @@ export default function Home() {
       </section>
 
       {/* ── FEATURED PROJECTS ── */}
-      <section className="h-fp">
+      <section className="h-fp" data-dark>
         <div className="cb-wrapper">
           <h2 className="h-fp__heading sr">Featured projects</h2>
 
@@ -101,7 +101,7 @@ export default function Home() {
             {/* Left column */}
             <div className="h-fp__col">
               {leftCards.map(p => (
-                <Link to={p.link} key={p.id} className="h-fp__card sr">
+                <Link to={p.link} key={p.id} className="h-fp__card sr" data-cursor="explore">
                   <div className="h-fp__card-img">
                     <img src={p.image} alt={p.title} />
                   </div>
@@ -115,7 +115,7 @@ export default function Home() {
             {/* Right column — offset down */}
             <div className="h-fp__col h-fp__col--right">
               {rightCards.map(p => (
-                <Link to={p.link} key={p.id} className="h-fp__card sr">
+                <Link to={p.link} key={p.id} className="h-fp__card sr" data-cursor="explore">
                   <div className="h-fp__card-img">
                     <img src={p.image} alt={p.title} />
                   </div>

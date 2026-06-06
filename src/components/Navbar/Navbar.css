@@ -4,9 +4,12 @@
   left: 0;
   right: 0;
   z-index: 200;
-  padding: 2.4rem 0;
+  padding: 2.8rem 0;
   background: var(--bg);
-  border-bottom: 1px solid var(--border);
+}
+
+.cb-navbar .cb-wrapper {
+  padding: 0 10rem;
 }
 
 .cb-navbar__inner {
@@ -17,9 +20,10 @@
 
 /* Logo */
 .cb-navbar__logo {
-  font-size: 1.6rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.7rem;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: 0em;
   line-height: 1;
   z-index: 252;
   position: relative;
@@ -35,8 +39,8 @@
 
 .cb-navbar__link {
   font-size: 1.5rem;
-  font-weight: 500;
-  color: var(--muted);
+  font-weight: 400;
+  color: var(--text);
   transition: color 0.2s;
   letter-spacing: 0.01em;
 }

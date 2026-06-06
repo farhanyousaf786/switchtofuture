@@ -1,25 +1,61 @@
 .cb-cursor {
   position: fixed;
-  top: -5rem;
-  left: -5rem;
-  width: 10rem;
-  height: 10rem;
+  top: 0;
+  left: 0;
   pointer-events: none;
   z-index: 9999;
   will-change: transform;
 }
 
-.cb-cursor::before {
-  content: '';
-  display: block;
-  width: 100%;
-  height: 100%;
-  background: var(--text);
-  border-radius: 50%;
-  transform: scale(0.1);
-  transition: transform 0.3s var(--ease-out), opacity 0.1s;
+/* Only activate blend mode on hover — the boolean */
+.cb-cursor--hover {
+  mix-blend-mode: difference;
 }
 
-.cb-cursor--lg::before {
-  transform: scale(1.05);
+.cb-cursor__inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition:
+    width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    height 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.2s;
+}
+
+/* On hover: switch to white so difference blend inverts text */
+.cb-cursor--hover .cb-cursor__inner {
+  background: #fff;
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+/* Explore — large plain white circle, no blend */
+.cb-cursor--explore .cb-cursor__inner {
+  width: 9rem;
+  height: 9rem;
+  background: #fff;
+}
+
+.cb-cursor__label {
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: #111;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s;
+  user-select: none;
+}
+
+.cb-cursor--explore .cb-cursor__label {
+  opacity: 1;
 }

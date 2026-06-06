@@ -30,7 +30,7 @@ export default function Navbar() {
       <div className="cb-wrapper cb-navbar__inner">
         {/* Logo */}
         <Link to="/" className="cb-navbar__logo" aria-label="Switch to Future">
-          Switch to Future
+          switch to future
         </Link>
 
         {/* Desktop links */}
