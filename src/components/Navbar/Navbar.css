@@ -8,9 +8,6 @@
   background: var(--bg);
 }
 
-.cb-navbar .cb-wrapper {
-  padding: 0 10rem;
-}
 
 .cb-navbar__inner {
   display: flex;
@@ -38,7 +35,7 @@
 }
 
 .cb-navbar__link {
-  font-size: 1.5rem;
+  font-size: 1.69rem;
   font-weight: 400;
   color: var(--text);
   transition: color 0.2s;
