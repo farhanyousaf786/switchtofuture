@@ -488,13 +488,37 @@
    OUTRO / CTA
 ══════════════════════════════════════ */
 .h-outro {
+  position: relative;
   background: #000000;
-  padding: 10.14rem 0;
+  overflow: hidden;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.h-outro__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.h-outro__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .h-outro__inner {
-  max-width: 94.6rem;
-  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 12rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
 }
 
 .h-outro__header {
@@ -506,18 +530,23 @@
 }
 
 .h-outro__cta {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-size: 10.14rem;
   font-weight: 300;
-  line-height: 0.95;
+  line-height: 1;
   letter-spacing: -0.03em;
   color: #ffffff;
-  border-bottom: 2px solid rgba(255,255,255,0.25);
-  transition: border-color 0.3s;
+  border: 2px solid rgba(255,255,255,0.55);
+  border-radius: 1000px;
+  padding: 0.6rem 6rem 1rem;
+  transition: background 0.4s, border-color 0.4s;
 }
 
 .h-outro__cta:hover {
-  border-color: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.9);
 }
 
 /* ══════════════════════════════════════

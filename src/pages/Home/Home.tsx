@@ -278,6 +278,12 @@ export default function Home() {
 
       {/* ── OUTRO ── */}
       <section className="h-outro">
+        <div className="h-outro__bg" aria-hidden="true">
+          <img
+            src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=1800&q=85"
+            alt=""
+          />
+        </div>
         <div className="cb-wrapper">
           <div className="h-outro__inner">
             <div className="h-outro__header">Have an idea?</div>
