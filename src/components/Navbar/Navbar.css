@@ -17,10 +17,10 @@
 
 /* Logo */
 .cb-navbar__logo {
-  font-family: var(--font);
-  font-size: 1.352rem;
-  font-weight: 400;
-  letter-spacing: 0.01em;
+  font-family: 'Figtree', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
   line-height: 1;
   z-index: 252;
   position: relative;

@@ -8,21 +8,98 @@
 
 .h-section-heading {
   font-size: 7.605rem;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1;
   margin-bottom: 8.45rem;
 }
 
+/* ── Pill button with wipe-up ripple (matches cuberto) ── */
 .h-section-btn {
-  display: inline-flex;
-  align-items: center;
-  padding: 1.6rem 4.8rem;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  padding: 2.7rem 5.6rem;
+  border-radius: 1000px;
+  font-size: 2.028rem;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--text);
+  transition: transform 0.3s;
+}
+
+.h-section-btn--inv {
+  color: var(--dark-text);
+}
+
+/* Border layer */
+.h-section-btn__border {
+  display: block;
+  position: absolute;
+  inset: 0 0.5px 1px 0;
+  z-index: 3;
   border: 1.5px solid currentColor;
   border-radius: 1000px;
-  font-size: 1.69rem;
-  font-weight: 400;
-  transition: background 0.3s, color 0.3s;
+  pointer-events: none;
+}
+
+/* Ripple fill layer */
+.h-section-btn__ripple {
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.h-section-btn__ripple span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: translateY(101%);
+  background: currentColor;
+  border-radius: 50% 50% 0 0;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0, 1),
+              border-radius 0.5s cubic-bezier(0.4, 0, 0, 1);
+}
+
+/* Label layer */
+.h-section-btn__title {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.h-section-btn__title span {
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hover text (inverted color) slides in from below */
+.h-section-btn__title span::after {
+  content: attr(data-text);
+  display: block;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  color: #fff;
+}
+
+.h-section-btn--inv .h-section-btn__title span::after {
+  color: #000;
+}
+
+/* Hover state */
+.h-section-btn:hover .h-section-btn__ripple span {
+  transform: translateY(0);
+  border-radius: 0;
+}
+
+.h-section-btn:hover .h-section-btn__title span {
+  transform: translateY(-110%);
 }
 
 /* ══════════════════════════════════════
@@ -41,7 +118,7 @@
 
 .h-hero__title {
   font-size: 7.605rem;
-  font-weight: 400;
+  font-weight: 700;
   letter-spacing: -0.01em;
   line-height: 1.0;
   color: var(--text);
@@ -140,19 +217,10 @@
   color: var(--text);
 }
 
-.h-about__cta {
-  display: inline-block;
-  font-size: 2.028rem;
-  line-height: 1.2;
-  color: var(--text);
-  border-bottom: 1px solid var(--text);
-  padding-bottom: 0.2rem;
-  width: fit-content;
-  transition: opacity 0.2s;
+.h-about__body-col .h-section-btn {
   margin-top: 1.6rem;
+  align-self: flex-start;
 }
-
-.h-about__cta:hover { opacity: 0.5; }
 
 /* ══════════════════════════════════════
    FEATURED PROJECTS — dark

@@ -146,7 +146,11 @@ export default function Home() {
                   products exactly as they were during the design phase. No
                   shortcuts, no simplifications.
                 </p>
-                <Link to="/services" className="h-about__cta">What we do</Link>
+                <Link to="/services" className="h-section-btn">
+                  <span className="h-section-btn__border" />
+                  <span className="h-section-btn__ripple"><span /></span>
+                  <span className="h-section-btn__title"><span data-text="What we do">What we do</span></span>
+                </Link>
               </div>
             </div>
           </div>
@@ -185,7 +189,11 @@ export default function Home() {
               </div>
             </div>
             <div className="h-fp__footer sr">
-              <Link to="/projects" className="h-section-btn">View all projects</Link>
+              <Link to="/projects" className="h-section-btn h-section-btn--inv">
+                <span className="h-section-btn__border" />
+                <span className="h-section-btn__ripple"><span /></span>
+                <span className="h-section-btn__title"><span data-text="View all projects">View all projects</span></span>
+              </Link>
             </div>
           </div>
         </div>
@@ -250,7 +258,11 @@ export default function Home() {
               ))}
             </div>
             <div className="h-blog__footer sr">
-              <Link to="/blog" className="h-section-btn">View all posts</Link>
+              <Link to="/blog" className="h-section-btn h-section-btn--inv">
+                <span className="h-section-btn__border" />
+                <span className="h-section-btn__ripple"><span /></span>
+                <span className="h-section-btn__title"><span data-text="View all posts">View all posts</span></span>
+              </Link>
             </div>
           </div>
         </div>
