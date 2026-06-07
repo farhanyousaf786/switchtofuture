@@ -17,10 +17,10 @@
 
 /* Logo */
 .cb-navbar__logo {
-  font-family: 'Nunito', sans-serif;
-  font-size: 1.7rem;
-  font-weight: 700;
-  letter-spacing: 0em;
+  font-family: var(--font);
+  font-size: 1.352rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
   line-height: 1;
   z-index: 252;
   position: relative;
