@@ -113,11 +113,19 @@ export default function Home() {
       <div className="h-reel-wrap" ref={reelRef}>
         <div className="cb-wrapper">
           <div className="h-reel">
-            <img
-              src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1800&q=85"
-              alt="Project showcase"
-              className="h-reel__img"
-            />
+            <video
+              className="h-reel__video"
+              autoPlay
+              muted
+              loop
+              playsInline
+              poster="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1800&q=85"
+            >
+              <source
+                src="https://videos.pexels.com/video-files/854053/854053-hd_1280_720_25fps.mp4"
+                type="video/mp4"
+              />
+            </video>
           </div>
         </div>
       </div>
