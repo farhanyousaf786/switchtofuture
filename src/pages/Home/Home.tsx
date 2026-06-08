@@ -137,10 +137,15 @@ export default function Home() {
             <div className="h-about__grid">
               <div className="h-about__fig-col">
                 <div className="h-about__fig">
-                  <img
-                    src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&q=85"
-                    alt="3D render"
-                  />
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="h-about__fig-video"
+                  >
+                    <source src="/assets/videos/summary.mp4" type="video/mp4" />
+                  </video>
                 </div>
               </div>
               <div className="h-about__body-col">
