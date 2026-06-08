@@ -59,7 +59,7 @@ export default function Navbar() {
                 to={n.to}
                 className={`cb-navbar__link${location.pathname.startsWith(n.to) ? ' -active' : ''}`}
               >
-                {n.label}
+                <span className="cb-navbar__link-inner" data-text={n.label}>{n.label}</span>
               </Link>
             </li>
           ))}

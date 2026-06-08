@@ -81,12 +81,16 @@ export default function Footer() {
           <div className="cb-footer__nav">
             <div className="cb-footer__nav-col">
               {navCol1.map(n => (
-                <Link key={n.to} to={n.to} className="cb-footer__nav-link">{n.label}</Link>
+                <Link key={n.to} to={n.to} className="cb-footer__nav-link">
+                  <span className="cb-footer__nav-link-inner" data-text={n.label}>{n.label}</span>
+                </Link>
               ))}
             </div>
             <div className="cb-footer__nav-col">
               {navCol2.map(n => (
-                <Link key={n.to} to={n.to} className="cb-footer__nav-link">{n.label}</Link>
+                <Link key={n.to} to={n.to} className="cb-footer__nav-link">
+                  <span className="cb-footer__nav-link-inner" data-text={n.label}>{n.label}</span>
+                </Link>
               ))}
             </div>
           </div>
@@ -96,7 +100,9 @@ export default function Footer() {
         {/* ── Bottom bar ── */}
         <div className="cb-footer__bottom">
           <div className="cb-footer__legal">
-            <Link to="/privacy" className="cb-footer__legal-link">Privacy Policy</Link>
+            <Link to="/privacy" className="cb-footer__legal-link">
+              <span className="cb-footer__legal-link-inner" data-text="Privacy Policy">Privacy Policy</span>
+            </Link>
             <span className="cb-footer__copy">{new Date().getFullYear()}, Switch to Future</span>
           </div>
           <div className="cb-footer__socials">

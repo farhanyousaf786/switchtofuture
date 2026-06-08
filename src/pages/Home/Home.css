@@ -225,8 +225,8 @@
    FEATURED PROJECTS — dark
 ══════════════════════════════════════ */
 .h-fp {
-  background: #000000;
-  padding: 10.14rem 0 12rem;
+  background: var(--dark-bg);
+  padding: 10.14rem 0 20rem;
   border-radius: 6.76rem 6.76rem 0 0;
 }
 
@@ -248,12 +248,33 @@
 }
 
 .h-fp__col--right {
-  margin-top: 8rem;
+  margin-top: 20rem;
 }
 
 .h-fp__card {
+  position: relative;
   display: block;
   cursor: none;
+}
+
+/* Large faded card number behind each project */
+.h-fp__card::before {
+  content: attr(data-num);
+  position: absolute;
+  top: -2.5rem;
+  left: -1rem;
+  font-size: 12rem;
+  font-weight: 800;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.045);
+  pointer-events: none;
+  z-index: 0;
+  letter-spacing: -0.04em;
+  transition: color 0.4s;
+}
+
+.h-fp__card:hover::before {
+  color: rgba(99, 102, 241, 0.12);
 }
 
 .h-fp__card-img {
@@ -308,7 +329,7 @@
 ══════════════════════════════════════ */
 .h-services {
   background: var(--bg);
-  padding: calc(10.14rem + 6.76rem) 0 12rem;
+  padding: calc(10.14rem + 6.76rem) 0 20rem;
   border-radius: 6.76rem 6.76rem 0 0;
   position: relative;
   z-index: 1;
@@ -384,13 +405,22 @@
   color: var(--muted);
 }
 
+.h-services__footer {
+  margin-top: 8.45rem;
+  display: flex;
+  justify-content: center;
+}
+
 /* ══════════════════════════════════════
    BLOG — dark
 ══════════════════════════════════════ */
 .h-blog {
-  background: #000000;
-  padding: 10.14rem 0 12rem;
+  background: var(--dark-bg);
+  padding: calc(10.14rem + 6.76rem) 0 12rem;
   border-radius: 6.76rem 6.76rem 0 0;
+  position: relative;
+  z-index: 2;
+  margin-top: -6.76rem;
 }
 
 .h-blog .h-section-heading {
@@ -487,7 +517,7 @@
 ══════════════════════════════════════ */
 .h-outro {
   position: relative;
-  background: #000000;
+  background: var(--dark-bg);
   overflow: hidden;
   min-height: 100vh;
   display: flex;

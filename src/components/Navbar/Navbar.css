@@ -23,10 +23,10 @@
 
 /* Logo */
 .cb-navbar__logo {
-  font-family: 'Figtree', sans-serif;
-  font-size: 1.4rem;
-  font-weight: 900;
-  letter-spacing: -0.03em;
+  font-family: 'Inter', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: -0.04em;
   line-height: 1;
   z-index: 252;
   position: relative;
@@ -41,16 +41,32 @@
 }
 
 .cb-navbar__link {
-  font-size: 1.69rem;
+  font-size: 1.4rem;
   font-weight: 400;
   color: var(--text);
-  transition: color 0.2s;
   letter-spacing: 0.01em;
+  overflow: hidden;
+  display: inline-flex;
 }
 
-.cb-navbar__link:hover,
-.cb-navbar__link.-active {
-  color: var(--text);
+.cb-navbar__link-inner {
+  display: block;
+  position: relative;
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Duplicate label that slides in from below */
+.cb-navbar__link-inner::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 110%;
+  left: 0;
+  white-space: nowrap;
+}
+
+.cb-navbar__link:hover .cb-navbar__link-inner,
+.cb-navbar__link.-active .cb-navbar__link-inner {
+  transform: translateY(-110%);
 }
 
 /* Toggle button */

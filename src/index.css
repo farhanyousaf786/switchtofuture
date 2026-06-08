@@ -9,10 +9,10 @@ html { font-size: 62.5%; scroll-behavior: auto; }
   --text:      #0a0a0a;
   --muted:     #777777;
   --border:    rgba(0,0,0,0.1);
-  --accent:    #c8ff00;
+  --accent:    #6366F1;
 
-  /* Dark section */
-  --dark-bg:   #000000;
+  /* Dark section — deep navy instead of pure black */
+  --dark-bg:   #060818;
   --dark-text: #ffffff;
   --dark-muted:#888888;
 
@@ -20,6 +20,7 @@ html { font-size: 62.5%; scroll-behavior: auto; }
   --font: 'Manrope', sans-serif;
   --ease-out: cubic-bezier(.16,1,.3,1);
 }
+
 
 body {
   font-family: var(--font);

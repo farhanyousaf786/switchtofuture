@@ -1,5 +1,5 @@
 .cb-footer {
-  background: #000000;
+  background: var(--dark-bg);
   color: #ffffff;
   padding: 10.14rem 0;
 }
@@ -69,18 +69,33 @@
 }
 
 .cb-footer__nav-link {
-  display: block;
+  display: inline-flex;
+  overflow: hidden;     /* no padding here — clip box = exact text height */
   font-size: 2.028rem;
   font-weight: 400;
   line-height: 1.2;
   color: #ffffff;
-  padding: 1.014rem 0;
-  transition: opacity 0.2s;
+  margin: 1.014rem 0;  /* spacing via margin so it doesn't expand the clip box */
   white-space: nowrap;
 }
 
-.cb-footer__nav-link:hover {
-  opacity: 0.45;
+.cb-footer__nav-link-inner {
+  display: block;
+  position: relative;
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cb-footer__nav-link-inner::after {
+  content: attr(data-text);
+  display: block;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  white-space: nowrap;
+}
+
+.cb-footer__nav-link:hover .cb-footer__nav-link-inner {
+  transform: translateY(-110%);
 }
 
 /* ══════════════════════════════════════
@@ -182,11 +197,30 @@
   font-size: 1.3rem;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.4);
-  transition: color 0.2s;
 }
 
-.cb-footer__legal-link:hover {
-  color: rgba(255, 255, 255, 0.8);
+.cb-footer__legal-link {
+  display: inline-flex;
+  overflow: hidden;  /* no padding, clips at text height */
+}
+
+.cb-footer__legal-link-inner {
+  display: block;
+  position: relative;
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cb-footer__legal-link-inner::after {
+  content: attr(data-text);
+  display: block;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  white-space: nowrap;
+}
+
+.cb-footer__legal-link:hover .cb-footer__legal-link-inner {
+  transform: translateY(-110%);
 }
 
 .cb-footer__socials {

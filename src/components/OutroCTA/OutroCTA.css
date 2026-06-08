@@ -1,0 +1,130 @@
+.outro {
+  position: relative;
+  background: var(--dark-bg);   /* same navy as footer — no seam */
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+/* ── Video background ── */
+.outro__bg {
+  position: absolute;
+  inset: 0;
+  /* no z-index — don't create an isolated stacking context */
+  mix-blend-mode: screen;  /* black in video = transparent → section bg bleeds through */
+}
+
+.outro__bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+
+/* ── Content ── */
+.outro__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 12rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+.outro__header {
+  font-size: 10.14rem;
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+/* ── TELL US pill — ripple button ── */
+.outro__cta {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  font-size: 10.14rem;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  border-radius: 1000px;
+  padding: 0.6rem 6rem 1rem;
+}
+
+.outro__cta-border {
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border: 1px solid #ffffff;
+  border-radius: 1000px;
+  pointer-events: none;
+}
+
+.outro__cta-ripple {
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.outro__cta-ripple span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: translateY(101%);
+  background: #ffffff;
+  border-radius: 50% 50% 0 0;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0, 1),
+              border-radius 0.5s cubic-bezier(0.4, 0, 0, 1);
+}
+
+.outro__cta-label {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.outro__cta-label span {
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.outro__cta-label span::after {
+  content: attr(data-text);
+  display: block;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  color: #000000;
+}
+
+.outro__cta:hover .outro__cta-ripple span {
+  transform: translateY(0);
+  border-radius: 0;
+}
+
+.outro__cta:hover .outro__cta-label span {
+  transform: translateY(-110%);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+  .outro__header, .outro__cta { font-size: 7rem; }
+}
+
+@media (max-width: 768px) {
+  .outro__header, .outro__cta { font-size: 4.5rem; }
+}

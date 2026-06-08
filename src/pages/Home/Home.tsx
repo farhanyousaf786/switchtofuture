@@ -177,8 +177,8 @@ export default function Home() {
             <h2 className="h-section-heading sr">Featured projects</h2>
             <div className="h-fp__grid">
               <div className="h-fp__col">
-                {leftCards.map(p => (
-                  <Link to={p.link} key={p.id} className="h-fp__card sr" data-cursor="explore">
+                {leftCards.map((p, i) => (
+                  <Link to={p.link} key={p.id} className="h-fp__card sr" data-cursor="explore" data-num={String(i * 2 + 1).padStart(2, '0')}>
                     <div className="h-fp__card-img">
                       <img src={p.image} alt={p.title} />
                     </div>
@@ -189,8 +189,8 @@ export default function Home() {
                 ))}
               </div>
               <div className="h-fp__col h-fp__col--right">
-                {rightCards.map(p => (
-                  <Link to={p.link} key={p.id} className="h-fp__card sr" data-cursor="explore">
+                {rightCards.map((p, i) => (
+                  <Link to={p.link} key={p.id} className="h-fp__card sr" data-cursor="explore" data-num={String(i * 2 + 2).padStart(2, '0')}>
                     <div className="h-fp__card-img">
                       <img src={p.image} alt={p.title} />
                     </div>
@@ -245,6 +245,13 @@ export default function Home() {
                 ))}
               </div>
             </div>
+            <div className="h-services__footer sr">
+              <Link to="/services" className="h-section-btn">
+                <span className="h-section-btn__border" />
+                <span className="h-section-btn__ripple"><span /></span>
+                <span className="h-section-btn__title"><span data-text="View all services">View all services</span></span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -281,30 +288,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── OUTRO ── */}
-      <section className="h-outro">
-        <div className="h-outro__bg" aria-hidden="true">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-          >
-            {/* self-hosted copy — original from cuberto.com/assets/footer/ropes.mp4 */}
-            <source src="/assets/videos/ropes.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <div className="cb-wrapper">
-          <div className="h-outro__inner">
-            <div className="h-outro__header">Have<br />an idea?</div>
-            <Link to="/contact" className="h-outro__cta">
-              <span className="h-outro__cta-border" />
-              <span className="h-outro__cta-ripple"><span /></span>
-              <span className="h-outro__cta-label"><span data-text="TELL US">TELL US</span></span>
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* outro is now global in App.tsx — appears on all pages before footer */}
 
     </main>
   );

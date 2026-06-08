@@ -4,6 +4,7 @@ import Lenis from 'lenis';
 import Cursor       from './components/Cursor/Cursor';
 import Navbar       from './components/Navbar/Navbar';
 import Footer       from './components/Footer/Footer';
+import OutroCTA     from './components/OutroCTA/OutroCTA';
 import ContactBadge from './components/ContactBadge/ContactBadge';
 import Home     from './pages/Home/Home';
 import Services from './pages/Services/Services';
@@ -20,6 +21,9 @@ const ScrollToTop = () => {
 };
 
 function AppInner() {
+  const { pathname } = useLocation();
+  const isContact = pathname === '/contact';
+
   useEffect(() => {
     const lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
     const raf = (t: number) => { lenis.raf(t); requestAnimationFrame(raf); };
@@ -42,6 +46,8 @@ function AppInner() {
         <Route path="/careers"  element={<Careers />}  />
         <Route path="/contact"  element={<Contact />}  />
       </Routes>
+      {/* Outro CTA on every page except /contact */}
+      {!isContact && <OutroCTA />}
       <Footer />
     </>
   );
