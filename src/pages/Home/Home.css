@@ -491,7 +491,7 @@
   position: relative;
   background: #000000;
   overflow: hidden;
-  min-height: 80vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
 }
@@ -502,11 +502,22 @@
   z-index: 0;
 }
 
-.h-outro__bg img {
+.h-outro__bg img,
+.h-outro__bg video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center;
   display: block;
+}
+
+/* subtle dark overlay so white text stays crisp over the bright parts */
+.h-outro__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  pointer-events: none;
 }
 
 .h-outro__inner {
@@ -530,23 +541,82 @@
 }
 
 .h-outro__cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
   font-size: 10.14rem;
   font-weight: 300;
   line-height: 1;
   letter-spacing: -0.03em;
   color: #ffffff;
-  border: 2px solid rgba(255,255,255,0.55);
   border-radius: 1000px;
   padding: 0.6rem 6rem 1rem;
-  transition: background 0.4s, border-color 0.4s;
 }
 
-.h-outro__cta:hover {
-  background: rgba(255,255,255,0.08);
-  border-color: rgba(255,255,255,0.9);
+/* Border layer */
+.h-outro__cta-border {
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border: 1px solid #ffffff;
+  border-radius: 1000px;
+  pointer-events: none;
+}
+
+/* Ripple fill layer */
+.h-outro__cta-ripple {
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.h-outro__cta-ripple span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: translateY(101%);
+  background: #ffffff;
+  border-radius: 50% 50% 0 0;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0, 1),
+              border-radius 0.5s cubic-bezier(0.4, 0, 0, 1);
+}
+
+/* Label layer */
+.h-outro__cta-label {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.h-outro__cta-label span {
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Inverted text slides in from below on hover */
+.h-outro__cta-label span::after {
+  content: attr(data-text);
+  display: block;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  color: #000000;
+}
+
+/* Hover state */
+.h-outro__cta:hover .h-outro__cta-ripple span {
+  transform: translateY(0);
+  border-radius: 0;
+}
+
+.h-outro__cta:hover .h-outro__cta-label span {
+  transform: translateY(-110%);
 }
 
 /* ══════════════════════════════════════

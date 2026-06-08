@@ -1,66 +1,53 @@
 .cb-footer {
   background: #000000;
   color: #ffffff;
-  padding: 8rem 0 5rem;
+  padding: 10.14rem 0;
 }
 
-/* ── Top section ── */
+/* ══════════════════════════════════════
+   TOP: locations (left) + nav (right)
+══════════════════════════════════════ */
 .cb-footer__top {
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 6rem;
+  gap: 5.07rem;
   align-items: start;
   padding-bottom: 8rem;
 }
 
-/* Contact block: pills + offices */
-.cb-footer__contact {
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
+/* ── Locations: two columns, each pill above its address ── */
+.cb-footer__locations {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 8.45rem;
+  justify-content: start;
+  align-items: start;
 }
 
-.cb-footer__pills {
-  display: flex;
-  gap: 1.6rem;
-  flex-wrap: wrap;
-}
-
-.cb-footer__pill {
-  display: inline-block;
-  font-size: 2.028rem;
-  font-weight: 400;
-  line-height: 1;
-  color: #ffffff;
-  border: 1px solid #ffffff;
-  border-radius: 1000px;
-  padding: 1.183rem 1.69rem;
-  transition: background 0.25s;
-  white-space: nowrap;
-}
-
-.cb-footer__pill:hover {
-  background: rgba(255,255,255,0.08);
-}
-
-.cb-footer__offices {
-  display: flex;
-  gap: 6rem;
-}
-
-.cb-footer__office {
+.cb-footer__location {
   display: block;
 }
 
-.cb-footer__office-label {
+/* Pill sits above address with 2.028rem gap below */
+.cb-footer__location-action {
+  margin-bottom: 2.028rem;
+}
+
+/* Address block: caption + addr inline on same line */
+.cb-footer__location-body {
+  display: block;
+}
+
+.cb-footer__location-caption {
   display: inline;
   font-size: 1.352rem;
   font-weight: 400;
-  letter-spacing: 0.01em;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255, 255, 255, 0.5);
+  margin-right: 0.845rem;
+  white-space: nowrap;
 }
 
-.cb-footer__office-addr {
+.cb-footer__location-addr {
   display: inline;
   font-size: 1.521rem;
   font-weight: 500;
@@ -68,17 +55,17 @@
   color: #ffffff;
 }
 
-/* Nav: 2 columns */
+/* ── Nav: 2 columns ── */
 .cb-footer__nav {
-  display: flex;
-  gap: 4rem;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 5.4rem;
   align-items: start;
 }
 
 .cb-footer__nav-col {
   display: flex;
   flex-direction: column;
-  gap: 0;
 }
 
 .cb-footer__nav-link {
@@ -96,12 +83,91 @@
   opacity: 0.45;
 }
 
-/* ── Bottom bar ── */
+/* ══════════════════════════════════════
+   PILL BUTTONS — wipe-up ripple
+══════════════════════════════════════ */
+.cb-footer__pill {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  padding: 1.183rem 1.69rem;
+  border-radius: 1000px;
+  font-size: 2.028rem;
+  font-weight: 400;
+  line-height: 1;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.cb-footer__pill-border {
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border: 1px solid #ffffff;
+  border-radius: 1000px;
+  pointer-events: none;
+}
+
+.cb-footer__pill-ripple {
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.cb-footer__pill-ripple span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: translateY(101%);
+  background: #ffffff;
+  border-radius: 50% 50% 0 0;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0, 1),
+              border-radius 0.5s cubic-bezier(0.4, 0, 0, 1);
+}
+
+.cb-footer__pill-label {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.cb-footer__pill-label span {
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cb-footer__pill-label span::after {
+  content: attr(data-text);
+  display: block;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  color: #000000;
+}
+
+.cb-footer__pill:hover .cb-footer__pill-ripple span {
+  transform: translateY(0);
+  border-radius: 0;
+}
+
+.cb-footer__pill:hover .cb-footer__pill-label span {
+  transform: translateY(-110%);
+}
+
+/* ══════════════════════════════════════
+   BOTTOM BAR
+══════════════════════════════════════ */
 .cb-footer__bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 3.2rem;
 }
 
@@ -115,15 +181,14 @@
 .cb-footer__copy {
   font-size: 1.3rem;
   font-weight: 400;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255, 255, 255, 0.4);
   transition: color 0.2s;
 }
 
 .cb-footer__legal-link:hover {
-  color: rgba(255,255,255,0.8);
+  color: rgba(255, 255, 255, 0.8);
 }
 
-/* Social icons */
 .cb-footer__socials {
   display: flex;
   gap: 1rem;
@@ -137,13 +202,13 @@
   width: 4.4rem;
   height: 4.4rem;
   border-radius: 50%;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   color: #ffffff;
   transition: background 0.2s;
 }
 
 .cb-footer__social:hover {
-  background: rgba(255,255,255,0.22);
+  background: rgba(255, 255, 255, 0.22);
 }
 
 .cb-footer__social svg {
@@ -151,20 +216,21 @@
   height: 1.6rem;
 }
 
-/* ── Responsive ── */
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
 @media (max-width: 1024px) {
   .cb-footer__top {
     grid-template-columns: 1fr;
-  }
-  .cb-footer__nav {
-    gap: 3rem;
+    gap: 4rem;
   }
 }
 
 @media (max-width: 768px) {
   .cb-footer { padding: 6rem 0 4rem; }
-  .cb-footer__offices { flex-direction: column; gap: 2.4rem; }
-  .cb-footer__nav-link { font-size: 2rem; }
-  .cb-footer__pills { flex-direction: column; }
+  .cb-footer__locations { grid-template-columns: 1fr; gap: 3.2rem; }
+  .cb-footer__nav { gap: 3rem; }
+  .cb-footer__nav-link { font-size: 1.8rem; }
+  .cb-footer__pill { font-size: 1.6rem; }
   .cb-footer__bottom { flex-direction: column; gap: 2.4rem; align-items: flex-start; }
 }

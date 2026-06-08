@@ -279,15 +279,24 @@ export default function Home() {
       {/* ── OUTRO ── */}
       <section className="h-outro">
         <div className="h-outro__bg" aria-hidden="true">
-          <img
-            src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=1800&q=85"
-            alt=""
-          />
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
+            {/* self-hosted copy — original from cuberto.com/assets/footer/ropes.mp4 */}
+            <source src="/assets/videos/ropes.mp4" type="video/mp4" />
+          </video>
         </div>
         <div className="cb-wrapper">
           <div className="h-outro__inner">
-            <div className="h-outro__header">Have an idea?</div>
-            <Link to="/contact" className="h-outro__cta">TELL US</Link>
+            <div className="h-outro__header">Have<br />an idea?</div>
+            <Link to="/contact" className="h-outro__cta">
+              <span className="h-outro__cta-border" />
+              <span className="h-outro__cta-ripple"><span /></span>
+              <span className="h-outro__cta-label"><span data-text="TELL US">TELL US</span></span>
+            </Link>
           </div>
         </div>
       </section>

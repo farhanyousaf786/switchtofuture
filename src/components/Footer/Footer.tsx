@@ -41,28 +41,43 @@ export default function Footer() {
     <footer className="cb-footer">
       <div className="cb-wrapper">
 
+        {/* ── Top: locations + nav ── */}
         <div className="cb-footer__top">
-          <div className="cb-footer__contact">
-            <div className="cb-footer__pills">
-              <a href="mailto:hello@switchtofuture.com" className="cb-footer__pill">
-                hello@switchtofuture.com
-              </a>
-              <a href="tel:+13015499309" className="cb-footer__pill">
-                +1 301 549 9309
-              </a>
-            </div>
-            <div className="cb-footer__offices">
-              <div className="cb-footer__office">
-                <span className="cb-footer__office-label">MAIN OFFICE</span>
-                <span className="cb-footer__office-addr">901 N Pitt Street<br />Alexandria VA, 22314</span>
+
+          {/* Left: two location columns */}
+          <div className="cb-footer__locations">
+
+            <div className="cb-footer__location">
+              <div className="cb-footer__location-action">
+                <a href="mailto:hello@switchtofuture.com" className="cb-footer__pill">
+                  <span className="cb-footer__pill-border" />
+                  <span className="cb-footer__pill-ripple"><span /></span>
+                  <span className="cb-footer__pill-label"><span data-text="hello@switchtofuture.com">hello@switchtofuture.com</span></span>
+                </a>
               </div>
-              <div className="cb-footer__office">
-                <span className="cb-footer__office-label">SECOND OFFICE</span>
-                <span className="cb-footer__office-addr">Remote<br />Worldwide</span>
+              <div className="cb-footer__location-body">
+                <span className="cb-footer__location-caption">Main office</span>
+                <span className="cb-footer__location-addr">901 N Pitt Street<br />Alexandria VA, 22314</span>
               </div>
             </div>
+
+            <div className="cb-footer__location">
+              <div className="cb-footer__location-action">
+                <a href="tel:+13015499309" className="cb-footer__pill">
+                  <span className="cb-footer__pill-border" />
+                  <span className="cb-footer__pill-ripple"><span /></span>
+                  <span className="cb-footer__pill-label"><span data-text="+1 301 549 9309">+1 301 549 9309</span></span>
+                </a>
+              </div>
+              <div className="cb-footer__location-body">
+                <span className="cb-footer__location-caption">Second office</span>
+                <span className="cb-footer__location-addr">Remote<br />Worldwide</span>
+              </div>
+            </div>
+
           </div>
 
+          {/* Right: nav links in 2 columns */}
           <div className="cb-footer__nav">
             <div className="cb-footer__nav-col">
               {navCol1.map(n => (
@@ -75,8 +90,10 @@ export default function Footer() {
               ))}
             </div>
           </div>
+
         </div>
 
+        {/* ── Bottom bar ── */}
         <div className="cb-footer__bottom">
           <div className="cb-footer__legal">
             <Link to="/privacy" className="cb-footer__legal-link">Privacy Policy</Link>
