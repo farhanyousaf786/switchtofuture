@@ -13,8 +13,10 @@ const NAV = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const location = useLocation();
   const navRef = useRef<HTMLElement>(null);
+  const lastScrollY = useRef(0);
 
   // Close menu on route change
   useEffect(() => { setOpen(false); }, [location]);
@@ -25,8 +27,24 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ''; };
   }, [open]);
 
+  // Hide on scroll-down, show on scroll-up
+  useEffect(() => {
+    const onScroll = () => {
+      if (open) return;                          // never hide while menu is open
+      const y = window.scrollY;
+      if (y > lastScrollY.current && y > 80) {
+        setHidden(true);                         // scrolling down → hide
+      } else {
+        setHidden(false);                        // scrolling up / near top → show
+      }
+      lastScrollY.current = y;
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [open]);
+
   return (
-    <nav ref={navRef} className={`cb-navbar${open ? ' -open' : ''}`}>
+    <nav ref={navRef} className={`cb-navbar${open ? ' -open' : ''}${hidden ? ' -hidden' : ''}`}>
       <div className="cb-wrapper cb-navbar__inner">
         {/* Logo */}
         <Link to="/" className="cb-navbar__logo" aria-label="Switch to Future">
