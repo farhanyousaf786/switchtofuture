@@ -1,139 +1,70 @@
+import { useState } from 'react';
 import './Projects.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faApple, faAndroid, faChrome } from '@fortawesome/free-brands-svg-icons';
+import { projectsData } from '../../../data/projectsData';
+import { Link } from 'react-router-dom';
 
-interface Project {
-  title: string;
-  subtitle: string;
-  description: string;
-  image: string;
-  platforms: {
-    text: string;
-    icons: any[];
-  };
-  tags: string[];
-  link: string;
-}
+const categories = ["All", "Mobile Apps", "Web Apps", "AI Apps"];
 
-const projectsData: Project[] = [
-  {
-    title: "Mobile Recharge & Support Platform",
-    subtitle: "1 Million+ Users",
-    description: "Complete mobile recharge and customer support solution with real-time transaction processing.",
-    image: "https://i.imgur.com/zmLULuM.png",
-    platforms: {
-      text: "Multi-Platform",
-      icons: [faApple, faAndroid]
-    },
-    tags: ["Mobile", "Payments", "Support"],
-    link: "/projects/mobile-recharge"
-  },
-  {
-    title: "Meddy App",
-    subtitle: "HEALTHCARE SOLUTION",
-    description: "Comprehensive healthcare app facilitating communication and managing medical data.",
-    image: "https://i.imgur.com/zmLULuM.png",
-    platforms: {
-      text: "Multi-Platform",
-      icons: [faAndroid, faChrome]
-    },
-    tags: ["Healthcare", "Appointments", "Chat"],
-    link: "/projects/meddy-app"
-  },
-  {
-    title: "DevFlow",
-    subtitle: "DEVELOPER TOOLKIT",
-    description: "A suite of powerful development tools to streamline your coding workflow and boost productivity.",
-    image: "https://i.imgur.com/zmLULuM.png",
-    platforms: {
-      text: "Multi-Platform",
-      icons: [faChrome]
-    },
-    tags: ["Development", "Tools", "Productivity"],
-    link: "/projects/devflow"
-  },
-  {
-    title: "EduTech Platform",
-    subtitle: "LEARNING MANAGEMENT",
-    description: "Modern learning management system with interactive courses, live sessions, and progress tracking.",
-    image: "https://i.imgur.com/zmLULuM.png",
-    platforms: {
-      text: "Multi-Platform",
-      icons: [faApple, faChrome]
-    },
-    tags: ["Education", "E-Learning", "Tech"],
-    link: "/projects/edutech"
-  },
-  {
-    title: "AI Analytics Hub",
-    subtitle: "DATA INTELLIGENCE",
-    description: "Advanced analytics platform using AI to transform business data into actionable insights.",
-    image: "https://i.imgur.com/zmLULuM.png",
-    platforms: {
-      text: "Web Only",
-      icons: [faChrome]
-    },
-    tags: ["Analytics", "AI", "Business"],
-    link: "/projects/ai-analytics"
-  },
-  {
-    title: "Smart IoT Platform",
-    subtitle: "IOT SOLUTION",
-    description: "Comprehensive IoT platform for managing and monitoring connected devices in real-time.",
-    image: "https://i.imgur.com/zmLULuM.png",
-    platforms: {
-      text: "Multi-Platform",
-      icons: [faApple, faAndroid, faChrome]
-    },
-    tags: ["IoT", "Real-time", "Monitoring"],
-    link: "/projects/smart-iot"
-  }
-];
+const Projects = () => {
+  const [activeTab, setActiveTab] = useState("All");
 
-const Projects = () => (
-  <section className="projects-section" id="projects">
-    <div className="projects-container">
-      <h2 className="section-title">Our Projects</h2>
-      <div className="project-cards">
-        {projectsData.map((project, idx) => (
-          <div className="project-card" key={idx}>
-            <div className="card-image" style={{ backgroundImage: `url(${project.image})` }}>
-              <div className="image-overlay"></div>
-              <div className="card-info">
-                <div className="platforms">
-                  <span className="platform-text">{project.platforms.text}</span>
-                  <div className="platform-icons">
-                    {project.platforms.icons.map((icon, i) => (
-                      <div key={i} className="icon-container">
-                        <FontAwesomeIcon icon={icon} className="platform-icon" />
-                        <span className="icon-label">
-                          {icon.iconName === 'apple' ? 'iOS' :
-                           icon.iconName === 'android' ? 'Android' : 'Web'}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
+  const filteredProjects = activeTab === "All" 
+    ? projectsData 
+    : projectsData.filter(project => project.category === activeTab);
+
+  return (
+    <section className="projects-section" id="projects">
+      <div className="projects-container">
+        <h2 className="section-title">Our Projects</h2>
+        
+        <div className="projects-tabs">
+          {categories.map((category) => (
+            <button 
+              key={category} 
+              className={`tab-btn ${activeTab === category ? 'active' : ''}`}
+              onClick={() => setActiveTab(category)}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        <div className="project-cards">
+          {filteredProjects.map((project, idx) => (
+            <div className="project-card" key={project.title}>
+              <div className="card-image-container">
+                <div className="card-image" style={{ backgroundImage: `url(${project.images[0]})` }}></div>
+                <div className="image-overlay"></div>
+              </div>
+              <div className="card-content">
+                <div className="card-header">
+                  <h3>{project.title}</h3>
+                  <h4>{project.subtitle}</h4>
                 </div>
+                <p>{project.description}</p>
+                
                 <div className="tags">
                   {project.tags.map(tag => <span key={tag}>{tag}</span>)}
                 </div>
+
+                <div className="card-footer">
+                  <div className="platform-icons">
+                    {project.platforms.icons.map((icon, i) => (
+                      <FontAwesomeIcon key={i} icon={icon} className="platform-icon" title={project.platforms.text} />
+                    ))}
+                  </div>
+                  <Link to={`/projects/${project.slug}`} className="project-button">
+                    Details
+                  </Link>
+                </div>
               </div>
             </div>
-            <div className="card-content">
-              <h3>{project.title}</h3>
-              <h4>{project.subtitle}</h4>
-              <p>{project.description}</p>
-              <div className="button-container">
-                <a href={project.link} className="project-button">
-                  See Full Project
-                </a>
-              </div>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default Projects;
