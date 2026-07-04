@@ -6,9 +6,8 @@ import {
   FaUserFriends,
   FaShieldAlt,
 } from 'react-icons/fa';
-import logo from '../../assets/icon.png';
-
-const MOODS = ['Happy', 'Sad', 'Angry', 'Low', 'Loved', 'Cooked'];
+import { CONTACT_EMAIL } from '@/data/site';
+import ClustyHeroArt from './ClustyHeroArt';
 
 const FEATURES = [
   {
@@ -66,16 +65,7 @@ export default function ClustyHome() {
             </p>
           </div>
 
-          <div className="clusty-hero__visual" aria-hidden>
-            <div className="clusty-hero__logo-ring">
-              <img src={logo} alt="" />
-            </div>
-            <div className="clusty-moods">
-              {MOODS.map((mood) => (
-                <span key={mood} className="clusty-mood">{mood}</span>
-              ))}
-            </div>
-          </div>
+          <ClustyHeroArt />
         </div>
       </section>
 
@@ -121,8 +111,7 @@ export default function ClustyHome() {
           </div>
           <div className="clusty-about__meta">
             <p><strong>Bundle ID</strong> com.clusty.stf</p>
-            <p><strong>Support</strong> <a href="mailto:support@clusty.app">support@clusty.app</a></p>
-            <p><strong>Privacy</strong> <a href="mailto:privacy@clusty.app">privacy@clusty.app</a></p>
+            <p><strong>Contact</strong> <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
           </div>
         </div>
       </section>

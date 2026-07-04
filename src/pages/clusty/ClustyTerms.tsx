@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { CONTACT_EMAIL } from '@/data/site';
 
 const UPDATED = 'July 4, 2026';
 
@@ -16,28 +17,6 @@ export default function ClustyTerms() {
             By creating an account or using Clusty, you agree to these Terms.
           </p>
         </header>
-
-        <nav className="clusty-legal__toc" aria-label="Table of contents">
-          <h2>Contents</h2>
-          <ol>
-            <li><a href="#agreement">Agreement</a></li>
-            <li><a href="#eligibility">Eligibility</a></li>
-            <li><a href="#account">Your Account</a></li>
-            <li><a href="#content">User Content &amp; License</a></li>
-            <li><a href="#acceptable">Acceptable Use</a></li>
-            <li><a href="#safety">Safety &amp; Moderation</a></li>
-            <li><a href="#location">Location Services</a></li>
-            <li><a href="#messaging">Messaging</a></li>
-            <li><a href="#ip">Intellectual Property</a></li>
-            <li><a href="#disclaimers">Disclaimers</a></li>
-            <li><a href="#liability">Limitation of Liability</a></li>
-            <li><a href="#indemnity">Indemnification</a></li>
-            <li><a href="#termination">Termination</a></li>
-            <li><a href="#changes">Changes to Terms</a></li>
-            <li><a href="#law">Governing Law</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ol>
-        </nav>
 
         <article className="clusty-legal__body">
           <section id="agreement">
@@ -65,7 +44,7 @@ export default function ClustyTerms() {
               <li>Choose a unique username during onboarding</li>
               <li>One account per person; provide accurate registration information</li>
               <li>You are responsible for account security and all activity under your account</li>
-              <li>Notify us immediately at <a href="mailto:support@clusty.app">support@clusty.app</a> if you suspect unauthorized access</li>
+              <li>Notify us immediately at <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> if you suspect unauthorized access</li>
             </ul>
           </section>
 
@@ -192,7 +171,7 @@ export default function ClustyTerms() {
             <p>
               These Terms are governed by the laws of the State of New York, United States, without
               regard to conflict-of-law principles. You agree to attempt informal resolution by
-              contacting <a href="mailto:legal@clusty.app">legal@clusty.app</a> before filing a claim.
+              contacting <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> before filing a claim.
             </p>
             <p>
               Where enforceable, you agree that disputes will be resolved individually and not as part
@@ -203,8 +182,7 @@ export default function ClustyTerms() {
           <section id="contact">
             <h2>16. Contact</h2>
             <ul>
-              <li>Legal: <a href="mailto:legal@clusty.app">legal@clusty.app</a></li>
-              <li>Support: <a href="mailto:support@clusty.app">support@clusty.app</a></li>
+              <li>Email: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></li>
               <li>Company: SwitchToFuture</li>
               <li>Website: <Link to="/clusty">switchtofuture.com/clusty</Link></li>
             </ul>

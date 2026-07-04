@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { CONTACT_EMAIL } from '@/data/site';
 
 const UPDATED = 'July 4, 2026';
 
@@ -16,24 +17,6 @@ export default function ClustyPrivacy() {
             information when you use the Clusty mobile app and related services.
           </p>
         </header>
-
-        <nav className="clusty-legal__toc" aria-label="Table of contents">
-          <h2>Contents</h2>
-          <ol>
-            <li><a href="#intro">Introduction</a></li>
-            <li><a href="#collect">Information We Collect</a></li>
-            <li><a href="#use">How We Use Information</a></li>
-            <li><a href="#share">How We Share Information</a></li>
-            <li><a href="#location">Location Data</a></li>
-            <li><a href="#retention">Data Retention</a></li>
-            <li><a href="#rights">Your Rights &amp; Controls</a></li>
-            <li><a href="#children">Children&apos;s Privacy</a></li>
-            <li><a href="#international">International Users</a></li>
-            <li><a href="#security">Security</a></li>
-            <li><a href="#changes">Changes to This Policy</a></li>
-            <li><a href="#contact">Contact Us</a></li>
-          </ol>
-        </nav>
 
         <article className="clusty-legal__body">
           <section id="intro">
@@ -167,7 +150,7 @@ export default function ClustyPrivacy() {
             </ul>
             <p>
               Depending on where you live, you may have additional rights (see International Users).
-              To exercise rights, contact <a href="mailto:privacy@clusty.app">privacy@clusty.app</a>.
+              To exercise rights, contact <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
             </p>
           </section>
 
@@ -214,8 +197,7 @@ export default function ClustyPrivacy() {
           <section id="contact">
             <h2>12. Contact Us</h2>
             <ul>
-              <li>Privacy: <a href="mailto:privacy@clusty.app">privacy@clusty.app</a></li>
-              <li>Support: <a href="mailto:support@clusty.app">support@clusty.app</a></li>
+              <li>Email: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></li>
               <li>Company: SwitchToFuture</li>
               <li>Website: <Link to="/clusty">switchtofuture.com/clusty</Link></li>
             </ul>
