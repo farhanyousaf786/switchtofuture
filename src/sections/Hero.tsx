@@ -1,6 +1,14 @@
+import { CONTACT_EMAIL } from '../data/site';
+
 export default function Hero() {
   const goProjects = () =>
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+
+  const stats = [
+    { value: '7+', label: 'Years shipping' },
+    { value: '1M+', label: 'Users reached' },
+    { value: '50+', label: 'Projects delivered' },
+  ];
 
   return (
     <section id="home" className="hero">
@@ -17,31 +25,27 @@ export default function Hero() {
           </p>
         </div>
 
-        <div className="hero__panel">
-          <p className="hero__panel-label">Impact</p>
-          <div className="hero__stats">
-            <div>
-              <strong>7+</strong>
-              <span>Years shipping</span>
-            </div>
-            <div>
-              <strong>1M+</strong>
-              <span>Users reached</span>
-            </div>
-            <div>
-              <strong>50+</strong>
-              <span>Projects delivered</span>
+        <div className="hero__block">
+          <div className="hero__panel">
+            <p className="hero__panel-label">Impact</p>
+            <div className="hero__stats">
+              {stats.map((stat) => (
+                <div key={stat.label} className="hero__stat">
+                  <strong>{stat.value}</strong>
+                  <span>{stat.label}</span>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
 
-        <div className="hero__actions">
-          <a href="mailto:contact@switchtofuture.com" className="btn btn--solid">
-            Start a Project
-          </a>
-          <button type="button" className="btn btn--ghost" onClick={goProjects}>
-            View Work
-          </button>
+          <div className="hero__actions">
+            <a href={`mailto:${CONTACT_EMAIL}`} className="btn btn--solid">
+              Start a Project
+            </a>
+            <button type="button" className="btn btn--ghost" onClick={goProjects}>
+              View Work
+            </button>
+          </div>
         </div>
       </div>
     </section>

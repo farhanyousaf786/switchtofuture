@@ -1,0 +1,578 @@
+/* ── Clusty app pages (#40AD64) ── */
+.clusty {
+  --clusty: #40ad64;
+  --clusty-dim: #359856;
+  --clusty-soft: rgba(64, 173, 100, 0.12);
+  --clusty-glow: rgba(64, 173, 100, 0.25);
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #050505;
+  color: #f5f5f5;
+}
+
+/* Clusty has its own header — cancel global main top padding */
+.clusty .clusty-main {
+  padding-top: 0;
+}
+
+.clusty-wrap {
+  width: min(1040px, calc(100% - var(--page-gutter, 1rem) * 2));
+  margin-inline: auto;
+}
+
+.clusty-chip {
+  display: inline-block;
+  font-family: var(--font);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--clusty);
+  margin-bottom: 0.75rem;
+}
+
+/* Header */
+.clusty-hdr {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(5, 5, 5, 0.88);
+  backdrop-filter: blur(12px);
+}
+
+.clusty-hdr__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+}
+
+.clusty-hdr__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #fff;
+}
+
+.clusty-hdr__brand:hover {
+  color: var(--clusty);
+}
+
+.clusty-hdr__logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+}
+
+.clusty-hdr__nav {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.clusty-hdr__nav a {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.clusty-hdr__nav a:hover {
+  color: var(--clusty);
+}
+
+/* Main */
+.clusty-main {
+  flex: 1;
+}
+
+/* Hero */
+.clusty-hero {
+  padding: 3.5rem 0 4rem;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% -10%, var(--clusty-glow), transparent),
+    #050505;
+}
+
+.clusty-hero__inner {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.clusty-hero h1 {
+  font-family: var(--font);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.clusty-hero__lead {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.65;
+  max-width: 520px;
+  margin-bottom: 1.5rem;
+}
+
+.clusty-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+}
+
+.clusty-store {
+  display: inline-flex;
+  padding: 0.7rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.clusty-hero__legal {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.clusty-hero__legal a {
+  color: var(--clusty);
+}
+
+.clusty-hero__visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.clusty-hero__logo-ring {
+  width: 140px;
+  height: 140px;
+  padding: 4px;
+  border-radius: 32px;
+  background: linear-gradient(135deg, var(--clusty), var(--clusty-dim));
+  box-shadow: 0 0 48px var(--clusty-glow);
+}
+
+.clusty-hero__logo-ring img {
+  width: 100%;
+  height: 100%;
+  border-radius: 28px;
+  object-fit: cover;
+}
+
+.clusty-moods {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem;
+  max-width: 320px;
+}
+
+.clusty-mood {
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--clusty-soft);
+  color: var(--clusty);
+  border: 1px solid rgba(64, 173, 100, 0.25);
+}
+
+/* Sections */
+.clusty-section {
+  padding: 3.5rem 0;
+}
+
+.clusty-section--muted {
+  background: rgba(255, 255, 255, 0.02);
+  border-block: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.clusty-section__head {
+  max-width: 640px;
+  margin-bottom: 2rem;
+}
+
+.clusty-section__head h2 {
+  font-family: var(--font);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  margin-bottom: 0.65rem;
+}
+
+.clusty-section__head p {
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+}
+
+.clusty-features {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+.clusty-feature {
+  padding: 1.35rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.clusty-feature:hover {
+  border-color: rgba(64, 173, 100, 0.35);
+  transform: translateY(-2px);
+}
+
+.clusty-feature__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--clusty-soft);
+  color: var(--clusty);
+  font-size: 1rem;
+  margin-bottom: 0.85rem;
+}
+
+.clusty-feature h3 {
+  font-family: var(--font);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.clusty-feature p {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.58);
+  line-height: 1.5;
+}
+
+/* About block */
+.clusty-about {
+  display: grid;
+  gap: 2rem;
+}
+
+.clusty-about h2 {
+  font-family: var(--font);
+  font-size: clamp(1.4rem, 3vw, 1.85rem);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.clusty-about p {
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.clusty-values {
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.clusty-values li {
+  position: relative;
+  padding-left: 1.1rem;
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.clusty-values li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--clusty);
+}
+
+.clusty-about__meta {
+  padding: 1.25rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.clusty-about__meta p {
+  margin-bottom: 0.65rem;
+}
+
+.clusty-about__meta a {
+  color: var(--clusty);
+}
+
+/* CTA */
+.clusty-cta {
+  padding: 3rem 0 4rem;
+}
+
+.clusty-cta__inner {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(64, 173, 100, 0.25);
+  background: linear-gradient(180deg, var(--clusty-soft), transparent);
+}
+
+.clusty-cta h2 {
+  font-family: var(--font);
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.clusty-cta p {
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 1.25rem;
+}
+
+.clusty-cta__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: center;
+}
+
+.clusty-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.35rem;
+  border-radius: 999px;
+  font-family: var(--font);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.clusty-btn--solid {
+  background: var(--clusty);
+  color: #fff;
+}
+
+.clusty-btn--solid:hover {
+  background: var(--clusty-dim);
+  color: #fff;
+}
+
+.clusty-btn--ghost {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.clusty-btn--ghost:hover {
+  border-color: var(--clusty);
+  color: var(--clusty);
+}
+
+/* Legal pages */
+.clusty-legal {
+  padding: 2.5rem 0 4rem;
+}
+
+.clusty-legal__head {
+  max-width: 720px;
+  margin-bottom: 2rem;
+}
+
+.clusty-legal__head h1 {
+  font-family: var(--font);
+  font-size: clamp(1.75rem, 4vw, 2.35rem);
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.clusty-legal__meta {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 1rem;
+}
+
+.clusty-legal__head > p:last-child {
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.6;
+}
+
+.clusty-legal__toc {
+  padding: 1.25rem 1.35rem;
+  margin-bottom: 2rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.clusty-legal__toc h2 {
+  font-family: var(--font);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--clusty);
+  margin-bottom: 0.75rem;
+}
+
+.clusty-legal__toc ol {
+  display: grid;
+  gap: 0.35rem;
+  padding-left: 1.25rem;
+  font-size: 0.9rem;
+}
+
+.clusty-legal__toc a {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.clusty-legal__toc a:hover {
+  color: var(--clusty);
+}
+
+.clusty-legal__body {
+  max-width: 720px;
+}
+
+.clusty-legal__body section {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.clusty-legal__body section:last-child {
+  border-bottom: none;
+}
+
+.clusty-legal__body h2 {
+  font-family: var(--font);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  scroll-margin-top: 5rem;
+}
+
+.clusty-legal__body h3 {
+  font-family: var(--font);
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 1rem 0 0.5rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.clusty-legal__body p,
+.clusty-legal__body li {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.65;
+}
+
+.clusty-legal__body p {
+  margin-bottom: 0.75rem;
+}
+
+.clusty-legal__body ul {
+  padding-left: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.clusty-legal__body ul ul {
+  margin-top: 0.35rem;
+}
+
+.clusty-legal__body a {
+  color: var(--clusty);
+}
+
+.clusty-legal__body strong {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Footer */
+.clusty-ftr {
+  padding: 1.75rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: auto;
+}
+
+.clusty-ftr__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.clusty-ftr p {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.clusty-ftr__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.82rem;
+}
+
+.clusty-ftr__links a {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.clusty-ftr__links a:hover {
+  color: var(--clusty);
+}
+
+@media (min-width: 640px) {
+  .clusty-features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .clusty-hero__inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 901px) {
+  .clusty-features {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .clusty-about {
+    grid-template-columns: 1.4fr 1fr;
+    align-items: start;
+  }
+}
+
+@media (max-width: 640px) {
+  .clusty-hdr__nav {
+    gap: 0.85rem;
+  }
+
+  .clusty-hdr__nav a {
+    font-size: 0.78rem;
+  }
+
+  .clusty-hero {
+    padding-top: 2.5rem;
+  }
+
+  .clusty-ftr__inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}

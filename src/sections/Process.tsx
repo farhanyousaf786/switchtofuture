@@ -7,6 +7,7 @@ export default function Process() {
         <header className="section__head">
           <p className="chip">How we work</p>
           <h2>From idea to launch</h2>
+          <p className="process__hint">Swipe to see all steps →</p>
         </header>
 
         <div className="process__track">

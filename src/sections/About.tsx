@@ -1,4 +1,5 @@
 import logo from '../assets/icon.png';
+import { CONTACT_EMAIL } from '../data/site';
 
 export default function About() {
   return (
@@ -17,7 +18,7 @@ export default function About() {
             craft. We partner with startups and teams to turn ambitious ideas into
             products people actually use — mobile, web, and AI.
           </p>
-          <a href="mailto:contact@switchtofuture.com" className="btn btn--solid">
+          <a href={`mailto:${CONTACT_EMAIL}`} className="btn btn--solid">
             Let&apos;s talk
           </a>
         </div>

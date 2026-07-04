@@ -4,6 +4,7 @@ import Hero from '../sections/Hero';
 import Process from '../sections/Process';
 import Services from '../sections/Services';
 import Projects from '../sections/Projects';
+import Team from '../sections/Team';
 import About from '../sections/About';
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
         <Process />
         <Services />
         <Projects />
+        <Team />
         <About />
       </main>
       <Footer />

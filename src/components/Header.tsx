@@ -10,8 +10,9 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 8);
     window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
@@ -26,42 +27,70 @@ export default function Header() {
   };
 
   return (
-    <header className={`hdr ${scrolled ? 'hdr--scrolled' : ''}`}>
-      <div className="hdr__bar">
-        <button type="button" className="hdr__brand" onClick={() => go('home')}>
-          <img src={logo} alt="" className="hdr__logo" />
-          <span className="hdr__name">Switch to Future</span>
-        </button>
+    <>
+      <header className={`hdr ${scrolled ? 'hdr--scrolled' : ''}`}>
+        <div className="hdr__bar">
+          <button type="button" className="hdr__brand" onClick={() => go('home')}>
+            <img src={logo} alt="" className="hdr__logo" />
+            <span className="hdr__name">Switch to Future</span>
+          </button>
 
-        <nav className={`hdr__nav ${open ? 'hdr__nav--open' : ''}`}>
+          <nav className="hdr__nav hdr__nav--desktop" aria-label="Main">
+            {NAV.map(({ id, label }) => (
+              <button key={id} type="button" className="hdr__link" onClick={() => go(id)}>
+                {label}
+              </button>
+            ))}
+          </nav>
+
+          <div className="hdr__tools">
+            <button
+              type="button"
+              className={`hdr__theme ${theme === 'dark' ? 'hdr__theme--dark' : ''}`}
+              onClick={toggle}
+              aria-label="Toggle theme"
+            >
+              <FaSun className="hdr__theme-sun" />
+              <FaMoon className="hdr__theme-moon" />
+              <span className="hdr__theme-knob" />
+            </button>
+            <button
+              type="button"
+              className="hdr__burger"
+              onClick={() => setOpen(true)}
+              aria-label="Open menu"
+            >
+              <FaBars />
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <div
+        className={`hdr__backdrop ${open ? 'hdr__backdrop--open' : ''}`}
+        onClick={() => setOpen(false)}
+        aria-hidden={!open}
+      />
+
+      <aside className={`hdr__drawer ${open ? 'hdr__drawer--open' : ''}`} aria-hidden={!open}>
+        <div className="hdr__drawer-top">
+          <button type="button" className="hdr__brand" onClick={() => go('home')}>
+            <img src={logo} alt="" className="hdr__logo" />
+            <span className="hdr__drawer-title">Switch to Future</span>
+          </button>
+          <button type="button" className="hdr__drawer-close" onClick={() => setOpen(false)} aria-label="Close menu">
+            <FaTimes />
+          </button>
+        </div>
+
+        <nav className="hdr__drawer-nav" aria-label="Mobile">
           {NAV.map(({ id, label }) => (
-            <button key={id} type="button" className="hdr__link" onClick={() => go(id)}>
+            <button key={id} type="button" className="hdr__drawer-link" onClick={() => go(id)}>
               {label}
             </button>
           ))}
         </nav>
-
-        <div className="hdr__tools">
-          <button
-            type="button"
-            className={`hdr__theme ${theme === 'dark' ? 'hdr__theme--dark' : ''}`}
-            onClick={toggle}
-            aria-label="Toggle theme"
-          >
-            <FaSun className="hdr__theme-sun" />
-            <FaMoon className="hdr__theme-moon" />
-            <span className="hdr__theme-knob" />
-          </button>
-          <button
-            type="button"
-            className="hdr__burger"
-            onClick={() => setOpen((v) => !v)}
-            aria-label="Menu"
-          >
-            {open ? <FaTimes /> : <FaBars />}
-          </button>
-        </div>
-      </div>
-    </header>
+      </aside>
+    </>
   );
 }
