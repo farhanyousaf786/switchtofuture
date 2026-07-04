@@ -1,7 +1,7 @@
 import Header from '../../../components/header/Header';
 import MainContent from '../MainContent/MainContent';
 import Services from '../Services/Services';
-import Projects from '../Projects/Projects';
+import { ProjectsSection } from '../../../features/projects';
 import Team from '../Team/Team';
 import About from '../About/About';
 import './Home.css';
@@ -11,8 +11,8 @@ const Home = () => {
     <div className="home-page">
       <Header />
       <MainContent />
-      <Projects />
       <Services />
+      <ProjectsSection />
       <Team />
       <About />
     </div>

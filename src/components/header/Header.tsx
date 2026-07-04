@@ -3,6 +3,8 @@ import { FaBars, FaTimes, FaMoon, FaSun } from 'react-icons/fa';
 import './Header.css';
 import logo from '../../assets/icon.png';
 
+const NAV_ITEMS = ['home', 'services', 'projects', 'team', 'about'] as const;
+
 const Header = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
@@ -14,75 +16,84 @@ const Header = () => {
     localStorage.setItem('theme', theme);
   }, [theme]);
 
-  const toggleTheme = () => {
-    setTheme(prev => prev === 'light' ? 'dark' : 'light');
-  };
-
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      const sections = ['home', 'services', 'projects', 'team', 'about'];
-      const current = sections.find(section => {
+      const triggerPoint = window.innerHeight * 0.35;
+      const current = NAV_ITEMS.find((section) => {
         const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          const windowHeight = window.innerHeight;
-          const triggerPoint = windowHeight * 0.3; // 30% from the top
-          return rect.top <= triggerPoint && rect.bottom >= triggerPoint;
-        }
-        return false;
+        if (!element) return false;
+        const { top, bottom } = element.getBoundingClientRect();
+        return top <= triggerPoint && bottom >= triggerPoint;
       });
-      
-      if (current) {
-        setActiveSection(current);
-      }
+
+      if (current) setActiveSection(current);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check
-    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [isMenuOpen]);
+
   const handleNavClick = (section: string) => {
-    const element = document.getElementById(section);
-    element?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' });
     setIsMenuOpen(false);
   };
 
   return (
-    <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
-      <div className="logo">
-        <img src={logo} alt="Switch to Future Logo" />
-        <span className="gradient-text">Switch to Future</span>
-      </div>
-      <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
-        {['home', 'services', 'projects', 'team', 'about'].map((item) => (
-          <button
-            key={item}
-            className={`nav-item ${activeSection === item ? 'active' : ''}`}
-            onClick={() => handleNavClick(item)}
-          >
-            {item.charAt(0).toUpperCase() + item.slice(1)}
-          </button>
-        ))}
-      </nav>
-      <div className="header-actions">
-        <button
-          className={`theme-switch ${theme === 'dark' ? 'dark' : ''}`}
-          onClick={toggleTheme}
-          aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+    <header className={`site-header ${isScrolled ? 'site-header--scrolled' : ''}`}>
+      <div className="site-header__inner">
+        <a
+          className="site-header__brand"
+          href="#home"
+          onClick={(e) => { e.preventDefault(); handleNavClick('home'); }}
         >
-          <span className="theme-switch-track">
-            <FaSun className="theme-icon sun" />
-            <FaMoon className="theme-icon moon" />
-          </span>
-          <span className="theme-switch-thumb" />
-        </button>
-        <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          {isMenuOpen ? <FaTimes /> : <FaBars />}
-        </button>
+          <img src={logo} alt="Switch to Future" className="site-header__logo" />
+          <span className="site-header__title">Switch to Future</span>
+        </a>
+
+        <nav className={`site-header__nav ${isMenuOpen ? 'site-header__nav--open' : ''}`}>
+          {NAV_ITEMS.map((item) => (
+            <button
+              key={item}
+              type="button"
+              className={`site-header__link ${activeSection === item ? 'site-header__link--active' : ''}`}
+              onClick={() => handleNavClick(item)}
+            >
+              {item.charAt(0).toUpperCase() + item.slice(1)}
+            </button>
+          ))}
+        </nav>
+
+        <div className="site-header__actions">
+          <button
+            type="button"
+            className={`site-header__theme ${theme === 'dark' ? 'site-header__theme--dark' : ''}`}
+            onClick={() => setTheme((t) => (t === 'light' ? 'dark' : 'light'))}
+            aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+          >
+            <span className="site-header__theme-track">
+              <FaSun className="site-header__theme-icon site-header__theme-icon--sun" />
+              <FaMoon className="site-header__theme-icon site-header__theme-icon--moon" />
+            </span>
+            <span className="site-header__theme-thumb" />
+          </button>
+
+          <button
+            type="button"
+            className="site-header__menu-btn"
+            onClick={() => setIsMenuOpen((open) => !open)}
+            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+          >
+            {isMenuOpen ? <FaTimes /> : <FaBars />}
+          </button>
+        </div>
       </div>
     </header>
   );

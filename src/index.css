@@ -11,6 +11,9 @@
   --color-primary-hover: #747bff;
   --color-secondary: #39b54a;
   --border-color: #e5e7eb;
+  --card-bg: #f9fafb;
+  --card-border: #e5e7eb;
+  --header-height: 60px;
 
   margin: 0;
   padding: 0;
@@ -38,6 +41,8 @@
   --color-primary-hover: #535bf2;
   --color-secondary: #39b54a;
   --border-color: #2a2a2a;
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --card-border: rgba(255, 255, 255, 0.08);
   color-scheme: dark;
 }
 
@@ -107,4 +112,43 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.text-gradient {
+  background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.landing-section {
+  padding: 5rem 1.5rem;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.landing-section__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.landing-section__title {
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.landing-section__subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }

@@ -89,10 +89,10 @@ const technologies = [
 
 const ServicesSection: React.FC = () => {
   return (
-    <section id="services" className="services-section">
-      <div className="services-container">
-        <h2 className="section-title">Our Services</h2>
-        <p className="section-subtitle">
+    <section id="services" className="services-section landing-section">
+      <div className="landing-section__container">
+        <h2 className="landing-section__title">Our Services</h2>
+        <p className="landing-section__subtitle">
           Powerful tools to launch your app, automate your business, and scale smart.
         </p>
 
@@ -114,7 +114,7 @@ const ServicesSection: React.FC = () => {
           ))}
         </div>
 
-        <div className="tech-stack" style={{ padding: '1rem 2rem', marginTop: '4rem' }}>
+        <div className="tech-stack">
           <div className="tech-scroll">
             <div className="tech-track">
               {technologies.map((tech, index) => (
