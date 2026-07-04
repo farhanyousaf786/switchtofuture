@@ -38,6 +38,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--hdr-h) + 1rem);
   -webkit-text-size-adjust: 100%;
 }
 
@@ -137,6 +138,7 @@ main {
 
 .section {
   padding: 4rem 0;
+  scroll-margin-top: calc(var(--hdr-h) + 1rem);
 }
 
 .section__head {
@@ -434,6 +436,7 @@ main {
 /* ── Hero ── */
 .hero {
   padding: 0 0 3rem;
+  scroll-margin-top: calc(var(--hdr-h) + 1rem);
 }
 
 .hero__layout {

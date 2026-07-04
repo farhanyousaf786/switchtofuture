@@ -22,8 +22,23 @@ export default function Header() {
   }, [open]);
 
   const go = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     setOpen(false);
+
+    if (id === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    const headerOffset = parseInt(
+      getComputedStyle(document.documentElement).getPropertyValue('--hdr-h'),
+      10,
+    ) + 16;
+
+    const top = el.getBoundingClientRect().top + window.scrollY - headerOffset;
+    window.scrollTo({ top, behavior: 'smooth' });
   };
 
   return (
