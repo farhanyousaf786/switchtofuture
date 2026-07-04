@@ -1,11 +1,22 @@
 import { useState, useEffect } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes, FaMoon, FaSun } from 'react-icons/fa';
 import './Header.css';
+import logo from '../../assets/icon.png';
 
 const Header = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'light' ? 'dark' : 'light');
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,12 +54,9 @@ const Header = () => {
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="logo">
-        <img src="https://i.imgur.com/zmLULuM.png" alt="Switch to Future Logo" />
+        <img src={logo} alt="Switch to Future Logo" />
         <span className="gradient-text">Switch to Future</span>
       </div>
-      <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-        {isMenuOpen ? <FaTimes /> : <FaBars />}
-      </button>
       <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
         {['home', 'services', 'projects', 'team', 'about'].map((item) => (
           <button
@@ -60,6 +68,22 @@ const Header = () => {
           </button>
         ))}
       </nav>
+      <div className="header-actions">
+        <button
+          className={`theme-switch ${theme === 'dark' ? 'dark' : ''}`}
+          onClick={toggleTheme}
+          aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+        >
+          <span className="theme-switch-track">
+            <FaSun className="theme-icon sun" />
+            <FaMoon className="theme-icon moon" />
+          </span>
+          <span className="theme-switch-thumb" />
+        </button>
+        <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          {isMenuOpen ? <FaTimes /> : <FaBars />}
+        </button>
+      </div>
     </header>
   );
 };

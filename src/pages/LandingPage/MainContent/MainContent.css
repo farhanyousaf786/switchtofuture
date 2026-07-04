@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   padding: 8rem 4rem 6rem;
-  background: #0b0d18;
+  background: var(--bg-primary);
 }
 
 .hero-content {
@@ -19,7 +19,7 @@
   font-weight: 800;
   margin: 3rem 0 1rem;
   line-height: 1.1;
-  background: linear-gradient(45deg, #0070f3, #00ff88);
+  background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -31,7 +31,7 @@
   margin: 0 auto 2rem;
   max-width: 800px;
   line-height: 1.5;
-  background: linear-gradient(45deg, #0070f3, #00d572);
+  background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -81,7 +81,7 @@
 }
 
 .primary-btn {
-  background: linear-gradient(45deg, #0070f3, #00d572);
+  background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
   color: white;
   box-shadow: 0 4px 12px rgba(0, 112, 243, 0.2);
 }
@@ -155,7 +155,7 @@
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.4rem;
-  background: linear-gradient(45deg, #0070f3, #00d572);
+  background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -224,7 +224,7 @@
   font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 0.6rem;
-  background: linear-gradient(45deg, #0070f3, #00d572);
+  background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
