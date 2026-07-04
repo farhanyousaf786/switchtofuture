@@ -1,19 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from './pages/LandingPage/Home/Home'
-import ProfilePage from './pages/profile/ProfilePage'
-import { ProjectDetailPage } from './features/projects'
-import './App.css'
+import Home from './pages/Home';
 
-function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/farhan" element={<ProfilePage />} />
-        <Route path="/projects/:slug" element={<ProjectDetailPage />} />
-      </Routes>
-    </BrowserRouter>
-  )
+export default function App() {
+  return <Home />;
 }
-
-export default App

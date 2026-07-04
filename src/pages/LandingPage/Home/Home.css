@@ -1,7 +1,0 @@
-.home-page {
-  min-height: 100vh;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  overflow-x: hidden;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-}
